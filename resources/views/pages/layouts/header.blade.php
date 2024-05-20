@@ -6,32 +6,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href={{ asset('/css/style.css') }}>
+    <link rel="stylesheet" href={{ asset('/css/header.css')}}>
+    <link rel="stylesheet" href={{ asset('/css/footer.css')}}>
 </head>
 <body class="container">
-    <header>
-        <div class="header-container">
-            <div class="text-navbar">
-                <div class="card-logo">
-                    <img src={{asset('img/logo.svg')}} alt="logo">
-                </div>
-                <div class="home">
-                    <a href="/index">HOME</a>
-                </div>
-                <div>
-                    <a href="/grade">GRADE</a>
-                </div>
-                <div>
-                    <a href="/mural">MURAL</a>
-                </div>
-                <div>
-                    <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <a href="logout"
-                    onclick="event.preventDefault();
-                                this.closest('form').submit();">LOGOUT</a>
-                    </form>
-                </div>
-            </div>
+    <header class="header-fixed" id="mobile-menu">
+        <div class="header-container generic-style">
+          <div class=" logo-container">
+            <a href="{{url('index')}}"><img src="img/logo.svg" alt="logo"></a>
+          </div>
+          <div class="nav-burguer">
+            <span id="burguer" class="material-symbols-outlined" onclick="clickMenu()" onchange="clickBody">menu</span>
+          </div>
+        </div>
+        <nav class="navbar-container" id="itens">
+          <ul class="nav-list">
+            <li style="padding-top: 11px"><a href="{{url('index')}}">Home</a></li>
+            <li><a href="{{url('grade')}}">Horário</a></li>
+            <li><a href="{{url('mural')}}">Mural</a></li>
+            <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <li>
+                <a href="logout"
+                onclick="event.preventDefault();
+                            this.closest('form').submit();">Logout</a>
+            </li>
+            </form>
+          </ul>
+        </nav>
         </div>
     </header>
 

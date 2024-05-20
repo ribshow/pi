@@ -11,6 +11,10 @@ Route::get('/', function () {
     return view('pages.login');
 });
 
+//Route::get('/relembrar', function(){
+//    return view('pages.relembrar');
+//});
+
 Route::get('/find', function (){
     $courses = Course::all();
     foreach($courses as $course){
@@ -28,7 +32,7 @@ Route::get('/relation', function (){
     $disciplines = $course->disciplines;
 });
 
-Route::get('/dashboard', function () {
+Route::get('/index', function () {
     return view('pages.index');
 })->middleware(['auth', 'verified'])->name('index');
 

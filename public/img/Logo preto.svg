@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="111.63258mm"
+   height="100.76171mm"
+   viewBox="0 0 111.63258 100.76171"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="Logo preto.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.59454975"
+     inkscape:cx="-35.320846"
+     inkscape:cy="155.57992"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-54.591273,-88.901477)">
+    <path
+       d="m 89.860448,89.217071 v 27.042409 l 57.129772,-0.66361 19.23363,-26.378799 z"
+       style="stroke-width:0.285687"
+       id="path6-0"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       d="M 54.591273,88.901477 V 121.0143 L 84.371551,90.111094 85.78191,88.901477 Z"
+       style="fill:#d40000;stroke-width:0.31132"
+       id="path6-0-5"
+       sodipodi:nodetypes="ccccc" />
+    <rect
+       style="fill:#000000;stroke-width:0.264583"
+       id="rect5"
+       width="30.729773"
+       height="66.837257"
+       x="54.893345"
+       y="122.82593"
+       ry="0" />
+    <path
+       d="m 90.078966,128.35716 v 25.04498 l 51.011334,-0.6146 21.0499,-24.43038 z"
+       style="stroke-width:0.267077"
+       id="path6"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+</svg>

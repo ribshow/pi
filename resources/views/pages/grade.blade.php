@@ -11,7 +11,7 @@
 </script>
 <script src="{{ asset('/js/grade.js')}}"></script>
         <div class="body-container">
-                <h1 id="titulo">GRADE</h1>
+                <h1 id="titulo">HORÁRIO</h1>
             <div class="select">
                 <select name="curso" onchange="redirectToPage(this)">
                     <option class="choice">Escolha um curso:</option>
@@ -27,4 +27,3 @@
                 <div class="conteudo"></div>
             </div>
         </div>
-

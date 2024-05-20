@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0');
+
+.header-container img {
+    max-width: 200px;
+    width: 100%;
+}
+
+.header-container img:hover {
+    transform: scale(1.1);
+}
+
+.header-fixed {
+    position: fixed;
+    width: 100%;
+}
+
+.navbar-container {
+    display: flex;
+    grid-gap: 20px;
+}
+
+.nav-list {
+    border-top: 1px solid var(--dsm-bg-color-tertiary);
+    display: block;
+    width: 100%;
+    height: 130px;
+    background-color: var(--dsm-bg-color-primary);
+    text-align: center;
+}
+
+.nav-list li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.header-container {
+    height: 60px;
+    padding-left: 37px;
+    padding-right: 37px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: var(--dsm-bg-color-primary);
+    color: var(--dsm-font-color-primary);
+}
+
+.logo-container a {
+    padding: 0;
+    margin: 0;
+}
+
+@media(min-width: 576px) {
+    
+    .navbar-container {
+        margin-right: 20px;
+    }
+
+    .header-container {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .header-fixed {
+        position: relative;
+    }
+
+    .nav-burguer {
+        display: none;
+    }
+
+    .nav-list {
+        border-top: none;
+        display: flex;
+        height: 0;
+        justify-content: end;
+        align-items: end;
+    }
+
+    .nav-list li {
+        padding: 0;
+        margin-right: 20px;
+        margin-bottom: 30px;
+    }
+}

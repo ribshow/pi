@@ -1,83 +1,72 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+:root {
+  --dsm-bg-color-primary: #b2000b;
+  --dsm-bg-color-secondary: #fff;
+  --dsm-bg-color-tertiary: #d9d9d97e;
+  --dsm-bg-color-quaternary: #d9d9d9;
+  --dsm-bg-color-quinary: #b9b9b9;
+  --dsm-bg-color-senary: #f9f9f9;
+  --dsm-bg-color-septenary: #00B12C;
+  --dsm-bg-color-octonary: #909090;
+
+  --dsm-font-color-primary: #FFF;
+  --dsm-font-color-secundary: #000;
+  --dsm-font-color-tertiary: #b2000b;
+  --dsm-font-color-quaternary: #ff0011;
+  --dsm-font-color-quinary: #7d7d7d;
+
+  --dsm-scroll-color-primary: rgb(241, 241, 241);
+  --dsm-scroll-color-secundary: rgb(193, 193, 193);
+
+  --dsm-border-color-primary: #000;
+  --dsm-border-color-secundary: #b2000b;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
 }
 
-header,footer {
-    display: flex;
-}
-/* HEADER */
-
-.header-container {
-    width: 100%;
-    height: 25px;
-    background-color: #b2000b;
-    padding: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    grid-gap: 20px
+a {
+  color: var(--dsm-bg-color-secondary);
 }
 
-.card-logo img {
-    width: 80px;
-    height: 80px;
-    margin: 0;
+
+body {
+  --sb-track-color: var(--dsm-scroll-color-primary);
+  --sb-thumb-color: var(--dsm-scroll-color-secundary);
+  --sb-size: 14px;
 }
 
-.text-navbar {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    grid-gap: 20px
+body::-webkit-scrollbar {
+  width: var(--sb-size)
 }
 
-.text-navbar a {
-    font-weight: bold;
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
 }
 
-/* BODY */
-
-
-/* FOOTER */
-
-.footer-container {
-    width: 100%;
-    height: 4rem;
-    background-color: #b2000b;
-    padding: 2rem;
-    align-items: center;
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
 }
 
-.text-container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    grid-gap: 20px;
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
 }
 
-.text-container h2 {
-    margin-bottom: 20px;
-}
-.text-container h2, p, a {
-    color: #fff;
-    text-decoration: none;
+.logo-container img {
+  width: 60px;
+  height: 60px;
 }
 
-.text-container p, a {
-    display: flex;
-    margin-top: 30px;
+.generic-style {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.card-redes-sociais img {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-}
-
-.redes-sociais-icon a {
-    display: inline;
-}

@@ -1,0 +1,208 @@
+.mural-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url('../img/logo-cps.svg');
+    background-size: 40px 30px;
+    background-repeat: repeat;
+    align-items: center;
+    text-align: center;
+    background-color: var(--dsm-bg-color-octonary);
+    overflow: auto;
+}
+
+#ft-container {
+    display: none;
+}
+
+.mural-card {
+    border-radius: 10px;
+    max-width: 800px;
+}
+
+.user-cards {
+    border-radius: 5px;
+    background-color: var(--dsm-bg-color-secondary);
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.3);
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.user-header {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: 10px 10px 0 10px;
+}
+
+.user-header img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.mural-line {
+    border: 0.5px solid var(--dsm-border-color-primary);
+}
+
+.user-content {
+    padding: 10px;
+}
+
+.user-content p {
+    letter-spacing: 0.03em;
+    text-align: left;
+    font-size: 14px;
+}
+
+.user-img img {
+    width: 100%;
+}
+
+.btn-card {
+    font-size: 12px;
+}
+
+.mural-information {
+    padding: 20px;
+    letter-spacing: 0.03em;
+    background-color: var(--dsm-bg-color-secondary);
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.mural-information h1 {
+    margin-bottom: 7px;
+    font-size: 38px;
+}
+
+.mural-information h3,
+.mural-information p {
+    margin: 10px 0;
+}
+
+.mural-information p {
+    text-align: center;
+    font-size: 14px;
+}
+
+.mural-information p:nth-last-child(2) {
+    font-size: 14px;
+}
+
+.mural-information h3 {
+    font-size: 14px;
+}
+
+.btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.btn-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    letter-spacing: 0.05em;
+    border-radius: 10px;
+    color: var(--dsm-font-color-primary);
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.btn-container a:nth-child(1) {
+    background-color: var(--dsm-bg-color-primary);
+}
+
+.btn-container a:nth-child(3) {
+    background-color: var(--dsm-bg-color-septenary);
+}
+
+@media(min-width: 576px) {
+
+    .mural-card {
+        padding-left: 400px;
+    }
+
+    .user-header {
+        padding: 20px 20px 0 20px;
+    }
+
+    .user-content {
+        padding: 20px;
+    }
+
+    .mural-container {
+        padding: 40px;
+    }
+
+    .mural-center-container {
+        display: flex;
+        grid-gap: 20px;
+    }
+
+    .mural-div-left {
+        flex-direction: column;
+        width: 400px;
+        position: fixed;
+        top: 90px;
+        left: 0px;
+        height: 100%;
+        overflow: scroll;
+    }
+
+    .mural-div-left::-webkit-scrollbar {
+        width: var(--sb-size)
+    }
+
+    .mural-div-left {
+        --sb-size: 0px;
+    }
+
+    #ft-container {
+        display: flex;
+    }
+
+    .footer-card {
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .mural-information {
+        margin-bottom: 0px;
+    }
+
+    .user-content p {
+        font-size: 16px;
+    }
+
+    .mural-information p,
+    .mural-information h3 {
+        font-size: 16px;
+    }
+
+    .mural-information p:nth-last-child(2) {
+        font-size: 16px;
+    }
+}
+
+@media(min-width: 992px) {
+
+    .mural-information {
+        display: block;
+    }
+
+    .btn-card {
+        font-size: 16px;
+    }
+}
