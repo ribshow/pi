@@ -1,0 +1,33 @@
+.p-container{
+    margin: 4rem;
+}
+.info-perfil{
+    margin: 2rem;
+}
+.info-senha{
+    margin: 2rem;
+}
+.i-perfil{
+    width: 35%;
+    height: 2rem;
+}
+.i-perfil:focus{
+    outline: 1px solid crimson;
+}
+.head{
+    border-bottom: 1px solid gainsboro;
+    padding-bottom: 2rem;
+}
+.i-button{
+    width: 4rem;
+    height: 2rem;
+    background-color: var(--dsm-bg-color-primary);
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+    border: none;
+}
+.i-button:hover{
+    background-color: crimson;
+    cursor: pointer;
+}

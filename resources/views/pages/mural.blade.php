@@ -2,6 +2,6 @@
 @include('pages.layouts.header')
 @section('conteudo')
 <div class='main'>
-    <button type='button'>Criar publicação</button>
+    <button class="bg-blue-500" type='button'>Criar publicação</button>
 </div>
 @include('pages.layouts.footer')

@@ -1,3 +1,4 @@
+<title>IntegraFatec - Relembrar</title>
 <link rel="stylesheet" href={{asset('css/login.css')}}>
 @include('pages.layouts.head')
 @section('conteudo')

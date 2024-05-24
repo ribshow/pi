@@ -8,12 +8,14 @@ use App\Models\Semester;
 use App\Models\Discipline;
 
 Route::get('/', function () {
-    return view('pages.login');
+    return view('pages.index');
 });
 
-//Route::get('/relembrar', function(){
-//    return view('pages.relembrar');
-//});
+Route::get('/grade', [IntegraController::class, 'grade']);
+
+Route::get('/index', function(){
+    return view('pages.index');
+});
 
 Route::get('/find', function (){
     $courses = Course::all();
@@ -32,17 +34,16 @@ Route::get('/relation', function (){
     $disciplines = $course->disciplines;
 });
 
-Route::get('/index', function () {
-    return view('pages.index');
-})->middleware(['auth', 'verified'])->name('index');
+Route::get('/mural', function () {
+    return view('pages.mural');
+})->middleware(['auth', 'verified'])->name('mural');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/index', [IntegraController::class, 'index'])->name('index');
-    Route::get('/grade', [IntegraController::class, 'grade'])->name('grade');
+    Route::get('/perfil', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/perfil', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/perfil', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/mural', [IntegraController::class, 'mural'])->name('mural');
+    Route::get('/index', [IntegraController::class, 'index'])->name('index');
 });
 
 require __DIR__.'/auth.php';

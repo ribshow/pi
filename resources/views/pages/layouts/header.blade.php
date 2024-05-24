@@ -24,6 +24,8 @@
             <li style="padding-top: 11px"><a href="{{url('index')}}">Home</a></li>
             <li><a href="{{url('grade')}}">Horário</a></li>
             <li><a href="{{url('mural')}}">Mural</a></li>
+            @if(auth()->check())
+            <li><a href="{{url('perfil')}}">Perfil</a></li>
             <form method="POST" action="{{ route('logout') }}">
             @csrf
             <li>
@@ -32,7 +34,11 @@
                             this.closest('form').submit();">Logout</a>
             </li>
             </form>
+            @else
+            <li><a href="{{url('login')}}">Login</a></li>
+            @endif
           </ul>
+
         </nav>
         </div>
     </header>
