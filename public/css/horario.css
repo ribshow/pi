@@ -10,7 +10,23 @@
     width: 100%;
     border-radius: 5px;
 }
-
+select {
+    margin-left:25%;
+    margin-right:25%;
+    width: 50%;
+    height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform:uppercase;
+    position: flex;
+}
+.options{
+    text-align: center;
+}
+.botoes{
+    text-align: center;
+    margin-top: 1rem;
+}
 .table-container div, h3 {
     margin: 20px 0;
     text-align: center;
@@ -75,13 +91,13 @@
 }
 
 @media(min-width: 480px) {
-    
+
     .main-container table {
         font-size: 12px;
     }
 }
 
-@media(min-width: 768px) {    
+@media(min-width: 768px) {
 
     .table-container div, h3 {
         font-size: 28px;
@@ -123,14 +139,14 @@
 }
 
 @media(min-width: 1200px) {
-    
+
     .main-container table {
         width: 1000px;
     }
 }
 
 @media(min-width: 1400px) {
-    
+
     .main-container table {
         width: 1200px;
         height: 400px;

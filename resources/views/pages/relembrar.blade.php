@@ -1,6 +1,6 @@
 <title>IntegraFatec - Relembrar</title>
 <link rel="stylesheet" href={{asset('css/login.css')}}>
-@include('pages.layouts.head')
+@extends('pages.layouts.head')
 @section('conteudo')
 <main>
     <div class="main-container">
@@ -34,4 +34,4 @@
         </div>
     </div>
 </main>
-@include('pages.layouts.footer')
+@endsection

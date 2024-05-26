@@ -1,6 +1,6 @@
 <link rel="stylesheet"href={{asset('css/estilos_grade.css')}}>
 <title>IntegraFatec - Grade</title>
-@include('pages.layouts.header')
+@extends('pages.layouts.header')
 @section('conteudo')
 <script>
     var imgPathSeg ="{{asset('img/relogio_segunda.svg')}}";
@@ -11,7 +11,7 @@
 </script>
 <script src="{{ asset('/js/grade.js')}}"></script>
         <div class="body-container">
-                <h1 id="titulo">HORÁRIO</h1>
+                <h1 id="tit">HORÁRIO</h1>
             <div class="select">
                 <select name="curso" onchange="redirectToPage(this)">
                     <option class="choice">Escolha um curso:</option>
@@ -27,3 +27,4 @@
                 <div class="conteudo"></div>
             </div>
         </div>
+@endsection

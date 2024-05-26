@@ -1,5 +1,5 @@
 <link rel="stylesheet" href={{ asset('css/cadastro.css')}}>
-@include('pages.layouts.head')
+@extends('pages.layouts.head')
 @section('conteudo')
 <div class="main-container">
     <div class="card-container">
@@ -46,4 +46,4 @@
       </form>
     </div>
   </div>
-@include('pages.layouts.footer')
+@endsection

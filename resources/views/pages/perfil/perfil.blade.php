@@ -1,6 +1,6 @@
 <title>IntegraFatec - Perfil</title>
 <link rel="stylesheet" href={{ asset('css/perfil.css')}}>
-@include('pages.layouts.header')
+@extends('pages.layouts.header')
 @section('conteudo')
 <div class="p-container">
     <div class="head">
@@ -60,7 +60,11 @@
         <label for="update_password_password_confirmation">Confirme a nova senha:</label><br/>
         <input class="i-perfil" type="password" name="password_confirmation" id="update_password_password_confirmation">
         <br/><br/>
-
+        @if($errors->updatePassword->has('password_confirmation'))
+            <span style="color:red">
+                {{ $errors->updatePassword->first('password_confirmation')}}
+            </span>
+        @endif
         <button class="i-button" type="submit">Salvar</button>
     </div>
     @if ($errors->any())
@@ -84,4 +88,4 @@
     </form>
     @endif
 </div>
-@include('pages.layouts.footer')
+@endsection

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Course extends Model
 {
@@ -24,5 +25,10 @@ class Course extends Model
     // Relação muitos para muitos entre curso e disciplina
     public function disciplines(){
         return $this->belongsToMany(Discipline::class, 'course_discipline');
+    }
+
+    public function hour(): HasMany
+    {
+        return $this->hasMany(Hour::class);
     }
 }

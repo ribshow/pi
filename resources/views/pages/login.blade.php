@@ -1,5 +1,5 @@
 <title>IntegraFatec - Login</title>
-@include('pages.layouts.head')
+@extends('pages.layouts.head')
 <link rel="stylesheet" href={{ asset('/css/login.css') }}>
 @section('conteudo')
 <main>
@@ -53,5 +53,4 @@
         </div>
     </div>
 </main>
-
-@include('pages.layouts.footer')
+@endsection

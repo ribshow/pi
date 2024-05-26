@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\Integra;
+use App\Models\UserType;
+use App\Models\User;
+use App\Models\Room;
+use App\Models\Blocks;
+use App\Models\Hour;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -20,7 +25,9 @@ class IntegraController extends Controller
     public function grade(Request $request): View
     {
         $courses = Course::all();
-        return view('pages.grade', compact('courses'));
+        $hours = Hour::with('course','discipline','room','block')
+            ->get();
+        return view('pages.grade', compact('courses','hours'));
     }
 
     public function mural(): View
@@ -33,7 +40,25 @@ class IntegraController extends Controller
      */
     public function create()
     {
-        //
+        /*Hour::insert([
+            'dia'=>'Quinta-feira',
+            'hora'=>'9:30 às 13:00',
+            'course_id'=>1,
+            'discipline_id'=>10,
+            'block_id'=>1,
+            'room_id'=>4,
+            'semester_id'=>2
+        ]);*/
+        //Room::insert([
+        //    'name'=>'Sala 302',
+        //    'block_id'=>5
+        //]);
+
+        $room = Hour::find(7);
+
+        $room->update([
+            'dia'=>'Sexta-feira',
+        ]);
     }
 
     /**

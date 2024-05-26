@@ -1,8 +1,22 @@
-@include('pages.layouts.header')
+<style>
+.titulo{
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.meio{
+    height: 100%;
+}
+</style>
+@extends('pages.layouts.header')
 @section('conteudo')
-    <h1>BEM-VINDO</h1>
+<div class="meio">
+    <h1 class="titulo">Bem-vindos ao IntegraFatec</h1>
     <div class="carrosel">
-        <img class="image" src={{asset("img/banner.png")}} width="100%">
+        <a href="https://www.vestibularfatec.com.br/home/">
+            <img class="image" src={{asset("img/banner.png")}} width="100%">
+        </a>
     </div>
-@include('pages.layouts.footer')
+</div>
+@endsection
 
