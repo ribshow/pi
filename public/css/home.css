@@ -1,0 +1,104 @@
+.home-container {
+    padding: 40px;
+    align-items: center;
+}
+
+.home-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.home-cards {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.catalog-card {
+    background-color: var(--dsm-bg-color-quinary);
+    border-radius: 10px 10px 0 0;
+    height: 150px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    padding: 10px;
+}
+
+.catalog-card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.mapa-container {
+    margin-top: 40px;
+}
+
+.mapa-container img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.cards {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.edit-card {
+    display: flex;
+    justify-content: right;
+    background-color: var(--dsm-bg-color-quinary);
+    border-radius: 0 0 10px 10px;
+    padding: 0 10px 10px 10px;
+}
+
+.edit-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.edit-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.edit-red {
+    background-color: var(--dsm-font-color-senary);
+    filter: invert(50%) sepia(100%) saturate(10000%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+.edit-blue {
+    background-color: var(--dsm-font-color-septenary);
+    filter: invert(15%) sepia(100%) saturate(500%) hue-rotate(180deg) brightness(100%) contrast(100%);
+}
+
+@media(min-width: 576px) {
+    .home-container h1 {
+        font-size: 32px;
+    }
+
+    .home-cards {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+
+    .catalog-card {
+        font-size: 16px;
+    }
+
+    .edit-btn {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .edit-btn img {
+        width: 30px;
+    }
+}

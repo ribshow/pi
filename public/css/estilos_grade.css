@@ -41,6 +41,7 @@ select {
     display: inline-block;
     padding: 1rem;
     border: 1px solid lightgray;
+    font-weight: bolder;
 }
 .s1:hover,.s2:hover, .s3:hover, .s4:hover, .s5:hover, .s6:hover{
     background-color: lightgray;

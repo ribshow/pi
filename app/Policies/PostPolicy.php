@@ -38,8 +38,9 @@ class PostPolicy
     public function update(User $user, Post $post): bool
     {
         $isTeacher = $user->isTeacher();
+        $isAdmin = $user->isAdmin();
 
-        if($isTeacher)
+        if($isTeacher && $isAdmin)
         {
             return true;
         }

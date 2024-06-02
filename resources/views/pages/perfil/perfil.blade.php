@@ -16,7 +16,10 @@
 
     <div class="info-perfil">
         <h3>Informações de perfil</h3>
-        <p> Atualize suas informações de cadastro aqui.</p>
+        <p class="n-user"> Nome: {{Auth::user()->name}}</p>
+        <p class="e-user"> Email: {{Auth::user()->email}}</p>
+        <br/>
+        <h3><b>Atualize suas informações de cadastro aqui.</b></h3>
         <br/>
 
         <label for="name">Nome</label><br/>
@@ -46,18 +49,18 @@
 
     <div class="info-senha">
         <h3>Atualizar Senha</h3>
-        <p>Mantenha sua conta segura, atualize sua senha</p>
+        <p>Mantenha sua conta segura, atualize sua senha.</p>
         <br/>
 
-        <label for="update_password_current_password">Senha atual:</label><br/>
+        <label for="update_password_current_password">Senha atual</label><br/>
         <input class="i-perfil" type="password" name="current_password" id="update_password_current_password">
         <br/><br/>
 
-        <label for="update_password_password">Nova senha:</label><br/>
+        <label for="update_password_password">Nova senha</label><br/>
         <input class="i-perfil" type="password" name="password" id="update_password_password">
         <br/><br/>
 
-        <label for="update_password_password_confirmation">Confirme a nova senha:</label><br/>
+        <label for="update_password_password_confirmation">Confirme a nova senha</label><br/>
         <input class="i-perfil" type="password" name="password_confirmation" id="update_password_password_confirmation">
         <br/><br/>
         @if($errors->updatePassword->has('password_confirmation'))
@@ -86,6 +89,8 @@
         class="text-sm text-gray-600"
     >{{ __('Senha atualizada com sucesso!') }}</p>
     </form>
+    @elseif (session('status') === 'password-updated-failed')
+    <p>{{ __('Dados não conferem, tente novamente!') }}</p>
     @endif
 </div>
 @endsection

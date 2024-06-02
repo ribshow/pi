@@ -8,10 +8,11 @@
 .header-container img:hover {
     transform: scale(1.1);
 }
-
 .header-fixed {
     position: fixed;
     width: 100%;
+    top: 0;
+    z-index: 100;
 }
 
 .navbar-container {
@@ -35,10 +36,7 @@
 
 .header-container {
     height: 60px;
-    padding-left: 37px;
-    padding-right: 37px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 15px 37px;
     background-color: var(--dsm-bg-color-primary);
     color: var(--dsm-font-color-primary);
 }
@@ -47,9 +45,8 @@
     padding: 0;
     margin: 0;
 }
-
 @media(min-width: 576px) {
-    
+
     .navbar-container {
         margin-right: 20px;
     }

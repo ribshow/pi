@@ -5,14 +5,19 @@
     <title>IntegraFatec - HOME</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Rota dos css-->
     <link rel="stylesheet" href={{ asset('/css/style.css') }}>
     <link rel="stylesheet" href={{ asset('/css/header.css')}}>
     <link rel="stylesheet" href={{ asset('/css/footer.css')}}>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 </head>
 <body class="container">
     <header class="header-fixed" id="mobile-menu">
         <div class="header-container generic-style">
           <div class=" logo-container">
+            <!--Rota para index-->
             <a href="{{url('index')}}"><img src="img/logo.svg" alt="logo"></a>
           </div>
           <div class="nav-burguer">
@@ -21,9 +26,13 @@
         </div>
         <nav class="navbar-container" id="itens">
           <ul class="nav-list">
+            @if (auth()->check() && auth()->user()->isAdmin())
+            <li style="text-align:left; margin-right: 48rem"><a href="#">Dashboard</a></li>
+            @endif
             <li style="padding-top: 11px"><a href="{{url('index')}}">Home</a></li>
             <li><a href="{{url('grade')}}">Horário</a></li>
             <li><a href="{{url('mural')}}">Mural</a></li>
+            <!--Verificando se o usuário está logado-->
             @if(auth()->check())
             <li><a href="{{url('perfil')}}">Perfil</a></li>
             <form method="POST" action="{{ route('logout') }}">
@@ -91,7 +100,7 @@
                     <div>
                         <iframe class="fatec-location"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.038255333084!2d-48.55077262540743!3d-22.314392916967066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c7583ac8032c15%3A0xd3db07d9284a5cb2!2sFaculdade%20de%20Tecnologia%20de%20Jahu!5e0!3m2!1spt-BR!2sbr!4v1683936358903!5m2!1spt-BR!2sbr"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
@@ -102,5 +111,6 @@
             </div>
         </div>
     </footer>
+    <script src={{asset('js/navbar.js')}}></script>
 </body>
 </html>

@@ -64,8 +64,47 @@
     margin: 2rem;
 }
 
-@media screen and (max-width: 600px){
-    .post{
-        width:100%;
+
+/* Media Queries para Responsividade */
+
+/* Dispositivos pequenos (smartphones em modo retrato e paisagem) */
+@media screen and (max-width: 600px) {
+    .main-post {
+        margin-top: 14rem;
+    }
+    .form-post {
+        flex-direction: column;
+        align-items: center;
+    }
+    .t-post, .m-post {
+        width: 90%;
+    }
+    .post {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+    .show-posts {
+        margin: 1rem;
+    }
+}
+
+/* Dispositivos médios (tablets) */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .main-post {
+        margin-top: 8rem;
+    }
+    .form-post {
+        flex-direction: column;
+        align-items: center;
+    }
+    .t-post, .m-post {
+        width: 70%;
+    }
+    .post {
+        width: 45%;
+        margin: 0.5rem 2%;
+    }
+    .show-posts {
+        margin: 1.5rem;
     }
 }

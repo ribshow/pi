@@ -54,11 +54,9 @@ class IntegraController extends Controller
         //    'block_id'=>5
         //]);
 
-        $room = Hour::find(7);
-
-        $room->update([
-            'dia'=>'Sexta-feira',
-        ]);
+        $hour = Hour::find(7);
+        $hour->user_id = 5;
+        $hour->save();
     }
 
     /**

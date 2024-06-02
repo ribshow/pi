@@ -1,22 +1,23 @@
-<style>
-.titulo{
-    text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-.meio{
-    height: 100%;
-}
-</style>
+<link rel="stylesheet" href={{asset('css/home.css')}}>
+<link rel="stylesheet" href={{asset('css/carroussel.css')}}>
 @extends('pages.layouts.header')
 @section('conteudo')
-<div class="meio">
-    <h1 class="titulo">Bem-vindos ao IntegraFatec</h1>
-    <div class="carrosel">
-        <a href="https://www.vestibularfatec.com.br/home/">
-            <img class="image" src={{asset("img/banner.png")}} width="100%">
-        </a>
+@include('pages.index.carrosel')
+@include('pages.index.avisos')
+
+      <div class="mapa-container">
+        <img src="img/mapa.png" alt="">
+      </div>
+
     </div>
-</div>
+
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+  <script src={{asset('js/index.js')}}></script>
+  <script src={{asset('js/carroussel.js')}}></script>
 @endsection
 

@@ -10,7 +10,9 @@
 <body>
     <header>
         <h1 class="h-post">
-          <img width="48px" src={{asset($image)}}>
+            <a href="{{route('mural')}}">
+                <img width="48px" src={{asset($image)}}>
+            </a>
         </h1>
     </header>
 <div class='main-post'>

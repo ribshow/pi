@@ -9,18 +9,26 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\File;
-
+use Exception;
+use Illuminate\Support\Facades\Log;
 class PostController extends Controller
 {
     public function store(Request $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'title'=>'required|string|max:255',
-            'message'=>'required|string|max:1000',
-        ]);
+        try{
+            $validated = $request->validate([
+                'title'=>'required|string|max:80',
+                'message'=>'required|string|max:250',
+            ]);
 
-        $request->user()->posts()->create($validated);
-        return redirect(route('mural'));
+            $request->user()->posts()->create($validated);
+            return redirect(route('mural'));
+        }catch(Exception $e){
+            Log::error('Erro ao criar post: '.$e->getMessage());
+
+            return redirect()->back()->withErrors(['error'=>'Ocorreu um erro ao criar o Post']);
+        }
+
     }
 
     public function show(): View

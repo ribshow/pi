@@ -16,6 +16,12 @@ class Hour extends Model
     protected $fillable = [
         'dia',
         'hora',
+        'user_id',
+        'course_id',
+        'semester_id',
+        'block_id',
+        'room_id',
+        'discipline_id',
     ];
 
     public function course(): BelongsTo
@@ -41,5 +47,10 @@ class Hour extends Model
     public function semester(): BelongsTo
     {
         return $this->belongsTo(Semester::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

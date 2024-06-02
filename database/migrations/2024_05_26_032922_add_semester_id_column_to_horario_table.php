@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('horario', function (Blueprint $table) {
+            // definindo uma chave estrangeira
             $table->foreignId('semester_id')->constrained('semester')->onDelete('cascade');
         });
     }
