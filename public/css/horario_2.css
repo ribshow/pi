@@ -4,13 +4,13 @@
     align-items: center;
     padding: 40px;
     background-color: var(--dsm-bg-color-senary);
+    height: 100%;
 }
 
 .select-course {
     width: 100%;
     border-radius: 5px;
 }
-
 .options{
     text-align: center;
 }

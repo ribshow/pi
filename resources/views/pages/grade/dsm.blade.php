@@ -1,8 +1,13 @@
 <link rel="stylesheet" href={{asset('css/horario_2.css')}}>
 @extends('pages.layouts.header')
 @section('conteudo')
-    <div class="main-container">
-        <h2 class="title">Horários</h2>
+    <div class="main-container" id="main-container">
+        <h3 style="padding: 1rem; border-bottom:1px solid gray
+        ;width:100%; margin-bottom: 1rem;">
+            Grade Horária
+            <img style="" src={{asset('img/educa.png')}} width="24px" alt="relógio">
+        </h3>
+        <h3 class="title">Horários</h3>
         <div>
             <select class="select-course" name="curso" onchange="redirectToPage(this)">
                 <option class="choice">Escolha um curso:</option>

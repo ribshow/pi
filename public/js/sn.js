@@ -111,86 +111,106 @@ document.addEventListener('DOMContentLoaded', (event) => {
             const template = document.getElementById('dsm_1').content.cloneNode(true);
             section1.innerHTML = '';
             section1.appendChild(template);
+            // muda a altura da main para auto
+            ajustarAltura();
             // DSM 2 SEMESTRE
         } else if (course === 'dsm' && semester === 2) {
             section2.style.display = 'block';
             const template = document.getElementById('dsm_2').content.cloneNode(true);
             section2.innerHTML = '';
             section2.appendChild(template);
+            ajustarAltura();
             // SN 1 SEMESTRE
         } else if (course === 'sn' && semester === 1) {
             section1.style.display = 'block';
             const template = document.getElementById('sn_1').content.cloneNode(true);
             section1.innerHTML = '';
             section1.appendChild(template);
+            ajustarAltura();
             // SN 2 SEMESTRE
         }else if (course === 'sn' && semester === 2) {
             section2.style = 'block';
             const template = document.getElementById('sn_2').content.cloneNode(true);
             section2.innerHTML = '';
             section2.appendChild(template);
+            ajustarAltura();
             // SN 3 SEMESTRE
         }else if (course === 'sn' && semester === 3){
             section3.style = 'block';
             const template = document.getElementById('sn_3').content.cloneNode(true);
             section3.innerHTML = '';
             section3.appendChild(template);
+            ajustarAltura();
             // SN 4 SEMESTRE
         }else if (course === 'sn' && semester === 4){
             section4.style = 'block';
             const template = document.getElementById('sn_4').content.cloneNode(true);
             section4.innerHTML = '';
             section4.appendChild(template);
+            ajustarAltura();
             // SN 5 SEMESTRE
         }else if (course === 'sn' && semester === 5){
             section5.style = 'block';
             const template = document.getElementById('sn_5').content.cloneNode(true);
             section5.innerHTML = '';
             section5.appendChild(template);
+            ajustarAltura();
             // SN 6 SEMESTRE
         }else if (course === 'sn' && semester === 6){
             section6.style = 'block';
             const template = document.getElementById('sn_6').content.cloneNode(true);
             section6.innerHTML = '';
             section6.appendChild(template);
+            ajustarAltura();
             // CN 1 SEMESTRE
         }else if (course === 'cn' && semester === 1){
             section1.style = 'block';
             const template = document.getElementById('cn_1').content.cloneNode(true);
             section1.innerHTML = '';
             section1.appendChild(template);
+            ajustarAltura();
             // CN 2 SEMESTRE
         }else if (course === 'cn' && semester === 2){
             section2.style = 'block';
             const template = document.getElementById('cn_2').content.cloneNode(true);
             section2.innerHTML = '';
             section2.appendChild(template);
+            ajustarAltura();
             // CN 3 SEMESTRE
         }else if (course === 'cn' && semester === 3){
             section3.style = 'block';
             const template = document.getElementById('cn_3').content.cloneNode(true);
             section3.innerHTML = '';
             section3.appendChild(template);
+            ajustarAltura();
             // CN 4 SEMESTRE
         }else if (course === 'cn' && semester === 4){
             section4.style = 'block';
             const template = document.getElementById('cn_4').content.cloneNode(true);
             section4.innerHTML = '';
             section4.appendChild(template);
+            ajustarAltura();
             // CN 5 SEMESTRE
         }else if (course === 'cn' && semester === 5){
             section5.style = 'block';
             const template = document.getElementById('cn_5').content.cloneNode(true);
             section5.innerHTML = '';
             section5.appendChild(template);
+            ajustarAltura();
             // CN 6 SEMESTRE
         }else if (course === 'cn' && semester === 6){
             section6.style = 'block';
             const template = document.getElementById('cn_6').content.cloneNode(true);
             section6.innerHTML = '';
             section6.appendChild(template);
+            ajustarAltura();
         }
         // Adicione lógica para outros semestres e cursos aqui conforme necessário
+    }
+    // FUNÇÃO PARA MUDAR ALTURA
+    const mainEl = document.getElementById('main-container');
+    function ajustarAltura(){
+    mainEl.style.height = 'auto';
     }
 
     // FUNÇÃO PARA REDIRECIONAR PARA A PÁGINA DO CURSO SELECIONADO

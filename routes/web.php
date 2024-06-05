@@ -9,6 +9,7 @@ use App\Models\Semester;
 use App\Models\Discipline;
 use App\Models\Hour;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\AdmController;
 
 Route::get('/', function () {
     return view('pages.index');
@@ -50,6 +51,7 @@ Route::get('/horario', function(){
         echo "<p>{$hour->room->name}</p>";
     }
 });
+Route::get('/dash', [AdmController::class , 'index']);
 
 Route::get('/relation', function (){
     $semester = Semester::find(1);
@@ -75,9 +77,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/mural/{post}/edit', [PostController::class, 'edit'])->name('edit');
     Route::post('/mural/{post}', [PostController::class, 'update'])->name('update');
     Route::get('/mural/{post}', [PostController::class, 'destroy'])->name('delete');
-    Route::get('/dash', function(){
-        return view('dashboard');
-    });
 });
 
 require __DIR__.'/auth.php';
