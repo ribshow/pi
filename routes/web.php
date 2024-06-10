@@ -10,6 +10,7 @@ use App\Models\Discipline;
 use App\Models\Hour;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdmController;
+use App\Http\Middleware\CheckAdmin;
 
 Route::get('/', function () {
     return view('pages.index');
@@ -51,7 +52,20 @@ Route::get('/horario', function(){
         echo "<p>{$hour->room->name}</p>";
     }
 });
-Route::get('/dash', [AdmController::class , 'index']);
+
+// ROTAS ADMINISTRADOR PROTEGIDAS POR UM MIDDLEWARE
+Route::get('/dash', [AdmController::class , 'index'])
+    ->name('dash')
+    ->middleware(CheckAdmin::class);
+Route::delete('/admin/{id}', [AdmController::class, 'delete'])
+    ->name('users.delete')
+    ->middleware(CheckAdmin::class);
+Route::post('/edit/{id}', [AdmController::class, 'editHour'])
+    ->name('edit.hour')
+    ->middleware(CheckAdmin::class);
+Route::put('/update-hour/{id}', [AdmController::class, 'store'])
+    ->name('update.hour')
+    ->middleware(CheckAdmin::class);
 
 Route::get('/relation', function (){
     $semester = Semester::find(1);
@@ -66,6 +80,7 @@ Route::get('/mural', function () {
 Route::get('/debug', function(){
    return view('pages.hora');
 });
+
 Route::middleware('auth')->group(function () {
     Route::get('/perfil', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/perfil', [ProfileController::class, 'update'])->name('profile.update');

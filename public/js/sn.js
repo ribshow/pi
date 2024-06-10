@@ -44,6 +44,37 @@ document.addEventListener('DOMContentLoaded', (event) => {
             addCnListeners();
         }
     }
+
+    // GESTÃO DA PRODUÇÃO INDUSTRIAL
+    function optGpi(option){
+         // CRIANDO OS BOTÕES
+         var optionsGp = `<button class='gp-s1' type='button'>1° Semestre</button>
+         <button class='gp-s2' type='button'>2° Semestre</button>
+         <button class='gp-s3' type='button'>3° Semestre</button>
+         <button class='gp-s4' type='button'>4° Semestre</button>
+         <button class='gp-s5' type='button'>5° Semestre</button>
+         <button class='gp-s6' type='button'>6° Semestre</button>`;
+
+         if(option == 4){
+            document.querySelector('.botoes').innerHTML = optionsGp;
+            addGpListeners();
+         }
+    }
+
+    function optMa(option){
+        var optionsMa = `
+            <button class='ma-s1' type='button'>1° Semestre</button>
+            <button class='ma-s2' type='button'>2° Semestre</button>
+            <button class='ma-s3' type='button'>3° Semestre</button>
+            <button class='ma-s4' type='button'>4° Semestre</button>
+            <button class='ma-s5' type='button'>5° Semestre</button>
+            <button class='ma-s6' type='button'>6° Semestre</button>`;
+
+        if(option == 6){
+            document.querySelector('.botoes').innerHTML = optionsMa;
+            addMaListener();
+        }
+    }
     // FUNÇÃO PARA ADICIONAR OUVINTES DE EVENTO AOS BOTÕES DSM
     function addDsmListeners() {
         const buttonS1 = document.querySelector('.dsm-s1');
@@ -85,6 +116,39 @@ document.addEventListener('DOMContentLoaded', (event) => {
         buttonCn4.addEventListener('click', () => displayContent('cn', 4));
         buttonCn5.addEventListener('click', () => displayContent('cn', 5));
         buttonCn6.addEventListener('click', () => displayContent('cn', 6));
+    }
+
+        // FUNÇÃO PARA ADICIONAR OUVINTES AOS BOTÕES DE GPI
+    function addGpListeners() {
+        const buttonGp1 = document.querySelector('.gp-s1');
+        const buttonGp2 = document.querySelector('.gp-s2');
+        const buttonGp3 = document.querySelector('.gp-s3');
+        const buttonGp4 = document.querySelector('.gp-s4');
+        const buttonGp5 = document.querySelector('.gp-s5');
+        const buttonGp6 = document.querySelector('.gp-s6');
+        // ADICIONANDO OUVINTES DE CLICK AOS BOTÕES DE DSM
+        buttonGp1.addEventListener('click', () => displayContent('gp', 1));
+        buttonGp2.addEventListener('click', () => displayContent('gp', 2));
+        buttonGp3.addEventListener('click', () => displayContent('gp', 3));
+        buttonGp4.addEventListener('click', () => displayContent('gp', 4));
+        buttonGp5.addEventListener('click', () => displayContent('gp', 5));
+        buttonGp6.addEventListener('click', () => displayContent('gp', 6));
+    }
+
+    function addMaListener() {
+        const buttonMa1 = document.querySelector('.ma-s1');
+        const buttonMa2 = document.querySelector('.ma-s2');
+        const buttonMa3 = document.querySelector('.ma-s3');
+        const buttonMa4 = document.querySelector('.ma-s4');
+        const buttonMa5 = document.querySelector('.ma-s5');
+        const buttonMa6 = document.querySelector('.ma-s6');
+        // ADICIONANDO OUVINTES DE CLICK AOS BOTÕES DE DSM
+        buttonMa1.addEventListener('click', () => displayContent('ma', 1));
+        buttonMa2.addEventListener('click', () => displayContent('ma', 2));
+        buttonMa3.addEventListener('click', () => displayContent('ma', 3));
+        buttonMa4.addEventListener('click', () => displayContent('ma', 4));
+        buttonMa5.addEventListener('click', () => displayContent('ma', 5));
+        buttonMa6.addEventListener('click', () => displayContent('ma', 6));
     }
 
     // FUNÇÃO PARA EXIBIR O CONTEÚDO DO SEMESTRE
@@ -204,7 +268,78 @@ document.addEventListener('DOMContentLoaded', (event) => {
             section6.innerHTML = '';
             section6.appendChild(template);
             ajustarAltura();
+            // GPI 1 SEMESTRE
+        }else if (course === 'gp' && semester === 1){
+            section1.style = 'block';
+            const template = document.getElementById('gp_1').content.cloneNode(true);
+            section1.innerHTML = '';
+            section1.appendChild(template);
+            ajustarAltura();
+            // GPI 2 SEMESTRE
+        }else if (course === 'gp' && semester === 2){
+            section2.style = 'block';
+            const template = document.getElementById('gp_2').content.cloneNode(true);
+            section2.innerHTML = '';
+            section2.appendChild(template);
+            ajustarAltura();
+            // GPI 3 SEMESTRE
+        }else if (course === 'gp' && semester === 3){
+            section3.style = 'block';
+            const template = document.getElementById('gp_3').content.cloneNode(true);
+            section3.innerHTML = '';
+            section3.appendChild(template);
+            ajustarAltura();
+            // GPI 4 SEMESTRE
+        }else if (course === 'gp' && semester === 4){
+            section4.style = 'block';
+            const template = document.getElementById('gp_4').content.cloneNode(true);
+            section4.innerHTML = '';
+            section4.appendChild(template);
+            ajustarAltura();
+            // GPI 5 SEMESTRE
+        }else if (course === 'gp' && semester === 5){
+            section5.style = 'block';
+            const template = document.getElementById('gp_5').content.cloneNode(true);
+            section5.innerHTML = '';
+            section5.appendChild(template);
+            ajustarAltura();
+            // GPI 6 SEMESTRE
+        }else if (course === 'gp' && semester === 6){
+            section6.style = 'block';
+            const template = document.getElementById('gp_6').content.cloneNode(true);
+            section6.innerHTML = '';
+            section6.appendChild(template);
+            ajustarAltura();
+            // MA 1 SEMESTRE
+        }else if (course === 'ma' && semester === 1){
+            section1.style = 'block';
+            const template = document.getElementById('ma_1').content.cloneNode(true);
+            section1.innerHTML = '';
+            section1.appendChild(template);
+            ajustarAltura();
+            // MA 2 SEMESTRE
+        }else if (course === 'ma' && semester === 2){
+            section2.style = 'block';
+            const template = document.getElementById('ma_2').content.cloneNode(true);
+            section2.innerHTML = '';
+            section2.appendChild(template);
+            ajustarAltura();
+            // MA 3 SEMESTRE
+        }else if (course === 'ma' && semester === 3){
+            section3.style = 'block';
+            const template = document.getElementById('ma_3').content.cloneNode(true);
+            section3.innerHTML = '';
+            section3.appendChild(template);
+            ajustarAltura();
+            // MA 4 SEMESTRE
+        }else if (course === 'ma' && semester === 4){
+            section4.style = 'block';
+            const template = document.getElementById('ma_4').content.cloneNode(true);
+            section4.innerHTML = '';
+            section4.appendChild(template);
+            ajustarAltura();
         }
+
         // Adicione lógica para outros semestres e cursos aqui conforme necessário
     }
     // FUNÇÃO PARA MUDAR ALTURA
@@ -225,11 +360,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
         } else if (courseId == 3) {
             optCn(courseId);
         } else if (courseId == 4) {
-            optGpi();
+            optGpi(courseId);
         } else if (courseId == 5) {
             alert('Curso modalidade EAD');
         } else if (courseId == 6) {
-            optMr();
+            optMa(courseId);
         } else if (courseId == 7) {
             optSi();
         } else if (courseId == 8) {

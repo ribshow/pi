@@ -20,7 +20,8 @@
     margin-bottom: 1rem;
 }
 .dsm-s1, .dsm-s2,.sn-s1,.sn-s2, .sn-s3, .sn-s4, .sn-s5, .sn-s6
-,.cn-s1,.cn-s2,.cn-s3,.cn-s4,.cn-s5,.cn-s6{
+,.cn-s1,.cn-s2,.cn-s3,.cn-s4,.cn-s5,.cn-s6,.gp-s1,.gp-s2,.gp-s3,
+.gp-s4,.gp-s5,.gp-s6,.ma-s1,.ma-s2,.ma-s3,.ma-s4,.ma-s5,.ma-s6{
     display: inline-block;
     padding: 1rem;
     border: 1px solid red;
@@ -29,11 +30,14 @@
     background-color: crimson;
     color: lightcyan;
     border-radius: 15px;
+    margin-right: 0.5rem;
 }
 .dsm-s1:hover,.dsm-s2:hover,.sn-s1:hover,
 .sn-s2:hover,.sn-s3:hover,.sn-s4:hover,.sn-s5:hover,.sn-s6:hover,
 .cn-s1:hover,.cn-s2:hover,.cn-s3:hover,.cn-s4:hover,.cn-s5:hover,
-.cn-s6:hover{
+.cn-s6:hover,.gp-s1:hover,.gp-s2:hover,.gp-s3:hover,.gp-s4:hover,
+.gp-s5:hover,.gp-s6:hover,.ma-s1:hover,.ma-s2:hover,.ma-s3:hover,
+.ma-s4:hover,.ma-s5:hover,.ma-s6:hover{
     background-color: coral;
 }
 

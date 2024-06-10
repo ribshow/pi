@@ -204,6 +204,136 @@ class HourController extends Controller
         $cn6_sex_9 = Hour::find(159);
         $cn6_sex_11 = Hour::find(160);
 
+        // gpi 1 semestre
+        $gp1_seg_7 = Hour::find(161);
+        $gp1_seg_9 = Hour::find(162);
+        $gp1_ter_7 = Hour::find(163);
+        $gp1_ter_9 = Hour::find(164);
+        $gp1_qua_7 = Hour::find(165);
+        $gp1_qua_9 = Hour::find(166);
+        $gp1_qui_7 = Hour::find(167);
+        $gp1_qui_9 = Hour::find(168);
+        $gp1_sex_7 = Hour::find(169);
+        $gp1_sex_9 = Hour::find(170);
+
+        // gpi 2 semestre
+        $gp2_seg_7 = Hour::find(171);
+        $gp2_seg_9 = Hour::find(172);
+        $gp2_ter_7 = Hour::find(173);
+        $gp2_ter_9 = Hour::find(174);
+        $gp2_qua_7 = Hour::find(175);
+        $gp2_qua_9 = Hour::find(176);
+        $gp2_qui_7 = Hour::find(177);
+        $gp2_qui_9 = Hour::find(178);
+        $gp2_sex_7 = Hour::find(179);
+        $gp2_sex_9 = Hour::find(180);
+
+        // gpi 3 semestre
+        $gp3_seg_7 = Hour::find(181);
+        $gp3_seg_9 = Hour::find(182);
+        $gp3_ter_7 = Hour::find(183);
+        $gp3_ter_9 = Hour::find(184);
+        $gp3_qua_7 = Hour::find(185);
+        $gp3_qua_9 = Hour::find(186);
+        $gp3_qui_7 = Hour::find(187);
+        $gp3_qui_9 = Hour::find(188);
+        $gp3_sex_7 = Hour::find(189);
+        $gp3_sex_9 = Hour::find(190);
+
+        // gpi 4 semestre
+        $gp4_seg_7 = Hour::find(191);
+        $gp4_seg_9 = Hour::find(192);
+        $gp4_ter_7 = Hour::find(193);
+        $gp4_ter_9 = Hour::find(194);
+        $gp4_qua_7 = Hour::find(195);
+        $gp4_qua_9 = Hour::find(196);
+        $gp4_qui_7 = Hour::find(197);
+        $gp4_qui_9 = Hour::find(198);
+        $gp4_sex_7 = Hour::find(199);
+        $gp4_sex_9 = Hour::find(200);
+
+        // gpi 5 semestre
+        $gp5_seg_7 = Hour::find(201);
+        $gp5_seg_9 = Hour::find(202);
+        $gp5_ter_7 = Hour::find(203);
+        $gp5_ter_9 = Hour::find(204);
+        $gp5_qua_7 = Hour::find(205);
+        $gp5_qua_9 = Hour::find(206);
+        $gp5_qui_7 = Hour::find(207);
+        $gp5_qui_9 = Hour::find(208);
+        $gp5_sex_7 = Hour::find(209);
+        $gp5_sex_9 = Hour::find(210);
+
+        // gpi 6 semestre
+        $gp6_seg_7 = Hour::find(211);
+        $gp6_seg_9 = Hour::find(212);
+        $gp6_ter_7 = Hour::find(213);
+        $gp6_ter_9 = Hour::find(214);
+        $gp6_qua_7 = Hour::find(215);
+        $gp6_qua_9 = Hour::find(216);
+        $gp6_qui_7 = Hour::find(217);
+        $gp6_qui_9 = Hour::find(218);
+        $gp6_sex_7 = Hour::find(219);
+        $gp6_sex_9 = Hour::find(220);
+
+        // ma 1 semestre
+        $ma1_seg_7 = Hour::find(221);
+        $ma1_seg_9 = Hour::find(222);
+        $ma1_ter_7 = Hour::find(223);
+        $ma1_ter_9 = Hour::find(224);
+        $ma1_qua_7 = Hour::find(225);
+        $ma1_qua_9 = Hour::find(226);
+        $ma1_qui_7 = Hour::find(227);
+        $ma1_qui_9 = Hour::find(228);
+        $ma1_sex_7 = Hour::find(229);
+        $ma1_sex_9 = Hour::find(230);
+        $ma1_sab_7 = Hour::find(231);
+        $ma1_sab_9 = Hour::find(232);
+
+        // ma 2 semestre
+        $ma2_seg_7 = Hour::find(233);
+        $ma2_seg_9 = Hour::find(234);
+        $ma2_ter_7 = Hour::find(235);
+        $ma2_ter_9 = Hour::find(236);
+        $ma2_qua_7 = Hour::find(237);
+        $ma2_qua_9 = Hour::find(238);
+        $ma2_qua_11 = Hour::find(239);
+        $ma2_qui_7 = Hour::find(240);
+        $ma2_qui_9 = Hour::find(241);
+        $ma2_qui_11 = Hour::find(242);
+        $ma2_sex_7 = Hour::find(243);
+        $ma2_sex_9 = Hour::find(244);
+        $ma2_sex_11 = Hour::find(245);
+
+        // ma 3 semestre
+        $ma3_seg_7 = Hour::find(246);
+        $ma3_seg_9 = Hour::find(247);
+        $ma3_seg_11 = Hour::find(248);
+        $ma3_ter_9 = Hour::find(249);
+        $ma3_ter_11 = Hour::find(250);
+        $ma3_qua_7 = Hour::find(251);
+        $ma3_qua_9 = Hour::find(252);
+        $ma3_qua_11 = Hour::find(253);
+        $ma3_qui_7 = Hour::find(254);
+        $ma3_qui_9 = Hour::find(255);
+        $ma3_sex_9 = Hour::find(256);
+        $ma3_sex_11 = Hour::find(257);
+
+        // ma 4 semestre
+        $ma4_seg_7 = Hour::find(258);
+        $ma4_seg_9 = Hour::find(259);
+        $ma4_seg_11 = Hour::find(260);
+        $ma4_ter_7 = Hour::find(261);
+        $ma4_ter_9 = Hour::find(262);
+        $ma4_qua_7 = Hour::find(263);
+        $ma4_qua_9 = Hour::find(264);
+        $ma4_qui_7 = Hour::find(265);
+        $ma4_qui_9 = Hour::find(266);
+        $ma4_qui_11 = Hour::find(267);
+        $ma4_sex_9 = Hour::find(268);
+        $ma4_sex_11 = Hour::find(269);
+
+
         return view('pages.grade',
         compact(
         // dsm 1 e 2 semestre
@@ -259,6 +389,45 @@ class HourController extends Controller
         'cn6_seg_7','cn6_seg_9','cn6_ter_7','cn6_ter_9','cn6_ter_11','cn6_qua_7',
         'cn6_qua_9','cn6_qui_7','cn6_qui_9','cn6_sex_7','cn6_sex_9','cn6_sex_11',
 
+        // gpi 1 semestre
+        'gp1_seg_7','gp1_seg_9','gp1_ter_7','gp1_ter_9','gp1_qua_7','gp1_qua_9',
+        'gp1_qui_7','gp1_qui_9','gp1_sex_7','gp1_sex_9',
+
+        // gpi 2 semestre
+        'gp2_seg_7','gp2_seg_9','gp2_ter_7','gp2_ter_9','gp2_qua_7','gp2_qua_9',
+        'gp2_qui_7','gp2_qui_9','gp2_sex_7','gp2_sex_9',
+
+        // gpi 3 semestre
+        'gp3_seg_7','gp3_seg_9','gp3_ter_7','gp3_ter_9','gp3_qua_7','gp3_qua_9',
+        'gp3_qui_7','gp3_qui_9','gp3_sex_7','gp3_sex_9',
+
+        // gpi 4 semestre
+        'gp4_seg_7','gp4_seg_9','gp4_ter_7','gp4_ter_9','gp4_qua_7','gp4_qua_9',
+        'gp4_qui_7','gp4_qui_9','gp4_sex_7','gp4_sex_9',
+
+        // gpi 5 semestre
+        'gp5_seg_7','gp5_seg_9','gp5_ter_7','gp5_ter_9','gp5_qua_7','gp5_qua_9',
+        'gp5_qui_7','gp5_qui_9','gp5_sex_7','gp5_sex_9',
+
+        // gpi 6 semestre
+        'gp6_seg_7','gp6_seg_9','gp6_ter_7','gp6_ter_9','gp6_qua_7','gp6_qua_9',
+        'gp6_qui_7','gp6_qui_9','gp6_sex_7','gp6_sex_9',
+
+        // ma 1 semestre
+        'ma1_seg_7','ma1_seg_9','ma1_ter_7','ma1_ter_9','ma1_qua_7','ma1_qua_9',
+        'ma1_qui_7','ma1_qui_9','ma1_sex_7','ma1_sex_9','ma1_sab_7','ma1_sab_9',
+
+        // ma 2 semestre
+        'ma2_seg_7','ma2_seg_9','ma2_ter_7','ma2_ter_9','ma2_qua_7','ma2_qua_9',
+        'ma2_qui_7','ma2_qui_9','ma2_qui_11','ma2_sex_7','ma2_sex_9','ma2_sex_11',
+
+        // ma 3 semestre
+        'ma3_seg_7','ma3_seg_9','ma3_seg_11','ma3_ter_9','ma3_ter_11','ma3_qua_7',
+        'ma3_qua_9','ma3_qua_11','ma3_qui_7','ma3_qui_9','ma3_sex_9','ma3_sex_11',
+
+        // ma 4 semestre
+        'ma4_seg_7','ma4_seg_9','ma4_seg_11','ma4_ter_7','ma4_ter_9','ma4_qua_7',
+        'ma4_qua_9','ma4_qui_7','ma4_qui_9','ma4_qui_11','ma4_sex_9','ma4_sex_11',
         ));
     }
     public function grade()
@@ -275,7 +444,7 @@ class HourController extends Controller
 
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
 
         //dd($request->all());
@@ -293,6 +462,7 @@ class HourController extends Controller
                       'dia'=>$request->days,
                       'hora'=>$request->hours]);
 
-        return redirect()->route('fazer')->with('status','hour-created');
+        return response()->json(['success' => true]);
+        //return redirect()->route('dash')->with('status','hour-created');
     }
 }

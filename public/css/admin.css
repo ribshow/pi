@@ -39,7 +39,7 @@
     width: 50%;
     height: 2rem;
 }
-.admin-right-all-container {
+.admin-right-all-container, .text-wel {
     padding: 40px;
     display: flex;
     flex-direction: column;
@@ -96,7 +96,6 @@
     border: 1px solid var(--dsm-border-color-tertiary);
     color: var(--dsm-font-color-quaternary);
 }
-
 /* TELA MINHAS PUBLICACOES */
 
 @media(min-width: 576px) {

@@ -53,10 +53,6 @@ class IntegraController extends Controller
         //    'name'=>'Sala 302',
         //    'block_id'=>5
         //]);
-
-        $hour = Hour::find(7);
-        $hour->user_id = 5;
-        $hour->save();
     }
 
     /**

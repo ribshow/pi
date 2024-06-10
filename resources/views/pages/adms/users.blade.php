@@ -1,5 +1,4 @@
-<div id="show-users"></div>
-<div id="show-create"></div>
+<div id="show-template"></div>
  <!-- SESSÃO USUÁRIO -->
 <template id="my-users">
     <div class="admin-right-all-container">
@@ -15,11 +14,10 @@
                 <p>{{$user->name}}</p>
                 <p>{{$user->email}}</p>
             </div>
-            <a href="">
-                <div class="admin-card-btn">
-                Excluir
-                </div>
-            </a>
+            <form class="delete-user-form" method="POST" action="{{ route('users.delete', $user->id) }}">
+                @csrf
+                @method('DELETE')
+                <button class="admin-card-btn delete-user-btn" type="submit"> Excluir</button>
             </div>
         </div>
         </div>
@@ -27,4 +25,5 @@
     </div>
     </div>
 </template>
+
 
