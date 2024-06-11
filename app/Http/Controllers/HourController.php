@@ -333,6 +333,32 @@ class HourController extends Controller
         $ma4_sex_9 = Hour::find(268);
         $ma4_sex_11 = Hour::find(269);
 
+        // ma 5 semestre
+        $ma5_seg_7 = Hour::find(270);
+        $ma5_seg_9 = Hour::find(271);
+        $ma5_seg_11 = Hour::find(272);
+        $ma5_ter_7 = Hour::find(273);
+        $ma5_ter_9 = Hour::find(274);
+        $ma5_qua_7 = Hour::find(275);
+        $ma5_qua_9 = Hour::find(276);
+        $ma5_qui_9 = Hour::find(277);
+        $ma5_qui_11 = Hour::find(278);
+        $ma5_sex_7 = Hour::find(279);
+        $ma5_sex_9 = Hour::find(280);
+        $ma5_sex_11 = Hour::find(281);
+
+        // ma 6 semestre
+        $ma6_seg_9 = Hour::find(282);
+        $ma6_seg_11 = Hour::find(283);
+        $ma6_ter_9 = Hour::find(284);
+        $ma6_ter_11 = Hour::find(285);
+        $ma6_qua_7 = Hour::find(286);
+        $ma6_qua_9 = Hour::find(287);
+        $ma6_qua_11 = Hour::find(288);
+        $ma6_qui_7 = Hour::find(289);
+        $ma6_qui_9 = Hour::find(290);
+        $ma6_qui_11 = Hour::find(291);
+
 
         return view('pages.grade',
         compact(
@@ -428,6 +454,14 @@ class HourController extends Controller
         // ma 4 semestre
         'ma4_seg_7','ma4_seg_9','ma4_seg_11','ma4_ter_7','ma4_ter_9','ma4_qua_7',
         'ma4_qua_9','ma4_qui_7','ma4_qui_9','ma4_qui_11','ma4_sex_9','ma4_sex_11',
+
+        // ma 5 semestre
+        'ma5_seg_7','ma5_seg_9','ma5_seg_11','ma5_ter_7','ma5_ter_9','ma5_qua_7',
+        'ma5_qua_9','ma5_qui_9','ma5_qui_11','ma5_sex_7','ma5_sex_9','ma5_sex_11',
+
+        // ma 6 semestre
+        'ma6_seg_9','ma6_seg_11','ma6_ter_9','ma6_ter_11','ma6_qua_7','ma6_qua_9',
+        'ma6_qua_11','ma6_qui_7','ma6_qui_9','ma6_qui_11',
         ));
     }
     public function grade()

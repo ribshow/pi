@@ -338,6 +338,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
             section4.innerHTML = '';
             section4.appendChild(template);
             ajustarAltura();
+            // MA 5 SEMESTRE
+        }else if (course === 'ma' && semester === 5){
+            section5.style = 'block';
+            const template = document.getElementById('ma_5').content.cloneNode(true);
+            section5.innerHTML = '';
+            section5.appendChild(template);
+            ajustarAltura();
+            // MA 6 SEMESTRE
+        }else if (course === 'ma' && semester === 6){
+            section6.style = 'block';
+            const template = document.getElementById('ma_6').content.cloneNode(true);
+            section6.innerHTML = '';
+            section6.appendChild(template);
+            ajustarAltura();
         }
 
         // Adicione lógica para outros semestres e cursos aqui conforme necessário

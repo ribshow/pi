@@ -19,48 +19,78 @@
                 <b>Curso</b>
             </label>
             <br/>
-            <input class="curso" type="text" name="course"
-            value="{{$hour->course->description}}">
+            <select name="course_id" id="courses">
+                <option value="{{$hour->course_id}}">{{$hour->course->description}}</option>
+                <optgroup Label="..."></optgroup>
+                @foreach ($courses as $course)
+                <option value="{{$course->id}}">{{$course->id}} - {{$course->description}}</option>
+                @endforeach
+            </select>
         </div>
         <div>
             <label for="disciplina">
                 <b>Disciplina</b>
             </label>
             <br/>
-            <input class="disciplina" type="text" name="discipline"
-            value="{{$hour->discipline->name}}">
+            <select name="discipline_id" id="disciplines">
+                <option value="{{$hour->discipline_id}}">{{$hour->discipline->name}}</option>
+                <optgroup label="..."></optgroup>
+                @foreach ($disciplines as $discipline)
+                <option value="{{$discipline->id}}">{{$discipline->id}} - {{$discipline->name}}</option>
+                @endforeach
+            </select>
         </div>
         <div>
             <label for="professor">
                 <b>Professor</b>
             </label>
             <br/>
-            <input class="professor" type="text" name="user"
-            value="{{$hour->user->name}}">
+            <select name="user_id" id="users">
+                <option value="{{$hour->user_id}}">{{$hour->user->name}}s</option>
+                <optgroup label="..."></optgroup>
+                @foreach ($users as $user)
+                <option value="{{$user->id}}">{{$user->name}}</option>
+                @endforeach
+            </select>
         </div>
         <div>
             <label for="sala">
                 <b>Sala</b>
             </label>
             <br/>
-            <input class="sala" type="text" name="room"
-            value="{{$hour->room->name}}">
+            <select name="room_id" id="rooms">
+                <option value="{{$hour->room_id}}">{{$hour->room->name}}</option>
+                <optgroup label="..."></optgroup>
+                @foreach ($rooms as $room)
+                    <option value="{{$room->id}}">{{$room->id}} - {{$room->name}}</option>
+                @endforeach
+            </select>
         </div>
         <div>
             <label for="bloco">
                 <b>Bloco</b>
                 <br/>
             </label>
-            <input class="bloco" type="text" name="block"
-            value="{{$hour->block->block}}">
+            <select name="block_id" id="blocks">
+                <option value="{{$hour->block_id}}">{{$hour->block->block}}</option>
+                <optgroup label="Blocos"></optgroup>
+                @foreach ($blocks as $block)
+                    <option value="{{$block->id}}">{{$block->id}} - {{$block->block}}</option>
+                @endforeach
+            </select>
         </div>
         <div>
             <label for="semestre">
                 <b>Semestre</b>
                 <br/>
             </label>
-            <input class="semestre" type="text" name="semester"
-            value="{{$hour->semester->name}}">
+            <select name="semester_id" id="semesters">
+                <option value="{{$hour->semester_id}}">{{$hour->semester->name}}</option>
+                <optgroup label="Semestres"></optgroup>
+                @foreach ($semesters as $semester)
+                    <option value="{{$semester->id}}">{{$semester->id}} - {{$semester->name}}</option>
+                @endforeach
+            </select>
         </div>
         <div>
             <label for="dia">

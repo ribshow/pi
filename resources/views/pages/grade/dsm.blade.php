@@ -1117,7 +1117,7 @@
     </template>
 </div>
 
-<!-- MEIO AMBIENTE E RECURSOS HÍDRICOS 3° SEMESTRE-->
+<!-- MEIO AMBIENTE E RECURSOS HÍDRICOS 4° SEMESTRE-->
 <div id="section_4" class="ma_4" style="display:none">
     <template id="ma_4">
         <h3 class="title-s">4° Semestre</h3>
@@ -1159,6 +1159,94 @@
                 <td></td>
                 <td>{{$ma4_sex_9->block->block}}<br><b>{{$ma4_sex_9->discipline->name}}</b> <br> {{$ma4_sex_9->user->name}} <br> <b>{{$ma4_sex_9->room->name}}</b></td>
                 <td>{{$ma4_sex_11->block->block}}<br><b>{{$ma4_sex_11->discipline->name}}</b> <br> {{$ma4_sex_11->user->name}} <br> <b>{{$ma4_sex_11->room->name}}</b></td>
+            </tr>
+        </table>
+    </template>
+</div>
+
+<!-- MEIO AMBIENTE E RECURSOS HÍDRICOS 5° SEMESTRE-->
+<div id="section_5" class="ma_5" style="display:none">
+    <template id="ma_5">
+        <h3 class="title-s">5° Semestre</h3>
+        <table>
+            <thead>
+                <tr class="trTd-color">
+                <td></td>
+                <td>7h45 às 9h25</td>
+                <td>9h30 às 11h10</td>
+                <td>11h20 às 13h00</td>
+                </tr>
+            </thead>
+            <tr class="trTd-width">
+                <td class="trTd-color">{{$ma5_seg_7->dia}}</td>
+                <td>{{$ma5_seg_7->block->block}}<br> <b>{{$ma5_seg_7->discipline->name}}</b> <br> {{$ma5_seg_7->user->name}} <br> <b>{{$ma5_seg_7->room->name}}</b> </td>
+                <td>{{$ma5_seg_9->block->block}}<br> <b>{{$ma5_seg_9->discipline->name}}</b> <br> {{$ma5_seg_9->user->name}} <br> <b>{{$ma5_seg_9->room->name}}</b></td>
+                <td>{{$ma5_seg_11->block->block}}<br> <b>{{$ma5_seg_11->discipline->name}}</b> <br> {{$ma5_seg_11->user->name}} <br> <b>{{$ma5_seg_11->room->name}}</b></td>
+            </tr>
+            <tr class="trTd-width">
+                <td class="trTd-color">{{$ma5_ter_7->dia}}</td>
+                <td>{{$ma5_ter_7->block->block}}<br><b>{{$ma5_ter_7->discipline->name}}</b> <br> {{$ma5_ter_7->user->name}} <br> <b>{{$ma5_ter_7->room->name}}</b></td>
+                <td>{{$ma5_ter_9->block->block}}<br><b>{{$ma5_ter_9->discipline->name}}</b> <br> {{$ma5_ter_9->user->name}} <br> <b>{{$ma5_ter_9->room->name}}</b></td>
+                <td></td>
+            </tr>
+            <tr class="trTd-width">
+                <td class="trTd-color">{{$ma5_qua_7->dia}}</td>
+                <td>{{$ma5_qua_7->block->block}}<br><b>{{$ma5_qua_7->discipline->name}}</b> <br> {{$ma5_qua_7->user->name}} <br> <b>{{$ma5_qua_7->room->name}}</b></td>
+                <td>{{$ma5_qua_9->block->block}}<br><b>{{$ma5_qua_9->discipline->name}}</b> <br> {{$ma5_qua_9->user->name}} <br> <b>{{$ma5_qua_9->room->name}}</b></td>
+                <td></td>
+            </tr>
+            <tr class="trTd-width">
+                <td class="trTd-color">{{$ma5_qui_9->dia}}</td>
+                <td></td>
+                <td>{{$ma5_qui_9->block->block}}<br><b>{{$ma5_qui_9->discipline->name}}</b> <br> {{$ma5_qui_9->user->name}} <br> <b>{{$ma5_qui_9->room->name}}</b></td>
+                <td>{{$ma5_qui_11->block->block}}<br><b>{{$ma5_qui_11->discipline->name}}</b> <br> {{$ma5_qui_11->user->name}} <br> <b>{{$ma5_qui_11->room->name}}</b></td>
+            </tr>
+            <tr class="trTd-width">
+                <td class="trTd-color">{{$ma5_sex_7->dia}}</td>
+                <td>{{$ma5_sex_7->block->block}}<br><b>{{$ma5_sex_7->discipline->name}}</b> <br> {{$ma5_sex_7->user->name}} <br> <b>{{$ma5_sex_7->room->name}}</b></td>
+                <td>{{$ma5_sex_9->block->block}}<br><b>{{$ma5_sex_9->discipline->name}}</b> <br> {{$ma5_sex_9->user->name}} <br> <b>{{$ma5_sex_9->room->name}}</b></td>
+                <td>{{$ma5_sex_11->block->block}}<br><b>{{$ma5_sex_11->discipline->name}}</b> <br> {{$ma5_sex_11->user->name}} <br> <b>{{$ma5_sex_11->room->name}}</b></td>
+            </tr>
+        </table>
+    </template>
+</div>
+
+<!-- MEIO AMBIENTE E RECURSOS HÍDRICOS 6° SEMESTRE-->
+<div id="section_6" class="ma_6" style="display:none">
+    <template id="ma_6">
+        <h3 class="title-s">6° Semestre</h3>
+        <table>
+            <thead>
+                <tr class="trTd-color">
+                <td></td>
+                <td>7h45 às 9h25</td>
+                <td>9h30 às 11h10</td>
+                <td>11h20 às 13h00</td>
+                </tr>
+            </thead>
+            <tr class="trTd-width">
+                <td class="trTd-color">{{$ma6_seg_9->dia}}</td>
+                <td></td>
+                <td>{{$ma6_seg_9->block->block}}<br> <b>{{$ma6_seg_9->discipline->name}}</b> <br> {{$ma6_seg_9->user->name}} <br> <b>{{$ma6_seg_9->room->name}}</b></td>
+                <td>{{$ma6_seg_11->block->block}}<br> <b>{{$ma6_seg_11->discipline->name}}</b> <br> {{$ma6_seg_11->user->name}} <br> <b>{{$ma6_seg_11->room->name}}</b></td>
+            </tr>
+            <tr class="trTd-width">
+                <td class="trTd-color">{{$ma6_ter_9->dia}}</td>
+                <td></td>
+                <td>{{$ma6_ter_9->block->block}}<br><b>{{$ma6_ter_9->discipline->name}}</b> <br> {{$ma6_ter_9->user->name}} <br> <b>{{$ma6_ter_9->room->name}}</b></td>
+                <td>{{$ma6_ter_11->block->block}}<br><b>{{$ma6_ter_11->discipline->name}}</b> <br> {{$ma6_ter_11->user->name}} <br> <b>{{$ma6_ter_11->room->name}}</b></td>
+            </tr>
+            <tr class="trTd-width">
+                <td class="trTd-color">{{$ma6_qua_7->dia}}</td>
+                <td>{{$ma6_qua_7->block->block}}<br><b>{{$ma6_qua_7->discipline->name}}</b> <br> {{$ma6_qua_7->user->name}} <br> <b>{{$ma6_qua_7->room->name}}</b></td>
+                <td>{{$ma6_qua_9->block->block}}<br><b>{{$ma6_qua_9->discipline->name}}</b> <br> {{$ma6_qua_9->user->name}} <br> <b>{{$ma6_qua_9->room->name}}</b></td>
+                <td>{{$ma6_qua_11->block->block}}<br><b>{{$ma6_qua_11->discipline->name}}</b> <br> {{$ma6_qua_11->user->name}} <br> <b>{{$ma6_qua_11->room->name}}</b></td>
+            </tr>
+            <tr class="trTd-width">
+                <td class="trTd-color">{{$ma6_qui_7->dia}}</td>
+                <td>{{$ma6_qui_7->block->block}}<br><b>{{$ma6_qui_7->discipline->name}}</b> <br> {{$ma6_qui_7->user->name}} <br> <b>{{$ma6_qui_7->room->name}}</b></td>
+                <td>{{$ma6_qui_9->block->block}}<br><b>{{$ma6_qui_9->discipline->name}}</b> <br> {{$ma6_qui_9->user->name}} <br> <b>{{$ma6_qui_9->room->name}}</b></td>
+                <td>{{$ma6_qui_11->block->block}}<br><b>{{$ma6_qui_11->discipline->name}}</b> <br> {{$ma6_qui_11->user->name}} <br> <b>{{$ma6_qui_11->room->name}}</b></td>
             </tr>
         </table>
     </template>

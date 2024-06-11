@@ -54,48 +54,53 @@ class AdmController extends Controller
 
     public function editHour($id)
     {
+        $courses = Course::all();
+        $users = User::all();
+        $disciplines = Discipline::all();
+        $blocks = Blocks::all();
+        $rooms = Room::all();
+        $semesters = Semester::all();
         $hour = Hour::findOrFail($id);
+        $user = $hour->user;
+        //dd($hour->user_id);
 
-        return view('pages.adms.edit-hour', compact('hour'));
+        return view('pages.adms.edit-hour',
+        compact(
+            'hour','courses','users','disciplines','blocks','rooms','semesters'));
     }
 
     public function store(Request $request, $id)
     {
         $hour = Hour::findOrFail($id);
         // Atualizar professor
-        $user = $hour->user;
-        $user->name = $request->user;
-        $user->save();
+        $hour->user_id = $request->input('user_id');
+        $hour->save();
 
         // Atualizar curso
-        $course = $hour->course;
-        $course->description = $request->course;
-        $course->save();
+        $hour->course_id = $request->input('course_id');
+        $hour->save();
 
         // Atualizar Semestre
-        $semester = $hour->semester;
-        $semester->name = $request->semester;
-        $semester->save();
+        $hour->semester_id = $request->input('semester_id');
+        $hour->save();
 
         // Atualizar Disciplina
-        $discipline = $hour->discipline;
-        $discipline->name = $request->discipline;
-        $discipline->save();
+        $hour->discipline_id = $request->input('discipline_id');
+        $hour->save();
 
         // Atualizar Sala
-        $room = $hour->room;
-        $room->name = $request->room;
-        $room->save();
+        $hour->room_id = $request->input('room_id');
+        $hour->save();
 
         // Atualizar Block
-        $block = $hour->block;
-        $block->block = $request->block;
-        $block->save();
+        $hour->block_id = $request->input('block_id');
+        $hour->save();
 
-        // Atualizar Dia e Hora
+        // Atualizar Dia
         $hour->dia = $request->dia;
         $hour->save();
 
+        // Atualizar Hora
         $hour->hora = $request->hora;
         $hour->save();
     }
