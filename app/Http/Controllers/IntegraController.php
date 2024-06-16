@@ -7,7 +7,7 @@ use App\Models\Integra;
 use App\Models\UserType;
 use App\Models\User;
 use App\Models\Room;
-use App\Models\Blocks;
+use App\Models\Post;
 use App\Models\Hour;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -19,7 +19,8 @@ class IntegraController extends Controller
      */
     public function index(): View
     {
-        return view('pages.index');
+        $post = Post::find(28);
+        return view('pages.index', compact('post'));
     }
 
     public function grade(Request $request): View

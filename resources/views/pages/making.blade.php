@@ -1,4 +1,35 @@
 
+<style>
+    select{
+        padding: 0.5rem;
+        background: lightblue;
+        border: lightblue;
+        border-radius: 15px;
+        cursor: pointer;
+        font-weight:300;
+    }
+    input{
+        padding: 0.5rem;
+        border-radius: 15px;
+        border: none;
+    }
+    select:focus{
+        border: lightblue;
+        color: gray;
+    }
+    .btn{
+        padding: 0.5rem;
+        border-radius: 15px;
+        border: 1px solid
+    }
+    .btn:hover{
+        background-color: green;
+        border: 1px solid lightblue;
+        cursor: pointer;
+        color: white;
+        font-weight: bold;
+    }
+</style>
 <div id="show-template"></div>
 <template id="criar-hora">
     <form id="my-form" method="POST" action="/store">
@@ -8,7 +39,7 @@
             <select name="courses" id="courses">
                 @foreach($courses as $course)
                 <option value={{$course->id}}>
-                    {{$course->id}}-{{$course->description}}
+                    {{$course->description}}
                 </option>
                 @endforeach
             </select>
@@ -19,7 +50,7 @@
             <select name="semesters" id="semesters">
                 @foreach ($semesters as $semester)
                 <option value={{$semester->id}}>
-                    {{$semester->id}} - {{$semester->name}}
+                    {{$semester->name}}
                 </option>
                 @endforeach
             </select>
@@ -31,7 +62,7 @@
             <select name="disciplines" id="disciplines">
                 @foreach ($disciplines as $discipline)
                     <option value={{$discipline->id}}>
-                        {{$discipline->id}}-{{$discipline->name}}
+                        {{$discipline->name}}
                     </option>
                 @endforeach
             </select>
@@ -43,7 +74,7 @@
             <select name="users" id="users">
                 @foreach ($users as $user)
                 <option value={{$user->id}}>
-                    {{$user->id}}-{{$user->name}}
+                    {{$user->name}}
                 </option>
                 @endforeach
             </select>
@@ -55,7 +86,7 @@
             <select name="rooms" id="rooms">
                 @foreach ($rooms as $room)
                 <option value={{$room->id}}>
-                    {{$room->id}}-{{$room->name}}
+                    {{$room->name}}
                 </option>
                 @endforeach
             </select>
@@ -66,7 +97,7 @@
             <select name="blocks" id="blocks">
                 @foreach ($blocks as $block)
                 <option value={{$block->id}}>
-                    {{$block->id}}-{{$block->block}}
+                    {{$block->block}}
                 </option>
                 @endforeach
             </select>
@@ -95,7 +126,7 @@
             </select>
         </div>
         <br/>
-        <button type="submit">Criar</button>
+        <button class="btn" type="submit">Criar</button>
         @if(session('status') === "hour-created")
             <b>Horário criado com sucesso!</b>
         @endif

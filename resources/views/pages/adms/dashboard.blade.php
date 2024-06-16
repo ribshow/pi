@@ -1,4 +1,4 @@
-<link rel="stylesheet" href={{asset('css/admin.css')}}>
+<link rel="stylesheet" href={{asset('css/admin_att.css')}}>
 @extends('pages.layouts.header')
 @section('conteudo')
 <!--MENU DA DIREITA-->

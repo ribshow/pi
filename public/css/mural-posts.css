@@ -48,8 +48,9 @@
 }
 .post{
     width: 24rem;
-    height: 20rem;
+    height: 24rem;
     border: 1px solid crimson;
+    background-color: bisque;
     border-radius: 15px;
     margin: 1rem;
     float: left;

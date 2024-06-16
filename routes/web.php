@@ -17,7 +17,6 @@ Route::get('/', function () {
 });
 
 Route::get('/grade', [HourController::class, 'show_dsm']);
-Route::get('/sn', [HourController::class, 'show_sn']);
 Route::get('/index', function(){
     return view('pages.index');
 });
@@ -65,6 +64,9 @@ Route::post('/edit/{id}', [AdmController::class, 'editHour'])
     ->middleware(CheckAdmin::class);
 Route::put('/update-hour/{id}', [AdmController::class, 'store'])
     ->name('update.hour')
+    ->middleware(CheckAdmin::class);
+Route::put('/admin-edit/{id}', [AdmController::class, 'editUser'])
+    ->name('update.user')
     ->middleware(CheckAdmin::class);
 
 Route::get('/relation', function (){

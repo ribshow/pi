@@ -7,6 +7,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const section = document.getElementById('show-template');
     const adminEl = document.getElementById('admin-container');
 
+    const buttonEl = document.querySelectorAll('.btn-editar');
+
+
+    function loadAttTemplate(){
+        const templateAtt = document.getElementById('att-user').content.cloneNode(true);
+        section.innerHTML = '';
+        section.appendChild(templateAtt);
+        if (textEl) {
+            textEl.remove();
+        }
+    }
+
     // Função para ajustar a altura do container
     function ajustarAltura() {
         adminEl.style.height = 'max-content';
@@ -86,7 +98,38 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+    function addEditListeners(){
+        const editUsers = document.querySelectorAll('.edit-user-form');
+        editUsers.forEach(form => {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
 
+                if(confirm('Deseja definir esse usuário como professor?')){
+                    const action = this.action;
+                    const csrfToken =  document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+                    fetch(action, {
+                        method: 'PUT',
+                        headers: {
+                            'X-CSRF-TOKEN': csrfToken,
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if(data.success){
+                            this.closest('.admin-right-container').remove();
+                            alert(data.success);
+                        }else {
+                            alert('Houve um problema ao atualizar usuário!');
+                        }
+                    })
+                    .catch(error => console.error('Erro', error));
+                }
+            })
+        })
+    }
     // Função para carregar e exibir o template de usuários
     function loadUserTemplate() {
         const templateUser = document.getElementById('my-users').content.cloneNode(true);
@@ -96,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
             textEl.remove();
         }
         addDeleteListeners();
+        addEditListeners();
         pesquisarUser();
     }
 
@@ -116,13 +160,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         ajustarAltura();
     }
-
     // Ouvinte de clique para o botão de usuários
     linkUserEl.addEventListener('click', function(event) {
         event.preventDefault();
         loadUserTemplate();
         ajustarAltura();
     });
+    // Ouvinte de clique para o botão de editar
 
     // Ouvinte de clique para o botão de criação de horários
     linkHourEl.addEventListener('click', function(event) {
@@ -163,11 +207,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if(courseId == 1){
             dsm1(courseId);
+        }else if(courseId == 2){
+            sn(courseId);
+        }else if(courseId == 3){
+            cn(courseId);
+        }else if(courseId == 4){
+            gpi(courseId);
+        }else if(courseId == 5){
+            alert('Curso modalidade EAD.');
+        }else if(courseId == 6){
+            ma(courseId);
         }
     }
     // EXPORTAR A FUNÇÃO REDIRECT PARA QUE ELA POSSA SER USADA
     window.redirectPage = redirectPage;
 
+    // CRIANDO OS BOTÕES
     function dsm1(option){
         var optionsDsm = `<button class='dsm-s1' type='button'>1° Semestre</button>
                           <button class='dsm-s2' type='button'>2° Semestre</button>`;
@@ -177,7 +232,72 @@ document.addEventListener('DOMContentLoaded', function() {
             addDsmListeners();
         }
     }
+    // CRIANDO OS BOTÕES DE SN
+    function sn(option){
+        var optionsSn = `<button class='sn-s1' type='button'>1° Semestre</button>
+                         <button class='sn-s2' type='button'>2° Semestre</button>
+                         <button class='sn-s3' type='button'>3° Semestre</button>
+                         <button class='sn-s4' type='button'>4° Semestre</button>
+                         <button class='sn-s5' type='button'>5° Semestre</button>
+                         <button class='sn-s6' type='button'>6° Semestre</button>`;
+        if (option == 2) {
+            // INSERE OS BOTÕES DE SN NO HTML
+            document.getElementById('botoes').innerHTML = optionsSn;
+            // ADICIONANDO OUVINTES PARA GARANTIR QUE O BOTÃO CORRETO SEJA ACIONADO
+            addSnListeners();
+        }
+    }
+    // CRIANDO OS BOTÕES DE CN
+    function cn(option) {
+        // CRIANDO OS BOTÕES
+        var optionsCn = `<button class='cn-s1' type='button'>1° Semestre</button>
+                             <button class='cn-s2' type='button'>2° Semestre</button>
+                             <button class='cn-s3' type='button'>3° Semestre</button>
+                             <button class='cn-s4' type='button'>4° Semestre</button>
+                             <button class='cn-s5' type='button'>5° Semestre</button>
+                             <button class='cn-s6' type='button'>6° Semestre</button>`;
+        // INSERE OS BOTÕES NO HTML
+        if(option == 3){
+            document.getElementById('botoes').innerHTML = optionsCn;
+        // Adicione event listeners se necessário
+            addCnListeners();
+        }
+    }
+    // CRIANDO OS BOTÕES DE GPI
+    function gpi(option){
+        // CRIANDO OS BOTÕES
+        var optionsGp = `<button class='gp-s1' type='button'>1° Semestre</button>
+        <button class='gp-s2' type='button'>2° Semestre</button>
+        <button class='gp-s3' type='button'>3° Semestre</button>
+        <button class='gp-s4' type='button'>4° Semestre</button>
+        <button class='gp-s5' type='button'>5° Semestre</button>
+        <button class='gp-s6' type='button'>6° Semestre</button>`;
 
+        if(option == 4){
+           document.getElementById('botoes').innerHTML = optionsGp;
+           addGpListeners();
+        }
+    }
+   // CRIANDO OS BOTÕES DE MA
+    function ma(option){
+    var optionsMa = `
+        <button class='ma-s1' type='button'>1° Semestre</button>
+        <button class='ma-s2' type='button'>2° Semestre</button>
+        <button class='ma-s3' type='button'>3° Semestre</button>
+        <button class='ma-s4' type='button'>4° Semestre</button>
+        <button class='ma-s5' type='button'>5° Semestre</button>
+        <button class='ma-s6' type='button'>6° Semestre</button>`;
+
+    if(option == 6){
+        document.getElementById('botoes').innerHTML = optionsMa;
+        addMaListeners();
+    }
+    }
+
+
+
+    // ADICIONANDO BOTÕES AO DOCUMENT E OUVINTES AOS BOTÕES DOS CURSOS
+    // // FUNÇÃO PARA ADICIONAR OUVINTES AOS BOTÕES DE DSM
     function addDsmListeners() {
         const buttonS1 = document.querySelector('.dsm-s1');
         const buttonS2 = document.querySelector('.dsm-s2');
@@ -185,6 +305,71 @@ document.addEventListener('DOMContentLoaded', function() {
         buttonS1.addEventListener('click', () => displayContent('dsm', 1));
         buttonS2.addEventListener('click', () => displayContent('dsm', 2));
     }
+    // FUNÇÃO PARA ADICIONAR OUVINTES AOS BOTÕES DE SN
+    function addSnListeners() {
+        const buttonSn1 = document.querySelector('.sn-s1');
+        const buttonSn2 = document.querySelector('.sn-s2');
+        const buttonSn3 = document.querySelector('.sn-s3');
+        const buttonSn4 = document.querySelector('.sn-s4');
+        const buttonSn5 = document.querySelector('.sn-s5');
+        const buttonSn6 = document.querySelector('.sn-s6');
+        // ADICIONANDO OUVINTES DE CLICK AOS BOTÕES DE DSM
+        buttonSn1.addEventListener('click', () => displayContent('sn', 1));
+        buttonSn2.addEventListener('click', () => displayContent('sn', 2));
+        buttonSn3.addEventListener('click', () => displayContent('sn', 3));
+        buttonSn4.addEventListener('click', () => displayContent('sn', 4));
+        buttonSn5.addEventListener('click', () => displayContent('sn', 5));
+        buttonSn6.addEventListener('click', () => displayContent('sn', 6));
+    }
+    // FUNÇÃO PARA ADICIONAR OUVINTES AOS BOTÕES DE CN
+    function addCnListeners() {
+        const buttonCn1 = document.querySelector('.cn-s1');
+        const buttonCn2 = document.querySelector('.cn-s2');
+        const buttonCn3 = document.querySelector('.cn-s3');
+        const buttonCn4 = document.querySelector('.cn-s4');
+        const buttonCn5 = document.querySelector('.cn-s5');
+        const buttonCn6 = document.querySelector('.cn-s6');
+        // ADICIONANDO OUVINTES DE CLICK AOS BOTÕES DE DSM
+        buttonCn1.addEventListener('click', () => displayContent('cn', 1));
+        buttonCn2.addEventListener('click', () => displayContent('cn', 2));
+        buttonCn3.addEventListener('click', () => displayContent('cn', 3));
+        buttonCn4.addEventListener('click', () => displayContent('cn', 4));
+        buttonCn5.addEventListener('click', () => displayContent('cn', 5));
+        buttonCn6.addEventListener('click', () => displayContent('cn', 6));
+    }
+    // FUNÇÃO PARA ADICIONAR OUVINTES AOS BOTÕES DE GPI
+    function addGpListeners() {
+        const buttonGp1 = document.querySelector('.gp-s1');
+        const buttonGp2 = document.querySelector('.gp-s2');
+        const buttonGp3 = document.querySelector('.gp-s3');
+        const buttonGp4 = document.querySelector('.gp-s4');
+        const buttonGp5 = document.querySelector('.gp-s5');
+        const buttonGp6 = document.querySelector('.gp-s6');
+        // ADICIONANDO OUVINTES DE CLICK AOS BOTÕES DE DSM
+        buttonGp1.addEventListener('click', () => displayContent('gp', 1));
+        buttonGp2.addEventListener('click', () => displayContent('gp', 2));
+        buttonGp3.addEventListener('click', () => displayContent('gp', 3));
+        buttonGp4.addEventListener('click', () => displayContent('gp', 4));
+        buttonGp5.addEventListener('click', () => displayContent('gp', 5));
+        buttonGp6.addEventListener('click', () => displayContent('gp', 6));
+    }
+    // FUNÇÃO PARA ADICIONAR OUVINTES AOS BOTÕES DE MA
+    function addMaListeners() {
+        const buttonMa1 = document.querySelector('.ma-s1');
+        const buttonMa2 = document.querySelector('.ma-s2');
+        const buttonMa3 = document.querySelector('.ma-s3');
+        const buttonMa4 = document.querySelector('.ma-s4');
+        const buttonMa5 = document.querySelector('.ma-s5');
+        const buttonMa6 = document.querySelector('.ma-s6');
+        // ADICIONANDO OUVINTES DE CLICK AOS BOTÕES DE DSM
+        buttonMa1.addEventListener('click', () => displayContent('ma', 1));
+        buttonMa2.addEventListener('click', () => displayContent('ma', 2));
+        buttonMa3.addEventListener('click', () => displayContent('ma', 3));
+        buttonMa4.addEventListener('click', () => displayContent('ma', 4));
+        buttonMa5.addEventListener('click', () => displayContent('ma', 5));
+        buttonMa6.addEventListener('click', () => displayContent('ma', 6));
+    }
+
 
     // FUNÇÃO PARA EXIBIR O CONTEÚDO DO SEMESTRE
     function displayContent(course, semester) {
@@ -336,6 +521,47 @@ document.addEventListener('DOMContentLoaded', function() {
         }else if (course === 'gp' && semester === 6){
             section6.style = 'block';
             const template = document.getElementById('gp_6').content.cloneNode(true);
+            section6.innerHTML = '';
+            section6.appendChild(template);
+            ajustarAltura();
+        }else if (course === 'ma' && semester === 1){
+            section1.style = 'block';
+            const template = document.getElementById('ma_1').content.cloneNode(true);
+            section1.innerHTML = '';
+            section1.appendChild(template);
+            ajustarAltura();
+            // MA 2 SEMESTRE
+        }else if (course === 'ma' && semester === 2){
+            section2.style = 'block';
+            const template = document.getElementById('ma_2').content.cloneNode(true);
+            section2.innerHTML = '';
+            section2.appendChild(template);
+            ajustarAltura();
+            // MA 3 SEMESTRE
+        }else if (course === 'ma' && semester === 3){
+            section3.style = 'block';
+            const template = document.getElementById('ma_3').content.cloneNode(true);
+            section3.innerHTML = '';
+            section3.appendChild(template);
+            ajustarAltura();
+            // MA 4 SEMESTRE
+        }else if (course === 'ma' && semester === 4){
+            section4.style = 'block';
+            const template = document.getElementById('ma_4').content.cloneNode(true);
+            section4.innerHTML = '';
+            section4.appendChild(template);
+            ajustarAltura();
+            // MA 5 SEMESTRE
+        }else if (course === 'ma' && semester === 5){
+            section5.style = 'block';
+            const template = document.getElementById('ma_5').content.cloneNode(true);
+            section5.innerHTML = '';
+            section5.appendChild(template);
+            ajustarAltura();
+            // MA 6 SEMESTRE
+        }else if (course === 'ma' && semester === 6){
+            section6.style = 'block';
+            const template = document.getElementById('ma_6').content.cloneNode(true);
             section6.innerHTML = '';
             section6.appendChild(template);
             ajustarAltura();

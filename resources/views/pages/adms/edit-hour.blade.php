@@ -1,15 +1,55 @@
 <style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+    }
     .editar-hora{
-        margin: 4rem;
+        display: flex;
+        align-content: center;
+        justify-content: center;
     }
     .curso,.disciplina,.professor{
         width: 26rem;
         height: 2rem;
     }
+    select{
+        width: 300px;
+        height: 2rem;
+    }
+    input{
+        width: 300px;
+        height: 2rem;
+    }
+    .retornar{
+        position: absolute;
+        display: flex;
+        align-content: left;
+        justify-content: left;
+        margin: 1rem;
+    }
+    #test:hover{
+        width: 54px;
+    }
+    .btn-2{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        margin: 0.5rem;
+    }
+    .bt-alterar{
+        padding: 0.5rem;
+        font-weight: bold;
+    }
+    .bt-alterar:hover{
+        cursor: pointer;
+    }
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<div class="retornar">
+    <a id="test" href="javascript:history.back()">
+        <img src="{{asset('img/voltar.png')}}" width="48" alt="voltar">
+    </a>
+</div>
 <div class="editar-hora">
-    <a href="javascript:history.back()">Voltar</a>
     <form action="{{route('update.hour',$hour->id)}}" method="POST">
         @csrf
         @method('PUT')
@@ -36,7 +76,7 @@
                 <option value="{{$hour->discipline_id}}">{{$hour->discipline->name}}</option>
                 <optgroup label="..."></optgroup>
                 @foreach ($disciplines as $discipline)
-                <option value="{{$discipline->id}}">{{$discipline->id}} - {{$discipline->name}}</option>
+                <option value="{{$discipline->id}}">{{$discipline->name}}</option>
                 @endforeach
             </select>
         </div>
@@ -108,8 +148,8 @@
             <input class="hora" type="text" name="hora"
             value="{{$hour->hora}}">
         </div>
-        <div>
-            <button type="submit">Alterar</button>
+        <div class="btn-2">
+            <button class="bt-alterar" type="submit">Alterar</button>
         </div>
     </form>
 </div>

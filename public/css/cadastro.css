@@ -5,6 +5,7 @@
     justify-content: center;
     padding: 40px;
     background-color: var(--dsm-bg-color-senary);
+    position: absolute;
 }
 
 .card-container {
@@ -53,7 +54,7 @@
 .input-box2 {
     width: 10px;
     background-color: var(--dsm-bg-color-secondary);
-    border-radius:0 10px 10px 0;
+    border-radius: 0 10px 10px 0;
     border: 1px solid var(--dsm-border-color-secundary);
     border-left: none;
 }
@@ -65,7 +66,8 @@
 }
 
 .input-box::placeholder {
-    color: var(--dsm-font-color-tertiary);
+    color: var(--dsm-font-color-secundary);
+    font-size: 14px;
 }
 
 .input-box:focus {
@@ -94,16 +96,69 @@
     background-color: var(--dsm-font-color-tertiary);
 }
 
+/* TELA CRUD PUBLICATION */
+
+.crud-textarea {
+    height: 250px;
+}
+
+.textarea {
+    resize: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--dsm-border-color-secundary);
+    border-left: none;
+    border-right: none;
+}
+
+.input-file {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* TELA CRUD HORARIO */
+
+.select-horario {
+    border-bottom: 1px solid var(--dsm-border-color-secundary);
+    border-top: 1px solid var(--dsm-border-color-secundary);
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.select-horario:focus {
+    outline: none;
+}
+
+.custom-file-upload {
+    padding: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    background-color: var(--dsm-bg-color-secondary);
+    color: var(--dsm-font-color-secundary);
+    border: none;
+    overflow: hidden;
+    border-top: 1px solid var(--dsm-border-color-secundary);
+    border-bottom: 1px solid var(--dsm-border-color-secundary);
+}
+
+
+
 @media (min-width: 576px) {
 
     .card-container {
         width: 500px;
     }
 
-    .cursor-container  {
+    .cursor-container {
         height: 45px;
     }
-    
+
     .btn-enter {
         height: 45px;
         font-size: 16px;
@@ -111,5 +166,26 @@
 
     .text-logo {
         font-size: 32px;
+    }
+
+    .crud-textarea {
+        height: 300px;
+    }
+
+    .textarea {
+        padding: 20px 10px;
+    }
+
+    .custom-file-upload {
+        padding: 10.5px;
+    }
+
+    .input-box::placeholder {
+        font-size: 16px;
+    }
+
+    .select-horario {
+        padding: 5px;
+        font-size: 16px;
     }
 }

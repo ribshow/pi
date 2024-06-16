@@ -28,7 +28,7 @@
         <nav class="navbar-container" id="itens">
           <ul class="nav-list">
             @if (auth()->check() && auth()->user()->isAdmin())
-            <li style="text-align:left; margin-right: 48rem"><a href="{{url('dash')}}">Dashboard</a></li>
+            <li><a href="{{url('dash')}}">Admin</a></li>
             @endif
             <li style="padding-top: 11px"><a href="{{url('index')}}">Home</a></li>
             <li><a href="{{url('grade')}}">Horário</a></li>

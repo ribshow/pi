@@ -1,4 +1,4 @@
-<link rel="stylesheet" href={{asset('css/horario_2.css')}}>
+<link rel="stylesheet" href={{asset('css/horario_att.css')}}>
 @extends('pages.layouts.header')
 @section('conteudo')
     <div class="main-container" id="main-container">

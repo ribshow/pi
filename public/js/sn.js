@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         if(option == 6){
             document.querySelector('.botoes').innerHTML = optionsMa;
-            addMaListener();
+            addMaListeners();
         }
     }
     // FUNÇÃO PARA ADICIONAR OUVINTES DE EVENTO AOS BOTÕES DSM
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         buttonCn6.addEventListener('click', () => displayContent('cn', 6));
     }
 
-        // FUNÇÃO PARA ADICIONAR OUVINTES AOS BOTÕES DE GPI
+    // FUNÇÃO PARA ADICIONAR OUVINTES AOS BOTÕES DE GPI
     function addGpListeners() {
         const buttonGp1 = document.querySelector('.gp-s1');
         const buttonGp2 = document.querySelector('.gp-s2');
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         buttonGp6.addEventListener('click', () => displayContent('gp', 6));
     }
 
-    function addMaListener() {
+    function addMaListeners() {
         const buttonMa1 = document.querySelector('.ma-s1');
         const buttonMa2 = document.querySelector('.ma-s2');
         const buttonMa3 = document.querySelector('.ma-s3');

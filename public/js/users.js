@@ -2,7 +2,20 @@ const linkEl = document.getElementById('link-user');
 const linkHourEl = document.getElementById('link-hour');
 const textEl = document.querySelector('.text-h3');
 // RECEBENDO A DIV QUE IRÁ EXIBIR O CONTEÚDO
-const section = document.getElementById('show-template')
+const section = document.getElementById('show-template');
+
+const btnEditEl = document.getElementById('btn-editar');
+
+btnEditEl.addEventListener('click', (event)=>{
+    let userLoaded = false;
+    event.preventDefault();
+
+    if(!userLoaded){
+        const templateAtt = document.getElementById('att-user').content.cloneNode(true);
+        document.getElementById('show-template').appendChild(templateAtt);
+        userLoaded = true;
+    }
+});
 
 // adicionando um ouvinte de click ao botão usuários
 
