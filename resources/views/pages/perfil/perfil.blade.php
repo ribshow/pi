@@ -55,7 +55,7 @@
         <label for="update_password_current_password">Senha atual</label><br/>
         <input class="i-perfil" type="password" name="current_password" id="update_password_current_password">
         <br/><br/>
-
+        <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
         <label for="update_password_password">Nova senha</label><br/>
         <input class="i-perfil" type="password" name="password" id="update_password_password">
         <br/><br/>
@@ -63,11 +63,7 @@
         <label for="update_password_password_confirmation">Confirme a nova senha</label><br/>
         <input class="i-perfil" type="password" name="password_confirmation" id="update_password_password_confirmation">
         <br/><br/>
-        @if($errors->updatePassword->has('password_confirmation'))
-            <span style="color:red">
-                {{ $errors->updatePassword->first('password_confirmation')}}
-            </span>
-        @endif
+        <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
         <button class="i-button" type="submit">Salvar</button>
     </div>
     @if ($errors->any())

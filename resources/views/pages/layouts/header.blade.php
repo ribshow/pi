@@ -107,7 +107,7 @@
                     </div>
                 </div>
                 <div class="ft-card3">
-                    <a href="https://www.cps.sp.gov.br/"><img src="img/logo-cps.svg" alt="logo-cps"></a>
+                    <a href="https://www.cps.sp.gov.br/"><img id="img-ft" src="img/logo-cps.svg" alt="logo-cps"></a>
                 </div>
             </div>
         </div>

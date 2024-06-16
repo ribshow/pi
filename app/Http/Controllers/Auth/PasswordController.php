@@ -20,6 +20,10 @@ class PasswordController extends Controller
             'password' => ['required', Password::defaults(), 'confirmed'],
         ]);
 
+        if(!Hash::check($validated['current_password'], $request->user()->password)){
+            return back()->withErrors(['current_password' => 'password-upadte-failed']);
+        }
+
         $request->user()->update([
             'password' => Hash::make($validated['password']),
         ]);

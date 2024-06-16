@@ -30,6 +30,7 @@
     background-color: crimson;
     color: lightcyan;
     border-radius: 15px;
+    margin-top: 0.5rem;
     margin-right: 0.5rem;
 }
 .dsm-s1:hover,.dsm-s2:hover,.sn-s1:hover,

@@ -42,7 +42,7 @@
 @media (max-width: 600px) {
     .p-container {
         margin: 1rem;
-        padding-top: 14rem;
+        padding-top: 4rem;
     }
     .info-perfil, .info-senha {
         margin: 1rem;

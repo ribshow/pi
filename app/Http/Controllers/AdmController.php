@@ -110,6 +110,11 @@ class AdmController extends Controller
     public function editUser($id)
     {
         $user = User::findOrFail($id);
+
+        if($user->role === 'teacher'){
+            return response()->json(['success' => 'Usuário já é professor!']);
+        }
+
         $user->role = 'teacher';
         $user->save();
 

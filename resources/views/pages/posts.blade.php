@@ -21,8 +21,7 @@
             @csrf
             <input class="t-post" type="text" value="{{$post->title}}" name="title" placeholder="{{__('Título')}}" required/>
             <br/>
-            <textarea class="m-post" name="message" required>
-            {{old('message',$post->message)}}
+            <textarea class="m-post" name="message" required>{{old('message',$post->message)}}
             </textarea>
             <br/>
         <button class="b-post" type='submit'>Editar Publicação</button>

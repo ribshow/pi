@@ -53,7 +53,7 @@ function fixHeaderPosition() {
     if (window.innerWidth < 576) {
         var scrollPosition = window.scrollY;
         if (scrollPosition > 0) {
-            header.style.position = 'fixed';
+            header.style.position = 'relative';
         } else {
             header.style.position = 'relative';
         }

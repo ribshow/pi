@@ -12,7 +12,7 @@
 .header-fixed {
     position: fixed;
     width: 100%;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .navbar-container {
@@ -39,6 +39,9 @@
     padding: 15px 37px;
     background-color: var(--dsm-bg-color-primary);
     color: var(--dsm-font-color-primary);
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,1);
 }
 
 .logo-container a {

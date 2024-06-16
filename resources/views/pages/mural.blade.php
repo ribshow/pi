@@ -18,8 +18,7 @@
                 <input class="t-post" type="text" name="title" placeholder="{{__('Título')}}" required/>
                 <br/>
                 <textarea class="m-post" name="message" maxlength="300"
-                placeholder="{{__('O que você está pensando?')}}" required>
-                </textarea>
+                placeholder="{{__('O que você está pensando?')}}" required></textarea>
                 <br/>
             <button class="b-post" type='submit'>Publicar</button>
             </form>
