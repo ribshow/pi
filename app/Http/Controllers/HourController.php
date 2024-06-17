@@ -359,6 +359,17 @@ class HourController extends Controller
         $ma6_qui_9 = Hour::find(290);
         $ma6_qui_11 = Hour::find(291);
 
+        // si 3 semestre
+        $si3_seg_9 = Hour::find(293);
+        $si3_seg_11 = Hour::find(294);
+        $si3_ter_9 = Hour::findOrFail(295);
+        $si3_ter_11 = Hour::findOrFail(296);
+        $si3_qua_7 = Hour::findOrFail(297);
+        $si3_qua_9 = Hour::findOrFail(298);
+        $si3_qua_11 = Hour::findOrFail(299);
+        $si3_qui_9 = Hour::findOrFail(300);
+        $si3_qui_11 = Hour:: findOrFail(301);
+
 
         return view('pages.grade',
         compact(
@@ -462,6 +473,10 @@ class HourController extends Controller
         // ma 6 semestre
         'ma6_seg_9','ma6_seg_11','ma6_ter_9','ma6_ter_11','ma6_qua_7','ma6_qua_9',
         'ma6_qua_11','ma6_qui_7','ma6_qui_9','ma6_qui_11',
+
+        // si 3 semestre
+        'si3_seg_9','si3_seg_11','si3_ter_9','si3_ter_11','si3_qua_7','si3_qua_9',
+        'si3_qua_11','si3_qui_9','si3_qui_11',
         ));
     }
     public function grade()

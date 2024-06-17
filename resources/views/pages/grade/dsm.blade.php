@@ -1251,5 +1251,52 @@
         </table>
     </template>
 </div>
+
+<!-- SISTEMAS PARA INTERNET E RECURSOS HÍDRICOS 3° SEMESTRE-->
+<div id="section_3" class="si_3" style="display:none">
+    <template id="si_3">
+        <h3 class="title-s">3° Semestre</h3>
+        <table>
+            <thead>
+                <tr class="trTd-color">
+                <td></td>
+                <td>7h45 às 9h25</td>
+                <td>9h30 às 11h10</td>
+                <td>11h20 às 13h00</td>
+                </tr>
+            </thead>
+            <tr class="trTd-width">
+                <td class="trTd-color">{{$si3_seg_9->dia}}</td>
+                <td></td>
+                <td>{{$si3_seg_9->block->block}}<br> <b>{{$si3_seg_9->discipline->name}}</b> <br> {{$si3_seg_9->user->name}} <br> <b>{{$si3_seg_9->room->name}}</b></td>
+                <td>{{$si3_seg_11->block->block}}<br> <b>{{$si3_seg_11->discipline->name}}</b> <br> {{$si3_seg_11->user->name}} <br> <b>{{$si3_seg_11->room->name}}</b></td>
+            </tr>
+            <tr class="trTd-width">
+                <td class="trTd-color">{{$si3_ter_9->dia}}</td>
+                <td></td>
+                <td>{{$si3_ter_9->block->block}}<br> <b>{{$si3_ter_9->discipline->name}}</b> <br> {{$si3_ter_9->user->name}} <br> <b>{{$si3_ter_9->room->name}}</b></td>
+                <td>{{$si3_ter_11->block->block}}<br> <b>{{$si3_ter_11->discipline->name}}</b> <br> {{$si3_ter_11->user->name}} <br> <b>{{$si3_ter_11->room->name}}</b></td>
+            </tr>
+            <tr class="trTd-width">
+                <td class="trTd-color">{{$si3_qua_7->dia}}</td>
+                <td>{{$si3_qua_7->block->block}}<br> <b>{{$si3_qua_7->discipline->name}}</b> <br> {{$si3_qua_7->user->name}} <br> <b>{{$si3_qua_7->room->name}}</b></td>
+                <td>{{$si3_qua_9->block->block}}<br> <b>{{$si3_qua_9->discipline->name}}</b> <br> {{$si3_qua_9->user->name}} <br> <b>{{$si3_qua_9->room->name}}</b></td>
+                <td>{{$si3_qua_11->block->block}}<br> <b>{{$si3_qua_11->discipline->name}}</b> <br> {{$si3_qua_11->user->name}} <br> <b>{{$si3_qua_11->room->name}}</b></td>
+            </tr>
+            <tr class="trTd-width">
+                <td class="trTd-color">{{$si3_qui_9->dia}}</td>
+                <td></td>
+                <td>{{$si3_qui_9->block->block}}<br> <b>{{$si3_qui_9->discipline->name}}</b> <br> {{$si3_qui_9->user->name}} <br> <b>{{$si3_qui_9->room->name}}</b></td>
+                <td>{{$si3_qui_11->block->block}}<br> <b>{{$si3_qui_11->discipline->name}}</b> <br> {{$si3_qui_11->user->name}} <br> <b>{{$si3_qui_11->room->name}}</b></td>
+            </tr>
+            <tr class="trTd-width">
+                <td class="trTd-color"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </template>
+</div>
 <script src={{asset('js/sn.js')}}></script>
 @endsection

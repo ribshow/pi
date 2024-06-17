@@ -69,6 +69,7 @@ Route::put('/admin-edit/{id}', [AdmController::class, 'editUser'])
     ->name('update.user')
     ->middleware(CheckAdmin::class);
 
+// TESTE
 Route::get('/relation', function (){
     $semester = Semester::find(1);
     $course = Course::find(1);
@@ -79,6 +80,7 @@ Route::get('/mural', function () {
     return view('pages.mural');
 })->middleware(['auth', 'verified'])->name('mural');
 
+// TESTE
 Route::get('/debug', function(){
    return view('pages.hora');
 });

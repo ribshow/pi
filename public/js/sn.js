@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             addGpListeners();
          }
     }
-
+    // MEIO AMBIENTE E RECURSOS HÍDRICOS
     function optMa(option){
         var optionsMa = `
             <button class='ma-s1' type='button'>1° Semestre</button>
@@ -73,6 +73,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
         if(option == 6){
             document.querySelector('.botoes').innerHTML = optionsMa;
             addMaListeners();
+        }
+    }
+    // SISTEMAS PARA INTERNET
+    function optSi(option){
+        var optionsSi = `
+            <button class='si-s3' type='button'>3° Semestre</button>
+            <button class='si-s4' type='button'>4° Semestre</button>
+            <button class='si-s5' type='button'>5° Semestre</button>
+            <button class='si-s6' type='button'>6° Semestre</button>`
+
+        if(option == 7){
+            document.querySelector('.botoes').innerHTML = optionsSi;
+            addSiListeners();
         }
     }
     // FUNÇÃO PARA ADICIONAR OUVINTES DE EVENTO AOS BOTÕES DSM
@@ -134,7 +147,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         buttonGp5.addEventListener('click', () => displayContent('gp', 5));
         buttonGp6.addEventListener('click', () => displayContent('gp', 6));
     }
-
+    // FUNÇÃO PARA ADICIONAR OUVINTES AOS BOTOÕES DE MA
     function addMaListeners() {
         const buttonMa1 = document.querySelector('.ma-s1');
         const buttonMa2 = document.querySelector('.ma-s2');
@@ -149,6 +162,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
         buttonMa4.addEventListener('click', () => displayContent('ma', 4));
         buttonMa5.addEventListener('click', () => displayContent('ma', 5));
         buttonMa6.addEventListener('click', () => displayContent('ma', 6));
+    }
+    // FUNÇÃO PARA ADICIONAR OUVINTES AOS BOTÕES DE SI
+    function addSiListeners() {
+        const buttonSi3 = document.querySelector('.si-s3');
+        const buttonSi4 = document.querySelector('.si-s4');
+        const buttonSi5 = document.querySelector('.si-s5');
+        const buttonSi6 = document.querySelector('.si-s6');
+        // ADICIONANDO OUVINTES DE CLCICK AOS BOTÕES DE SI
+        buttonSi3.addEventListener('click', () => displayContent('si', 3));
+        buttonSi4.addEventListener('click', () => displayContent('si', 4));
+        buttonSi5.addEventListener('click', () => displayContent('si', 5));
+        buttonSi6.addEventListener('click', () => displayContent('si', 6));
     }
 
     // FUNÇÃO PARA EXIBIR O CONTEÚDO DO SEMESTRE
@@ -352,6 +377,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
             section6.innerHTML = '';
             section6.appendChild(template);
             ajustarAltura();
+            // SI 3 SEMESTRE
+        }else if (course === 'si' && semester === 3){
+            section3.style = 'block';
+            const template = document.getElementById('si_3').content.cloneNode(true);
+            section3.innerHTML = '';
+            section3.appendChild(template);
+            ajustarAltura();
         }
 
         // Adicione lógica para outros semestres e cursos aqui conforme necessário
@@ -380,7 +412,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         } else if (courseId == 6) {
             optMa(courseId);
         } else if (courseId == 7) {
-            optSi();
+            optSi(courseId);
         } else if (courseId == 8) {
             optGti();
         } else if (courseId == 9) {
