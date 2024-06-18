@@ -6,7 +6,7 @@
 @include('pages.index.avisos')
 
       <div class="mapa-container">
-        <img src="img/mapa.png" alt="">
+        <img src="img/mapa1.png" alt="mapa">
       </div>
 
     </div>
