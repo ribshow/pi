@@ -1,10 +1,14 @@
 .main-post{
-    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 .form-post{
     margin-top: 2rem;
     display: flex;
     justify-content: center;
+}
+.title-board {
+    text-align: center;
 }
 .t-post{
     width: 450px;
@@ -41,6 +45,7 @@
     background-color: red;
     color: white;
     font-weight: bold;
+    transition: background-color 0.25s;
 }
 .b-1:hover,.b-post:hover{
     background-color: crimson;
@@ -62,7 +67,14 @@
     clear:both;
 }
 .show-posts{
-    margin: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Página posts, editar publicação */
+.container-edit{
+
 }
 
 
@@ -70,36 +82,41 @@
 
 /* Dispositivos pequenos (smartphones em modo retrato e paisagem) */
 @media screen and (max-width: 600px) {
-    .main-post {
-        margin-top: 14rem;
+    .main-post{
+        display: grid;
     }
     .form-post {
         flex-direction: column;
         align-items: center;
-    }
-    .t-post, .m-post {
-        width: 90%;
+        width: 100%;
     }
     .post {
         width: 100%;
         margin: 0.5rem 0;
     }
     .show-posts {
+        width: 100%;
         margin: 1rem;
+    }
+
+    .container-edit{
+        width: 100%;
+    }
+
+    .m-post{
+        box-sizing: border-box;
+        width: 100%;
     }
 }
 
 /* Dispositivos médios (tablets) */
 @media screen and (min-width: 601px) and (max-width: 1024px) {
     .main-post {
-        margin-top: 8rem;
+        display: grid;
     }
     .form-post {
         flex-direction: column;
         align-items: center;
-    }
-    .t-post, .m-post {
-        width: 70%;
     }
     .post {
         width: 45%;

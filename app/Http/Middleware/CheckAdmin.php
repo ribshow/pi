@@ -16,10 +16,10 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::check() && Auth::user()->role === 'admin'){
+        if (Auth::check() && Auth::user()->role === 'admin') {
             return $next($request);
         }
 
-        return redirect('/')->with('error','Você não tem permissão para acessar essa página!');
+        return redirect('/')->with('error', 'Você não tem permissão para acessar essa página!');
     }
 }

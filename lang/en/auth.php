@@ -14,7 +14,7 @@ return [
     */
 
     'failed' => 'Credenciais não conferem, tente novamente!',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'password' => 'A senha fornecida está incorreta.',
+    'throttle' => 'Muitas tentativas, por favor tente novamente em :seconds segundos.',
 
 ];

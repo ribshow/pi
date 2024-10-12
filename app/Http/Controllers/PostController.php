@@ -11,24 +11,25 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\File;
 use Exception;
 use Illuminate\Support\Facades\Log;
+
 class PostController extends Controller
 {
     public function store(Request $request): RedirectResponse
     {
-        try{
+        try {
             $validated = $request->validate([
-                'title'=>'required|string|max:80',
-                'message'=>'required|string|max:250',
+                'title' => 'required|string|max:80',
+                'message' => 'required|string|max:250',
             ]);
 
             $request->user()->posts()->create($validated);
+
             return redirect(route('mural'));
-        }catch(Exception $e){
-            Log::error('Erro ao criar post: '.$e->getMessage());
+        } catch (Exception $e) {
+            Log::error('Erro ao criar post: ' . $e->getMessage());
 
-            return redirect()->back()->withErrors(['error'=>'Ocorreu um erro ao criar o Post']);
+            return redirect()->back()->withErrors(['error' => 'Ocorreu um erro ao criar o Post']);
         }
-
     }
 
     public function show(): View
@@ -42,8 +43,8 @@ class PostController extends Controller
         Gate::authorize('update', $post);
         $images = File::files(public_path('/img'));
         $image = 'img/logo_preto.svg';
-        return view('pages.posts',compact('images','image'),[
-            'post'=>$post,
+        return view('pages.posts', compact('images', 'image'), [
+            'post' => $post,
         ]);
     }
 
@@ -52,8 +53,8 @@ class PostController extends Controller
         Gate::authorize('update', $post);
 
         $validated = $request->validate([
-            'title'=>'required|string|max:255',
-            'message'=>'required|string|max:1000',
+            'title' => 'required|string|max:255',
+            'message' => 'required|string|max:1000',
         ]);
 
         $post->update($validated);

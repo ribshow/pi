@@ -40,8 +40,7 @@ class PostPolicy
         $isTeacher = $user->isTeacher();
         $isAdmin = $user->isAdmin();
 
-        if($isTeacher && $isAdmin)
-        {
+        if ($isTeacher || $isAdmin) {
             return true;
         }
 

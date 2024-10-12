@@ -1,0 +1,37 @@
+body {
+    background-image: url("/img/CopiaBanner2.png");
+}
+.main-post {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid lightcoral;
+    background-color: rgb(252, 210, 210);
+    padding: 2rem;
+    border-radius: 2rem;
+    margin-top: 2rem;
+}
+.edit-button {
+    padding: 0.5rem;
+    border: 1px solid white;
+    background-color: lightcoral;
+    border-radius: 1rem;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.25s, color 0.25s;
+}
+
+.m-post {
+    height: 300px;
+}
+
+.edit-button:hover {
+    background-color: rgb(241, 106, 106);
+    color: white;
+    cursor: pointer;
+}
+@media (max-width: 600px) {
+    .m-post {
+        height: 240px;
+    }
+}

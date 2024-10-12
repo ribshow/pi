@@ -1,0 +1,72 @@
+#testando {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#seletor {
+    margin-left: 0.5rem;
+    background-color: white;
+}
+
+#btn-editar {
+    background-color: transparent;
+    margin-left: 0.5rem;
+    margin-top: 0.6rem;
+    transition: background-color, border-radius 0.5s;
+}
+
+#btn-editar:hover {
+    cursor: pointer;
+    background-color: white;
+    border-radius: 90px;
+}
+
+.sobrepor {
+    width: 450px;
+    height: 400px;
+    margin-left: 8rem;
+    position: absolute;
+    background-color: lightgray;
+    border-radius: 15px;
+    border: 1px solid black;
+    z-index: 1000;
+    box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem black;
+}
+
+.user-name,
+.user-email,
+.user-tipo,
+.un-name,
+.ue-email,
+.ut-type,
+.ub-but {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.un-input,
+.ue-input {
+    width: 300px;
+}
+
+.us-sel {
+    background-color: white;
+}
+
+.ub-button {
+    padding: 0.5rem;
+    font-weight: 200;
+    border-radius: 15px;
+    border: 1px solid gray;
+}
+
+.ub-button:hover {
+    background-color: green;
+    cursor: pointer;
+    border: green;
+    color: white;
+    font-weight: bold;
+}

@@ -3,6 +3,7 @@
 .header-container img {
     max-width: 200px;
     width: 100%;
+    transition: transform 0.3s;
 }
 
 .header-container img:hover {
@@ -32,6 +33,11 @@
 .nav-list li {
     list-style: none;
     margin-bottom: 10px;
+    transition: transform 0.2s;
+}
+
+.nav-list li:hover {
+    transform: scale(1.2);
 }
 
 .header-container {

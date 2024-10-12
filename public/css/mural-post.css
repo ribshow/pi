@@ -2,6 +2,7 @@
     text-align: center;
     margin: 1rem;
 }
+
 .user{
     margin: 1rem;
 }
@@ -16,11 +17,12 @@
     color: crimson;
     margin-left: 5.5rem;
     padding: 0.5rem;
+    transition: background-color 0.3s;
+    border-radius: 15px;
 }
 .remove:hover,.edit:hover{
     color:white;
     background-color: crimson;
-    border-radius: 15px;
     padding: 0.5rem;
 }
 .user{
@@ -29,19 +31,28 @@
     color: crimson;
 }
 
+.post{
+    width: 24rem;
+    height: 24rem;
+    border: 1px solid crimson;
+    background-color: var(--dsm-bg-color-tertiary);
+    border-radius: 15px;
+    margin: 1rem;
+    float: left;
+    position: relative;
+    box-shadow: 1px 1px 1px 1px;
+}
+
 /* Media Queries para Responsividade */
 
 /* Dispositivos pequenos (smartphones em modo retrato e paisagem) */
 @media screen and (max-width: 600px) {
-    .main-post {
-        margin-top: 14rem;
-    }
     .form-post {
         flex-direction: column;
         align-items: center;
     }
     .t-post, .m-post {
-        width: 90%;
+        width: 200px;
     }
     .post {
         width: 100%;
@@ -49,20 +60,27 @@
     }
     .show-posts {
         margin: 1rem;
+        width: 90%;
+    }
+    .links {
+        display: flex;
+        flex-direction: column;
+        margin-left: 1.8rem;
     }
 }
 
 /* Dispositivos médios (tablets) */
 @media screen and (min-width: 601px) and (max-width: 1024px) {
     .main-post {
-        margin-top: 8rem;
+        width: 100%;
+        overflow-y: hidden;
     }
     .form-post {
         flex-direction: column;
         align-items: center;
     }
     .t-post, .m-post {
-        width: 70%;
+        width: 320px;
     }
     .post {
         width: 45%;
@@ -70,5 +88,11 @@
     }
     .show-posts {
         margin: 1.5rem;
+        width: 100%;
+    }
+    .links {
+        display: flex;
+        flex-direction: column;
+        margin-left: 1.8rem;
     }
 }

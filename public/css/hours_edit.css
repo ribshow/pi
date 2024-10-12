@@ -1,0 +1,82 @@
+.centro {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+td {
+    background-color: white;
+}
+
+#my-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#my-table th, #my-table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+@media (max-width: 600px) {
+    .courses {
+        width: 100%;
+    }
+
+    .centro {
+        width: 100%;
+    }
+
+    .admin-center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #botoes {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    #section_1 {
+        width: 100%;
+    }
+
+    #my-table thead {
+        display: none; /* Oculta o cabeçalho da tabela */
+    }
+
+    #my-table, #my-table tbody, #my-table tr, #my-table td {
+        display: block;
+    }
+
+    #my-table tr {
+        margin-bottom: 15px;
+        border-bottom: 2px solid #ddd;
+    }
+
+    #my-table td {
+        text-align: center;
+        position: relative;
+    }
+
+    #my-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 5px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    /* Ajuste de largura para o botão "Editar" */
+    #my-table td button {
+        padding: 0.5rem;
+    }
+}
+

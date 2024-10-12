@@ -26,6 +26,7 @@
     font-weight: bold;
     border-radius: 15px;
     border: none;
+    transition: background-color 0.25s;
 }
 .i-button:hover{
     background-color: crimson;
@@ -42,7 +43,6 @@
 @media (max-width: 600px) {
     .p-container {
         margin: 1rem;
-        padding-top: 4rem;
     }
     .info-perfil, .info-senha {
         margin: 1rem;

@@ -16,8 +16,11 @@ class HourController extends Controller
 {
     public function show_dsm()
     {
-        //dsm1
         $courses = Course::all();
+
+        $hours_dsm1 = Hour::whereIn('id', [8, 10, 12, 14, 15, 16])->get();
+
+        //dsm1
         $hour_s = Hour::find(8);
         $hour_seg = Hour::find(10);
         $hour_t = Hour::find(12);
@@ -29,28 +32,28 @@ class HourController extends Controller
         $hour_segunda = Hour::find(1);
         $hour_terca = Hour::find(2);
         $hour_quarta = Hour::find(3);
-        $hour_q= Hour::find(4);
+        $hour_q = Hour::find(4);
         $hour_quinta = Hour::find(5);
         $hour_sexta = Hour::find(6);
         $hour_sex_2 = Hour::find(7);
 
         //SN 1
-         // Sistemas Navais 1 SEMESTRE
-         $courses = Course::all();
-         $hour_seg_7 = Hour::find(17);
-         $hour_seg_9 = Hour::find(18);
-         $hour_seg_11 = Hour::find(19);
-         $hour_ter_7 = Hour::find(20);
-         $hour_ter_9 = Hour::find(21);
-         $hour_qua_7 = Hour::find(22);
-         $hour_qua_9 = Hour::find(23);
-         $hour_qua_11 = Hour::find(24);
-         $hour_qui_7 = Hour::find(25);
-         $hour_qui_9 = Hour::find(26);
-         $hour_qui_11 = Hour::find(27);
-         $hour_sex_9 = Hour::find(28);
+        // Sistemas Navais 1 SEMESTRE
+        $courses = Course::all();
+        $hour_seg_7 = Hour::find(17);
+        $hour_seg_9 = Hour::find(18);
+        $hour_seg_11 = Hour::find(19);
+        $hour_ter_7 = Hour::find(20);
+        $hour_ter_9 = Hour::find(21);
+        $hour_qua_7 = Hour::find(22);
+        $hour_qua_9 = Hour::find(23);
+        $hour_qua_11 = Hour::find(24);
+        $hour_qui_7 = Hour::find(25);
+        $hour_qui_9 = Hour::find(26);
+        $hour_qui_11 = Hour::find(27);
+        $hour_sex_9 = Hour::find(28);
 
-         // SISTEMAS NAVAIS 2 SEMESTRE
+        // SISTEMAS NAVAIS 2 SEMESTRE
         $sn2_seg_7 = Hour::find(29);
         $sn2_seg_9 = Hour::find(30);
         $sn2_seg_11 = Hour::find(31);
@@ -368,116 +371,363 @@ class HourController extends Controller
         $si3_qua_9 = Hour::findOrFail(298);
         $si3_qua_11 = Hour::findOrFail(299);
         $si3_qui_9 = Hour::findOrFail(300);
-        $si3_qui_11 = Hour:: findOrFail(301);
+        $si3_qui_11 = Hour::findOrFail(301);
 
 
-        return view('pages.grade',
-        compact(
-        // dsm 1 e 2 semestre
-        'courses','hour_s','hour_seg','hour_t','hour_qua','hour_qui','hour_sex',
-        'hour_segunda','hour_terca','hour_quarta','hour_q','hour_quinta','hour_sexta','hour_sex_2',
+        return view(
+            'pages.grade',
+            compact(
+                // dsm 1 e 2 semestre
+                'hours_dsm1',
+                'courses',
+                'hour_s',
+                'hour_seg',
+                'hour_t',
+                'hour_qua',
+                'hour_qui',
+                'hour_sex',
+                'hour_segunda',
+                'hour_terca',
+                'hour_quarta',
+                'hour_q',
+                'hour_quinta',
+                'hour_sexta',
+                'hour_sex_2',
 
-        // sn 1 semestre
-        'hour_seg_7','hour_seg_9','hour_seg_11',
-        'hour_ter_7','hour_ter_9','hour_qua_7','hour_qua_9','hour_qua_11',
-        'hour_qui_7','hour_qui_9','hour_qui_11','hour_sex_9',
+                // sn 1 semestre
+                'hour_seg_7',
+                'hour_seg_9',
+                'hour_seg_11',
+                'hour_ter_7',
+                'hour_ter_9',
+                'hour_qua_7',
+                'hour_qua_9',
+                'hour_qua_11',
+                'hour_qui_7',
+                'hour_qui_9',
+                'hour_qui_11',
+                'hour_sex_9',
 
-        // sn 2 semestre
-        'sn2_seg_7','sn2_seg_9','sn2_seg_11','sn2_ter_7','sn2_ter_9','sn2_qua_7',
-        'sn2_qua_9','sn2_qua_11','sn2_qui_7','sn2_qui_9','sn2_sex_7','sn2_sex_9',
+                // sn 2 semestre
+                'sn2_seg_7',
+                'sn2_seg_9',
+                'sn2_seg_11',
+                'sn2_ter_7',
+                'sn2_ter_9',
+                'sn2_qua_7',
+                'sn2_qua_9',
+                'sn2_qua_11',
+                'sn2_qui_7',
+                'sn2_qui_9',
+                'sn2_sex_7',
+                'sn2_sex_9',
 
-        // sn 3 semestre
-        'sn3_seg_7','sn3_seg_9','sn3_seg_11','sn3_ter_7','sn3_ter_9','sn3_qua_7',
-        'sn3_qua_9','sn3_qua_11','sn3_qui_9','sn3_qui_11','sn3_sex_7','sn3_sex_9',
+                // sn 3 semestre
+                'sn3_seg_7',
+                'sn3_seg_9',
+                'sn3_seg_11',
+                'sn3_ter_7',
+                'sn3_ter_9',
+                'sn3_qua_7',
+                'sn3_qua_9',
+                'sn3_qua_11',
+                'sn3_qui_9',
+                'sn3_qui_11',
+                'sn3_sex_7',
+                'sn3_sex_9',
 
-        // sn 4 semestre
-        'sn4_seg_9','sn4_seg_11','sn4_ter_9','sn4_ter_11','sn4_qua_7','sn4_qua_9',
-        'sn4_qua_11','sn4_qui_7','sn4_qui_9','sn4_qui_11','sn4_sex_9','sn4_sex_11',
+                // sn 4 semestre
+                'sn4_seg_9',
+                'sn4_seg_11',
+                'sn4_ter_9',
+                'sn4_ter_11',
+                'sn4_qua_7',
+                'sn4_qua_9',
+                'sn4_qua_11',
+                'sn4_qui_7',
+                'sn4_qui_9',
+                'sn4_qui_11',
+                'sn4_sex_9',
+                'sn4_sex_11',
 
-        // sn 5 semestre
-        'sn5_seg_7','sn5_seg_9','sn5_seg_11','sn5_ter_7','sn5_ter_9','sn5_qua_9',
-        'sn5_qua_11','sn5_qui_7','sn5_qui_9','sn5_qui_11','sn5_sex_7','sn5_sex_9',
+                // sn 5 semestre
+                'sn5_seg_7',
+                'sn5_seg_9',
+                'sn5_seg_11',
+                'sn5_ter_7',
+                'sn5_ter_9',
+                'sn5_qua_9',
+                'sn5_qua_11',
+                'sn5_qui_7',
+                'sn5_qui_9',
+                'sn5_qui_11',
+                'sn5_sex_7',
+                'sn5_sex_9',
 
-        // sn 6 semestre
-        'sn6_seg_7','sn6_seg_9','sn6_seg_11','sn6_ter_11','sn6_qua_7','sn6_qua_9',
-        'sn6_qua_11','sn6_qui_7','sn6_qui_9','sn6_sex_7','sn6_sex_9','sn6_sex_11',
+                // sn 6 semestre
+                'sn6_seg_7',
+                'sn6_seg_9',
+                'sn6_seg_11',
+                'sn6_ter_11',
+                'sn6_qua_7',
+                'sn6_qua_9',
+                'sn6_qua_11',
+                'sn6_qui_7',
+                'sn6_qui_9',
+                'sn6_sex_7',
+                'sn6_sex_9',
+                'sn6_sex_11',
 
-        // cn 1 semestre
-        'cn1_seg_9','cn1_seg_11','cn1_ter_7','cn1_ter_9','cn1_ter_11','cn1_qua_7',
-        'cn1_qua_9','cn1_qua_11','cn1_qui_7','cn1_qui_9','cn1_sex_7','cn1_sex_9',
+                // cn 1 semestre
+                'cn1_seg_9',
+                'cn1_seg_11',
+                'cn1_ter_7',
+                'cn1_ter_9',
+                'cn1_ter_11',
+                'cn1_qua_7',
+                'cn1_qua_9',
+                'cn1_qua_11',
+                'cn1_qui_7',
+                'cn1_qui_9',
+                'cn1_sex_7',
+                'cn1_sex_9',
 
-        // cn 2 semestre
-        'cn2_seg_7','cn2_seg_9','cn2_seg_11','cn2_ter_7','cn2_ter_9','cn2_qua_9',
-        'cn2_qua_11','cn2_qui_7','cn2_qui_9','cn2_qui_11','cn2_sex_7','cn2_sex_9',
+                // cn 2 semestre
+                'cn2_seg_7',
+                'cn2_seg_9',
+                'cn2_seg_11',
+                'cn2_ter_7',
+                'cn2_ter_9',
+                'cn2_qua_9',
+                'cn2_qua_11',
+                'cn2_qui_7',
+                'cn2_qui_9',
+                'cn2_qui_11',
+                'cn2_sex_7',
+                'cn2_sex_9',
 
-        // cn 3 semestre
-        'cn3_seg_9','cn3_seg_11','cn3_ter_7','cn3_ter_9','cn3_qua_7','cn3_qua_9',
-        'cn3_qua_11','cn3_qui_7','cn3_qui_9','cn3_qui_11','cn3_sex_7','cn3_sex_9',
+                // cn 3 semestre
+                'cn3_seg_9',
+                'cn3_seg_11',
+                'cn3_ter_7',
+                'cn3_ter_9',
+                'cn3_qua_7',
+                'cn3_qua_9',
+                'cn3_qua_11',
+                'cn3_qui_7',
+                'cn3_qui_9',
+                'cn3_qui_11',
+                'cn3_sex_7',
+                'cn3_sex_9',
 
-        // cn 4 semestre
-        'cn4_seg_7','cn4_seg_9','cn4_ter_7','cn4_ter_9','cn4_qua_7','cn4_qua_9',
-        'cn4_qua_11','cn4_qui_9','cn4_qui_11','cn4_sex_7','cn4_sex_9','cn4_sex_11',
+                // cn 4 semestre
+                'cn4_seg_7',
+                'cn4_seg_9',
+                'cn4_ter_7',
+                'cn4_ter_9',
+                'cn4_qua_7',
+                'cn4_qua_9',
+                'cn4_qua_11',
+                'cn4_qui_9',
+                'cn4_qui_11',
+                'cn4_sex_7',
+                'cn4_sex_9',
+                'cn4_sex_11',
 
-        // cn 5 semestre
-        'cn5_seg_9','cn5_seg_11','cn5_ter_7','cn5_ter_9','cn5_ter_11','cn5_qua_7',
-        'cn5_qua_9','cn5_qui_9','cn5_qui_11','cn5_sex_7','cn5_sex_9','cn5_sex_11',
+                // cn 5 semestre
+                'cn5_seg_9',
+                'cn5_seg_11',
+                'cn5_ter_7',
+                'cn5_ter_9',
+                'cn5_ter_11',
+                'cn5_qua_7',
+                'cn5_qua_9',
+                'cn5_qui_9',
+                'cn5_qui_11',
+                'cn5_sex_7',
+                'cn5_sex_9',
+                'cn5_sex_11',
 
-        // cn 6 semestre
-        'cn6_seg_7','cn6_seg_9','cn6_ter_7','cn6_ter_9','cn6_ter_11','cn6_qua_7',
-        'cn6_qua_9','cn6_qui_7','cn6_qui_9','cn6_sex_7','cn6_sex_9','cn6_sex_11',
+                // cn 6 semestre
+                'cn6_seg_7',
+                'cn6_seg_9',
+                'cn6_ter_7',
+                'cn6_ter_9',
+                'cn6_ter_11',
+                'cn6_qua_7',
+                'cn6_qua_9',
+                'cn6_qui_7',
+                'cn6_qui_9',
+                'cn6_sex_7',
+                'cn6_sex_9',
+                'cn6_sex_11',
 
-        // gpi 1 semestre
-        'gp1_seg_7','gp1_seg_9','gp1_ter_7','gp1_ter_9','gp1_qua_7','gp1_qua_9',
-        'gp1_qui_7','gp1_qui_9','gp1_sex_7','gp1_sex_9',
+                // gpi 1 semestre
+                'gp1_seg_7',
+                'gp1_seg_9',
+                'gp1_ter_7',
+                'gp1_ter_9',
+                'gp1_qua_7',
+                'gp1_qua_9',
+                'gp1_qui_7',
+                'gp1_qui_9',
+                'gp1_sex_7',
+                'gp1_sex_9',
 
-        // gpi 2 semestre
-        'gp2_seg_7','gp2_seg_9','gp2_ter_7','gp2_ter_9','gp2_qua_7','gp2_qua_9',
-        'gp2_qui_7','gp2_qui_9','gp2_sex_7','gp2_sex_9',
+                // gpi 2 semestre
+                'gp2_seg_7',
+                'gp2_seg_9',
+                'gp2_ter_7',
+                'gp2_ter_9',
+                'gp2_qua_7',
+                'gp2_qua_9',
+                'gp2_qui_7',
+                'gp2_qui_9',
+                'gp2_sex_7',
+                'gp2_sex_9',
 
-        // gpi 3 semestre
-        'gp3_seg_7','gp3_seg_9','gp3_ter_7','gp3_ter_9','gp3_qua_7','gp3_qua_9',
-        'gp3_qui_7','gp3_qui_9','gp3_sex_7','gp3_sex_9',
+                // gpi 3 semestre
+                'gp3_seg_7',
+                'gp3_seg_9',
+                'gp3_ter_7',
+                'gp3_ter_9',
+                'gp3_qua_7',
+                'gp3_qua_9',
+                'gp3_qui_7',
+                'gp3_qui_9',
+                'gp3_sex_7',
+                'gp3_sex_9',
 
-        // gpi 4 semestre
-        'gp4_seg_7','gp4_seg_9','gp4_ter_7','gp4_ter_9','gp4_qua_7','gp4_qua_9',
-        'gp4_qui_7','gp4_qui_9','gp4_sex_7','gp4_sex_9',
+                // gpi 4 semestre
+                'gp4_seg_7',
+                'gp4_seg_9',
+                'gp4_ter_7',
+                'gp4_ter_9',
+                'gp4_qua_7',
+                'gp4_qua_9',
+                'gp4_qui_7',
+                'gp4_qui_9',
+                'gp4_sex_7',
+                'gp4_sex_9',
 
-        // gpi 5 semestre
-        'gp5_seg_7','gp5_seg_9','gp5_ter_7','gp5_ter_9','gp5_qua_7','gp5_qua_9',
-        'gp5_qui_7','gp5_qui_9','gp5_sex_7','gp5_sex_9',
+                // gpi 5 semestre
+                'gp5_seg_7',
+                'gp5_seg_9',
+                'gp5_ter_7',
+                'gp5_ter_9',
+                'gp5_qua_7',
+                'gp5_qua_9',
+                'gp5_qui_7',
+                'gp5_qui_9',
+                'gp5_sex_7',
+                'gp5_sex_9',
 
-        // gpi 6 semestre
-        'gp6_seg_7','gp6_seg_9','gp6_ter_7','gp6_ter_9','gp6_qua_7','gp6_qua_9',
-        'gp6_qui_7','gp6_qui_9','gp6_sex_7','gp6_sex_9',
+                // gpi 6 semestre
+                'gp6_seg_7',
+                'gp6_seg_9',
+                'gp6_ter_7',
+                'gp6_ter_9',
+                'gp6_qua_7',
+                'gp6_qua_9',
+                'gp6_qui_7',
+                'gp6_qui_9',
+                'gp6_sex_7',
+                'gp6_sex_9',
 
-        // ma 1 semestre
-        'ma1_seg_7','ma1_seg_9','ma1_ter_7','ma1_ter_9','ma1_qua_7','ma1_qua_9',
-        'ma1_qui_7','ma1_qui_9','ma1_sex_7','ma1_sex_9','ma1_sab_7','ma1_sab_9',
+                // ma 1 semestre
+                'ma1_seg_7',
+                'ma1_seg_9',
+                'ma1_ter_7',
+                'ma1_ter_9',
+                'ma1_qua_7',
+                'ma1_qua_9',
+                'ma1_qui_7',
+                'ma1_qui_9',
+                'ma1_sex_7',
+                'ma1_sex_9',
+                'ma1_sab_7',
+                'ma1_sab_9',
 
-        // ma 2 semestre
-        'ma2_seg_7','ma2_seg_9','ma2_ter_7','ma2_ter_9','ma2_qua_7','ma2_qua_9',
-        'ma2_qui_7','ma2_qui_9','ma2_qui_11','ma2_sex_7','ma2_sex_9','ma2_sex_11',
+                // ma 2 semestre
+                'ma2_seg_7',
+                'ma2_seg_9',
+                'ma2_ter_7',
+                'ma2_ter_9',
+                'ma2_qua_7',
+                'ma2_qua_9',
+                'ma2_qui_7',
+                'ma2_qui_9',
+                'ma2_qui_11',
+                'ma2_sex_7',
+                'ma2_sex_9',
+                'ma2_sex_11',
 
-        // ma 3 semestre
-        'ma3_seg_7','ma3_seg_9','ma3_seg_11','ma3_ter_9','ma3_ter_11','ma3_qua_7',
-        'ma3_qua_9','ma3_qua_11','ma3_qui_7','ma3_qui_9','ma3_sex_9','ma3_sex_11',
+                // ma 3 semestre
+                'ma3_seg_7',
+                'ma3_seg_9',
+                'ma3_seg_11',
+                'ma3_ter_9',
+                'ma3_ter_11',
+                'ma3_qua_7',
+                'ma3_qua_9',
+                'ma3_qua_11',
+                'ma3_qui_7',
+                'ma3_qui_9',
+                'ma3_sex_9',
+                'ma3_sex_11',
 
-        // ma 4 semestre
-        'ma4_seg_7','ma4_seg_9','ma4_seg_11','ma4_ter_7','ma4_ter_9','ma4_qua_7',
-        'ma4_qua_9','ma4_qui_7','ma4_qui_9','ma4_qui_11','ma4_sex_9','ma4_sex_11',
+                // ma 4 semestre
+                'ma4_seg_7',
+                'ma4_seg_9',
+                'ma4_seg_11',
+                'ma4_ter_7',
+                'ma4_ter_9',
+                'ma4_qua_7',
+                'ma4_qua_9',
+                'ma4_qui_7',
+                'ma4_qui_9',
+                'ma4_qui_11',
+                'ma4_sex_9',
+                'ma4_sex_11',
 
-        // ma 5 semestre
-        'ma5_seg_7','ma5_seg_9','ma5_seg_11','ma5_ter_7','ma5_ter_9','ma5_qua_7',
-        'ma5_qua_9','ma5_qui_9','ma5_qui_11','ma5_sex_7','ma5_sex_9','ma5_sex_11',
+                // ma 5 semestre
+                'ma5_seg_7',
+                'ma5_seg_9',
+                'ma5_seg_11',
+                'ma5_ter_7',
+                'ma5_ter_9',
+                'ma5_qua_7',
+                'ma5_qua_9',
+                'ma5_qui_9',
+                'ma5_qui_11',
+                'ma5_sex_7',
+                'ma5_sex_9',
+                'ma5_sex_11',
 
-        // ma 6 semestre
-        'ma6_seg_9','ma6_seg_11','ma6_ter_9','ma6_ter_11','ma6_qua_7','ma6_qua_9',
-        'ma6_qua_11','ma6_qui_7','ma6_qui_9','ma6_qui_11',
+                // ma 6 semestre
+                'ma6_seg_9',
+                'ma6_seg_11',
+                'ma6_ter_9',
+                'ma6_ter_11',
+                'ma6_qua_7',
+                'ma6_qua_9',
+                'ma6_qua_11',
+                'ma6_qui_7',
+                'ma6_qui_9',
+                'ma6_qui_11',
 
-        // si 3 semestre
-        'si3_seg_9','si3_seg_11','si3_ter_9','si3_ter_11','si3_qua_7','si3_qua_9',
-        'si3_qua_11','si3_qui_9','si3_qui_11',
-        ));
+                // si 3 semestre
+                'si3_seg_9',
+                'si3_seg_11',
+                'si3_ter_9',
+                'si3_ter_11',
+                'si3_qua_7',
+                'si3_qua_9',
+                'si3_qua_11',
+                'si3_qui_9',
+                'si3_qui_11',
+            )
+        );
     }
     public function grade()
     {
@@ -488,9 +738,10 @@ class HourController extends Controller
         $rooms = Room::all();
         $semesters = Semester::all();
 
-        return view('pages.making',
-        compact('courses','disciplines','users','blocks','rooms','semesters'));
-
+        return view(
+            "pages.making",
+            compact('courses', 'disciplines', 'users', 'blocks', 'rooms', 'semesters')
+        );
     }
 
     public function store(Request $request)
@@ -502,14 +753,16 @@ class HourController extends Controller
 
         //dd($hour);
 
-        Hour::create(['user_id'=>$request->users,
-                      'course_id'=>$request->courses,
-                      'discipline_id'=>$request->disciplines,
-                      'block_id'=>$request->blocks,
-                      'room_id'=>$request->rooms,
-                      'semester_id'=>$request->semesters,
-                      'dia'=>$request->days,
-                      'hora'=>$request->hours]);
+        Hour::create([
+            'user_id' => $request->users,
+            'course_id' => $request->courses,
+            'discipline_id' => $request->disciplines,
+            'block_id' => $request->blocks,
+            'room_id' => $request->rooms,
+            'semester_id' => $request->semesters,
+            'dia' => $request->days,
+            'hora' => $request->hours
+        ]);
 
         return response()->json(['success' => true]);
         //return redirect()->route('dash')->with('status','hour-created');

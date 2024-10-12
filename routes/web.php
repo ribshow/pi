@@ -16,31 +16,33 @@ Route::get('/', function () {
     return view('pages.index');
 });
 
-Route::get('/grade', [HourController::class, 'show_dsm']);
-Route::get('/index', function(){
+// testando
+Route::get('/test/hour', function () {
+    $hours = Hour::whereIn('id', [1, 2, 3, 4, 5, 6, 7])->get();
+    return $hours;
+});
+
+Route::get('/grade', [HourController::class, 'show_dsm'])->name("grade");
+Route::get('/index', function () {
     return view('pages.index');
 });
 
-Route::get('/criar', [IntegraController::class, 'create']);
-
-Route::get('/find', function (){
+Route::get('/find', function () {
     $courses = Course::all();
-    foreach($courses as $course){
+    foreach ($courses as $course) {
         echo "<h2>$course->id - $course->description</h2><br/>";
-        foreach($course->disciplines as $disc)
-        {
-        echo "$disc->id - $disc->name<br>";
+        foreach ($course->disciplines as $disc) {
+            echo "$disc->id - $disc->name<br>";
         }
     }
 });
-Route::get('/hora', [HourController::class, 'dsm']);
+
 Route::get('/fazer', [HourController::class, 'grade'])->name('fazer');
 Route::post('/store', [HourController::class, 'store'])->name('store');
 
-Route::get('/horario', function(){
-    $horario = Hour::with('course','discipline','room','block','user')->get();
-    foreach($horario as $hour)
-    {
+Route::get('/horario', function () {
+    $horario = Hour::with('course', 'discipline', 'room', 'block', 'user')->get();
+    foreach ($horario as $hour) {
         echo "<h3>$hour->id - {$hour->course->description}</h3>";
         echo "<p>{$hour->semester->name}";
         echo "<p>$hour->dia</p>";
@@ -53,7 +55,7 @@ Route::get('/horario', function(){
 });
 
 // ROTAS ADMINISTRADOR PROTEGIDAS POR UM MIDDLEWARE
-Route::get('/dash', [AdmController::class , 'index'])
+Route::get('/dash', [AdmController::class, 'index'])
     ->name('dash')
     ->middleware(CheckAdmin::class);
 Route::delete('/admin/{id}', [AdmController::class, 'delete'])
@@ -69,20 +71,13 @@ Route::put('/admin-edit/{id}', [AdmController::class, 'editUser'])
     ->name('update.user')
     ->middleware(CheckAdmin::class);
 
-// TESTE
-Route::get('/relation', function (){
-    $semester = Semester::find(1);
-    $course = Course::find(1);
-    $disciplines = $course->disciplines;
-});
-
 Route::get('/mural', function () {
     return view('pages.mural');
 })->middleware(['auth', 'verified'])->name('mural');
 
 // TESTE
-Route::get('/debug', function(){
-   return view('pages.hora');
+Route::get('/debug', function () {
+    return view('pages.hora');
 });
 
 Route::middleware('auth')->group(function () {
@@ -98,4 +93,4 @@ Route::middleware('auth')->group(function () {
     Route::get('/mural/{post}', [PostController::class, 'destroy'])->name('delete');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

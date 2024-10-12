@@ -95,6 +95,10 @@
     .fatec-location {
         height: 300px;
     }
+
+    .footer-container {
+        width: 100%;
+    }
 }
 
 @media(min-width: 768px) {
