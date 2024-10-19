@@ -16,10 +16,8 @@ Route::get('/', function () {
     return view('pages.index');
 });
 
-// testando
-Route::get('/test/hour', function () {
-    $hours = Hour::whereIn('id', [1, 2, 3, 4, 5, 6, 7])->get();
-    return $hours;
+Route::get('/chat', function (){
+    return view('pages.chat.index');
 });
 
 Route::get('/grade', [HourController::class, 'show_dsm'])->name("grade");
@@ -90,7 +88,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/mural', [PostController::class, 'show'])->name('mural');
     Route::get('/mural/{post}/edit', [PostController::class, 'edit'])->name('edit');
     Route::post('/mural/{post}', [PostController::class, 'update'])->name('update');
-    Route::get('/mural/{post}', [PostController::class, 'destroy'])->name('delete');
+    Route::delete('/mural/delete/{post}', [PostController::class, 'destroy'])->name('delete');
 });
 
 require __DIR__ . '/auth.php';

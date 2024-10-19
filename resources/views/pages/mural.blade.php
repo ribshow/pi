@@ -30,18 +30,27 @@
                     <p class="date">{{ $post->created_at->format('H:i - d/m/Y') }}</p>
                     <p class="title"> <b>{{ $post->title }}</b></p>
                     <p class="content">{{ $post->message }}</p>
-                    <!-- Permitindo que professor e adm editem e apaguem qualquer post-->
-                    @if (auth()->user()->isTeacher() || auth()->user()->isAdmin())
+                    @if (auth()->user()->isAdmin())
                         <div class="links">
                             <a class="edit" href="{{ route('edit', $post) }}">Editar</a>
-                            <a class="remove" href="{{ route('delete', $post) }}">Apagar</a>
+                            <a class="remove" data-post-id="{{ $post->id }}"
+                                href="{{ route('delete', $post) }}">Apagar</a>
+                        </div>
+                    @endif
+                    <!-- Permitindo que professor edite publicações de estudantes-->
+                    @if (auth()->user()->isTeacher() && $post->user->role == 'student')
+                        <div class="links">
+                            <a class="edit" href="{{ route('edit', $post) }}">Editar</a>
+                            <a class="remove" data-post-id="{{ $post->id }}"
+                                href="{{ route('delete', $post) }}">Apagar</a>
                         </div>
                     @endif
                     <!-- Permitindo que o usuário edite e apague seus prórprios posts -->
                     @if ($post->user->is(auth()->user()))
                         <div class="links">
                             <a class="edit" href="{{ route('edit', $post) }}">Editar</a>
-                            <a class="remove" href="{{ route('delete', $post) }}">Apagar</a>
+                            <a class="remove" data-post-id="{{ $post->id }}"
+                                href="{{ route('delete', $post) }}">Apagar</a>
                         </div>
                     @endif
                 </div>

@@ -13,7 +13,7 @@ aside {
     background-color: var(--dsm-bg-color-quinary);
 }
 /* Menu painel administrativo */
-.container-adm{
+.container-adm {
     padding: 40px;
     display: flex;
     width: 100%;
@@ -35,7 +35,7 @@ aside {
     font-size: 14px;
     color: white;
     border-radius: 10px;
-    transition: color 0.50s;
+    transition: color 0.5s;
 }
 
 .my-user-btn:hover {
@@ -49,11 +49,12 @@ aside {
     overflow-y: auto;
 }
 /* input usuario */
-.search-user{
+.search-user {
     width: 50%;
     height: 2rem;
 }
-.admin-right-all-container, .text-wel {
+.admin-right-all-container,
+.text-wel {
     padding: 40px;
     display: flex;
     flex-direction: column;
@@ -101,7 +102,7 @@ aside {
     border-radius: 10px;
     margin-top: 10px;
     padding: 0.5rem;
-    transition: color 0.50s;
+    transition: color 0.5s;
 }
 
 .admin-card-btn:hover {
@@ -118,7 +119,8 @@ aside {
 }
 
 /* ESTILO HORÁRIOS/ALTERAR */
-th,td {
+th,
+td {
     padding: 0.5rem;
     text-align: center;
     border: 1px solid gray;
@@ -127,25 +129,25 @@ th {
     background-color: gray;
     color: white;
 }
-td:hover{
+td:hover {
     background-color: lightblue;
 }
-#editar{
+#editar {
     background: lightblue;
     cursor: pointer;
     padding: 1.2;
 }
-#editar:hover{
+#editar:hover {
     width: 2rem;
     height: 2rem;
 }
-.courses{
+.courses {
     width: 550px;
     padding: 0.5rem;
     text-align: center;
 }
 
-#botoes{
+#botoes {
     margin-top: 1rem;
 }
 /* ESTILO BOTÕES */
@@ -165,7 +167,7 @@ td:hover{
 
 /* TELA MINHAS PUBLICACOES */
 
-@media(max-width: 576px) {
+@media (max-width: 576px) {
     .admin-container {
         flex-direction: column;
         justify-content: flex-start;
@@ -188,7 +190,7 @@ td:hover{
     }
 
     .container-all {
-        flex-direction:column;
+        flex-direction: column;
     }
 
     .welcome {
@@ -261,7 +263,7 @@ td:hover{
     }
 }
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
     .admin-left-container {
         display: flex;
         flex-direction: column;
@@ -272,6 +274,6 @@ td:hover{
     }
 
     .my-user-btn {
-        background-color:var(--dsm-bg-color-quinary);
+        background-color: var(--dsm-bg-color-quinary);
     }
 }

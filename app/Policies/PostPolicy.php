@@ -40,19 +40,21 @@ class PostPolicy
         $isTeacher = $user->isTeacher();
         $isAdmin = $user->isAdmin();
 
-        if ($isTeacher || $isAdmin) {
-            return true;
-        }
+        //if ($isTeacher || $isAdmin && $post->user()->isStudent()) {
+        return true;
+        //}
 
-        return $post->user()->is($user);
+        //return $post->user()->is($user);
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Post $post): bool
+    public function delete(User $user, Post $post): Response
     {
-        return $this->update($user, $post);
+        return $user->isAdmin() || $user->isTeacher() || $post->user()->is($user)
+            ? Response::allow()
+            : Response::deny('Você não tem permissão para deletar posts');
     }
 
     /**

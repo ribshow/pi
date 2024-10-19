@@ -70,13 +70,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    word-break: break-all;
 }
-
-/* Página posts, editar publicação */
-.container-edit{
-
-}
-
 
 /* Media Queries para Responsividade */
 

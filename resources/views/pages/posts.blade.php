@@ -14,7 +14,7 @@
     <div class="container grid grid-cols-1 flex items-center justify-center w-full">
         <div class='main-post space-x-0.5 flex justify-center'>
             <div class="form-post flex justify-center">
-                <form method="post" action="{{ route('update', $post) }}">
+                <form method="POST" action="{{ route('update', $post) }}">
                     @csrf
                     <div class="form-group space-x-0.5 flex grid grid-cols-1 justify-center">
                         <div class="p-2 space-x-1">

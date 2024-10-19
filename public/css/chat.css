@@ -1,0 +1,328 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+/* Cores personalizadas */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(238, 174, 202);
+  background: radial-gradient(circle, rgb(238, 174, 202) 0%, rgb(148, 187, 233) 100%);
+}
+
+section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+section .title {
+  padding: 0.5rem;
+}
+section .title h1.title {
+  font-size: 1rem;
+  text-align: center;
+}
+section .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+section .header {
+  width: 100%;
+  height: 3rem;
+  border: 1px solid lightcoral;
+  margin-bottom: 1rem;
+  background-color: #b2000b;
+}
+section .header h2 {
+  font-size: 1rem;
+}
+section .footer {
+  width: 100%;
+}
+section .footer footer {
+  width: 100%;
+  border: 1px solid lightcoral;
+  margin-top: 0.8rem;
+  align-items: end;
+  background-color: #b2000b;
+  color: white;
+}
+section .footer footer h2 {
+  font-size: 1rem;
+}
+section .chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #b2000b;
+  margin: 1rem;
+}
+section .chat .chat-box {
+  padding: 1rem;
+  overflow-y: scroll;
+}
+section .chat .chat-box .author {
+  font-weight: 700;
+  color: #ff0011;
+  border-bottom: 1px solid #f9f9f9;
+}
+section .chat .chat-box .chat-date {
+  font-size: 0.8rem;
+  color: #f9f9f9;
+}
+section .chat .chat-input {
+  width: 100%;
+}
+section .chat .chat-input input {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-top: 1px solid lightcoral;
+  background-color: rgb(238, 174, 202);
+  background: radial-gradient(circle, rgb(238, 174, 202) 0%, rgb(148, 187, 233) 100%);
+}
+
+@media (max-width: 600px) {
+  section {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  section .title {
+    padding: 0.5rem;
+  }
+  section .title h1.title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  section .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  section .header {
+    width: 100%;
+    height: 3rem;
+    border: 1px solid lightcoral;
+    margin-bottom: 1rem;
+    background-color: #b2000b;
+  }
+  section .header h2 {
+    font-size: 1rem;
+  }
+  section .footer {
+    width: 100%;
+  }
+  section .footer footer {
+    width: 100%;
+    border: 1px solid lightcoral;
+    margin-top: 5.1rem;
+    align-items: end;
+    background-color: #b2000b;
+    color: white;
+  }
+  section .footer footer h2 {
+    font-size: 1rem;
+  }
+  section .chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24rem;
+    border: 1px solid #b2000b;
+    margin: 1rem;
+  }
+  section .chat .chat-box {
+    padding: 1rem;
+    overflow-y: scroll;
+  }
+  section .chat .chat-box .author {
+    font-weight: 700;
+    color: #ff0011;
+    border-bottom: 1px solid #f9f9f9;
+  }
+  section .chat .chat-box .chat-date {
+    font-size: 0.8rem;
+    color: #f9f9f9;
+  }
+  section .chat .chat-input {
+    width: 100%;
+  }
+  section .chat .chat-input input {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-top: 1px solid lightcoral;
+    background-color: rgb(238, 174, 202);
+    background: radial-gradient(circle, rgb(238, 174, 202) 0%, rgb(148, 187, 233) 100%);
+  }
+}
+@media (max-width: 768px) {
+  section {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  section .title {
+    padding: 0.5rem;
+  }
+  section .title h1.title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  section .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  section .header {
+    width: 100%;
+    height: 3rem;
+    border: 1px solid lightcoral;
+    margin-bottom: 1rem;
+    background-color: #b2000b;
+  }
+  section .header h2 {
+    font-size: 1rem;
+  }
+  section .footer {
+    width: 100%;
+  }
+  section .footer footer {
+    width: 100%;
+    border: 1px solid lightcoral;
+    margin-top: 5.1rem;
+    align-items: end;
+    background-color: #b2000b;
+    color: white;
+  }
+  section .footer footer h2 {
+    font-size: 1rem;
+  }
+  section .chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24rem;
+    border: 1px solid #b2000b;
+    margin: 1rem;
+  }
+  section .chat .chat-box {
+    padding: 1rem;
+    overflow-y: scroll;
+  }
+  section .chat .chat-box .author {
+    font-weight: 700;
+    color: #ff0011;
+    border-bottom: 1px solid #f9f9f9;
+  }
+  section .chat .chat-box .chat-date {
+    font-size: 0.8rem;
+    color: #f9f9f9;
+  }
+  section .chat .chat-input {
+    width: 100%;
+  }
+  section .chat .chat-input input {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-top: 1px solid lightcoral;
+    background-color: rgb(238, 174, 202);
+    background: radial-gradient(circle, rgb(238, 174, 202) 0%, rgb(148, 187, 233) 100%);
+  }
+}
+@media (min-width: 1024px) {
+  body {
+    font-size: 17px;
+  }
+  section {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  section .title {
+    padding: 0.5rem;
+  }
+  section .title h1.title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  section .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  section .header {
+    width: 100%;
+    height: 3rem;
+    border: 1px solid lightcoral;
+    margin-bottom: 1rem;
+    background-color: #b2000b;
+  }
+  section .header h2 {
+    font-size: 1rem;
+  }
+  section .footer {
+    width: 100%;
+  }
+  section .footer footer {
+    width: 100%;
+    border: 1px solid lightcoral;
+    margin-top: 0.8rem;
+    align-items: end;
+    background-color: #b2000b;
+    color: white;
+  }
+  section .footer footer h2 {
+    font-size: 1rem;
+  }
+  section .chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #b2000b;
+    margin: 1rem;
+  }
+  section .chat .chat-box {
+    padding: 1rem;
+    overflow-y: scroll;
+  }
+  section .chat .chat-box .author {
+    font-weight: 700;
+    color: #ff0011;
+    border-bottom: 1px solid #f9f9f9;
+  }
+  section .chat .chat-box .chat-date {
+    font-size: 0.8rem;
+    color: #f9f9f9;
+  }
+  section .chat .chat-input {
+    width: 100%;
+  }
+  section .chat .chat-input input {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-top: 1px solid lightcoral;
+    background-color: rgb(238, 174, 202);
+    background: radial-gradient(circle, rgb(238, 174, 202) 0%, rgb(148, 187, 233) 100%);
+  }
+}
+
+/*# sourceMappingURL=chat.css.map */
