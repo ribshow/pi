@@ -3,6 +3,7 @@
 use App\Http\Controllers\HourController;
 use App\Http\Controllers\IntegraController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ChatController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Course;
 use App\Models\Semester;
@@ -11,14 +12,47 @@ use App\Models\Hour;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdmController;
 use App\Http\Middleware\CheckAdmin;
+use Illuminate\Support\Facades\Http;
 
 Route::get('/', function () {
     return view('pages.index');
 });
 
-Route::get('/chat', function (){
-    return view('pages.chat.index');
+Route::post('/chat', function () {
+    // Enviar a requisição para a API C# com os parâmetros
+    $response = Http::withoutVerifying()->post('https://localhost:7125/Chat/send');
+
+    // Checar se a resposta foi bem-sucedida
+    if ($response->successful()) {
+        return response()->json(['success' => true, 'message' => 'Mensagem enviada com sucesso!']);
+    } else {
+        return response()->json(['success' => false, 'message' => 'Erro ao enviar a mensagem.'], $response->status());
+    }
+})->name('chat.store');
+
+// teste
+Route::get('/teste', function () {
+    // Consumindo a API
+    $response = Http::withoutVerifying()->get('https://localhost:7125/Chat');
+
+        // Verifica se a requisição foi bem-sucedida
+        if ($response->successful()) {
+            $data = $response->json();
+        } else {
+            // Caso a API falhe, define um array vazio
+            $data = [];
+        }
+
+        // Remova o dd() depois que terminar de testar
+        dd($data);
+
+        // Retornando a view com a variável 'data' 
+        return view('pages.chat.index', ['data' => $data]);
 });
+
+Route::get('/chat', [ChatController::class, 'index'])
+    ->name('chat.index')
+    ->middleware('auth');
 
 Route::get('/grade', [HourController::class, 'show_dsm'])->name("grade");
 Route::get('/index', function () {

@@ -10,66 +10,35 @@
 </head>
 <body class="flex flex-col min-h-screen">
 <section class="flex-grow">
+    <div class="header"></div>
     <div class="container h-full">
-        <div class="header"></div>
         <div class="title">
             <h1 class="title">ChatHub</h1>
         </div>
         <div class="chat">
             <div class="chat-box flex flex-col gap-4">
+            @if(!empty($data))
+                @foreach ($data as $chat)
                 <div class="chat-message">
-                    <p class="author">Fulano</p>
+                    <p class="author">{{$chat['userName']}}</p>
                     <div class="chat-message-content">
-                        <p class="chat-message-text">Olá, tudo bem?</p>
-                        <p class="chat-date">12:00 - 19/10/2024</p>
+                        <p class="chat-message-text">{{$chat['message']}}</p>
+                        <p class="chat-date">{{\Carbon\Carbon::parse($chat['date'])->format('d/m/Y - H:i:s')}}</p>
                     </div>
                 </div>
-                <div class="chat-message">
-                    <p class="author">Fulano</p>
-                    <div class="chat-message-content">
-                        <p class="chat-message-text">Olá, tudo bem?</p>
-                        <p class="chat-date">12:00 - 19/10/2024</p>
-                    </div>
-                </div>
-                <div class="chat-message">
-                    <p class="author">Fulano</p>
-                    <div class="chat-message-content">
-                        <p class="chat-message-text">Olá, tudo bem?</p>
-                        <p class="chat-date">12:00 - 19/10/2024</p>
-                    </div>
-                </div>
-                <div class="chat-message">
-                    <p class="author">Fulano</p>
-                    <div class="chat-message-content">
-                        <p class="chat-message-text">Olá, tudo bem?</p>
-                        <p class="chat-date">12:00 - 19/10/2024</p>
-                    </div>
-                </div>
-                <div class="chat-message">
-                    <p class="author">Fulano</p>
-                    <div class="chat-message-content">
-                        <p class="chat-message-text">Olá, tudo bem?</p>
-                        <p class="chat-date">12:00 - 19/10/2024</p>
-                    </div>
-                </div>
-                <div class="chat-message">
-                    <p class="author">Fulano</p>
-                    <div class="chat-message-content">
-                        <p class="chat-message-text">Olá, tudo bem?</p>
-                        <p class="chat-date">12:00 - 19/10/2024</p>
-                    </div>
-                </div>
-                <div class="chat-message">
-                    <p class="author">Fulano</p>
-                    <div class="chat-message-content">
-                        <p class="chat-message-text">Olá, tudo bem?</p>
-                        <p class="chat-date">12:00 - 19/10/2024</p>
-                    </div>
-                </div>
+                @endforeach
+            @else
+                <p>Não há mensagens anteriores</p>
+            @endif
             </div>
-            <div class="chat-input">
-                <input type="text" placeholder="Digite sua mensagem">
-            </div>  
+            <form method="POST" class="form-chat" action="https://localhost:7125/Chat/send">
+                @csrf
+                <input type="hidden" name="user" id="user" value="{{ Auth::user()->name}}">
+                <div class="chat-input">
+                    <input type="text" name="message" id="message" placeholder="Digite sua mensagem">
+                    <button class="btn-form" type="submit">Enviar</button>
+                </div>  
+            </form>
         </div>
     </div>
     <div class="footer">
@@ -78,5 +47,7 @@
         </footer>
     </div>
 </section>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script type="module" src="{{ asset('js/chat.js') }}"></script>
 </body>
 </html>
