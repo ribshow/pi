@@ -16,7 +16,7 @@
             <h1 class="title">ChatHub</h1>
         </div>
         <div class="chat">
-            <div class="chat-box flex flex-col gap-4">
+            <div id="chat-box" class="chat-box flex flex-col gap-4">
             @if(!empty($data))
                 @foreach ($data as $chat)
                 <div class="chat-message">
@@ -25,20 +25,18 @@
                         <p class="chat-message-text">{{$chat['message']}}</p>
                         <p class="chat-date">{{\Carbon\Carbon::parse($chat['date'])->format('d/m/Y - H:i:s')}}</p>
                     </div>
+                    <ul id="messagesList"></ul>
                 </div>
                 @endforeach
             @else
                 <p>Não há mensagens anteriores</p>
             @endif
             </div>
-            <form method="POST" class="form-chat" action="https://localhost:7125/Chat/send">
-                @csrf
-                <input type="hidden" name="user" id="user" value="{{ Auth::user()->name}}">
+                <input type="hidden" name="userInput" id="userInput" value="{{ Auth::user()->name}}">
                 <div class="chat-input">
-                    <input type="text" name="message" id="message" placeholder="Digite sua mensagem">
-                    <button class="btn-form" type="submit">Enviar</button>
+                    <input type="text" name="messageInput" id="messageInput" placeholder="Digite sua mensagem">
+                    <input type="button" id="sendButton" class="btn-form" value="Enviar" />
                 </div>  
-            </form>
         </div>
     </div>
     <div class="footer">
@@ -46,8 +44,7 @@
             <p>&copy IntegraFatec - 2024</p>
         </footer>
     </div>
+    <script src="{{ asset('js/chat.js') }}"></script>
 </section>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script type="module" src="{{ asset('js/chat.js') }}"></script>
 </body>
 </html>

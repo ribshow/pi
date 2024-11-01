@@ -27,6 +27,12 @@ section .title h1.title {
   font-size: 1rem;
   text-align: center;
 }
+section .title li .author {
+  width: 100%;
+  font-weight: 700;
+  color: #ff0011;
+  border-bottom: 1px solid #f9f9f9;
+}
 section .container {
   display: flex;
   flex-direction: column;
@@ -100,6 +106,7 @@ section .chat .chat-input .btn-form {
 section .chat .chat-input .btn-form:hover {
   background-color: #f9f9f9;
   color: rgb(244, 22, 118);
+  cursor: pointer;
 }
 
 @media (max-width: 600px) {
@@ -157,7 +164,7 @@ section .chat .chat-input .btn-form:hover {
   }
   section .chat .chat-box {
     padding: 1rem;
-    overflow-y: scroll;
+    overflow: auto;
   }
   section .chat .chat-box .author {
     font-weight: 700;
@@ -235,7 +242,7 @@ section .chat .chat-input .btn-form:hover {
   }
   section .chat .chat-box {
     padding: 1rem;
-    overflow-y: scroll;
+    overflow: auto;
   }
   section .chat .chat-box .author {
     font-weight: 700;
@@ -316,7 +323,7 @@ section .chat .chat-input .btn-form:hover {
   }
   section .chat .chat-box {
     padding: 1rem;
-    overflow-y: scroll;
+    overflow: auto;
   }
   section .chat .chat-box .author {
     font-weight: 700;

@@ -35,6 +35,14 @@ section {
             font-size: 1rem;
             text-align: center;
         }
+        li {
+            .author {
+                width: 100%;
+                font-weight: 700;
+                color: $font-color;
+                border-bottom: 1px solid $text-primary;
+            }
+        }
     }
 
     .container {
@@ -122,6 +130,7 @@ section {
                 &:hover {
                     background-color: $text-primary;
                     color: rgb(244, 22, 118);
+                    cursor: pointer;
                 }
             }
         }
@@ -190,7 +199,7 @@ section {
 
             .chat-box {
                 padding: 1rem;
-                overflow-y: scroll;
+                overflow: auto;
 
                 .author {
                     font-weight: 700;
@@ -286,7 +295,7 @@ section {
 
             .chat-box {
                 padding: 1rem;
-                overflow-y: scroll;
+                overflow: auto;
 
                 .author {
                     font-weight: 700;
@@ -385,7 +394,7 @@ section {
 
             .chat-box {
                 padding: 1rem;
-                overflow-y: scroll;
+                overflow: auto;
 
                 .author {
                     font-weight: 700;
