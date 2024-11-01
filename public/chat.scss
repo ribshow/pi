@@ -63,6 +63,15 @@ section {
         h2 {
             font-size: 1rem;
         }
+
+        .logo {
+            padding-bottom: 5px;
+            transition: transform 0.2s;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
     }
 
     .footer {
@@ -80,6 +89,11 @@ section {
             }
         }
     }
+    .container-chat {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 
     .chat {
         display: flex;
@@ -87,7 +101,8 @@ section {
         justify-content: space-between;
         border: 1px solid $bg-color;
         margin: 1rem;
-        height: 35rem;
+        height: 36rem;
+        width: 80vw;
 
         .chat-box {
             padding: 1rem;
@@ -123,6 +138,7 @@ section {
                 );
             }
             .btn-form {
+                width: 12rem;
                 border: 1px solid lightcoral;
                 padding: 0.5rem;
                 transition: background-color 0.2s;

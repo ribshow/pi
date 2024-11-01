@@ -17,7 +17,7 @@
 <body class="container">
     <header class="header-fixed" id="mobile-menu">
         <div class="header-container generic-style">
-          <div class=" logo-container">
+          <div class="logo-container">
             <!--Rota para index-->
             <a href="{{url('index')}}"><img src="img/logo.svg" alt="logo"></a>
           </div>
@@ -27,6 +27,7 @@
         </div>
         <nav class="navbar-container" id="itens">
           <ul class="nav-list">
+<!-- Se o usuário for um admnistrador exibe a rota para o painel -->
             @if (auth()->check() && auth()->user()->isAdmin())
             <li><a href="{{url('dash')}}">Admin</a></li>
             @endif
@@ -36,6 +37,7 @@
             <!--Verificando se o usuário está logado-->
             @if(auth()->check())
             <li><a href="{{url('perfil')}}">Perfil</a></li>
+            <li><a href="{{url('chat')}}" target="_blank">Chat</a></li>
             <form method="POST" action="{{ route('logout') }}">
             @csrf
             <li>

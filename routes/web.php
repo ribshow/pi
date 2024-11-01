@@ -18,42 +18,6 @@ Route::get('/', function () {
     return view('pages.index');
 });
 
-Route::post('/chat', function () {
-    // Enviar a requisição para a API C# com os parâmetros
-    $response = Http::withoutVerifying()->post('https://localhost:7125/Chat/send');
-
-    // Checar se a resposta foi bem-sucedida
-    if ($response->successful()) {
-        return response()->json(['success' => true, 'message' => 'Mensagem enviada com sucesso!']);
-    } else {
-        return response()->json(['success' => false, 'message' => 'Erro ao enviar a mensagem.'], $response->status());
-    }
-})->name('chat.store');
-
-// teste
-Route::get('/teste', function () {
-    // Consumindo a API
-    $response = Http::withoutVerifying()->get('https://localhost:7125/Chat');
-
-        // Verifica se a requisição foi bem-sucedida
-        if ($response->successful()) {
-            $data = $response->json();
-        } else {
-            // Caso a API falhe, define um array vazio
-            $data = [];
-        }
-
-        // Remova o dd() depois que terminar de testar
-        dd($data);
-
-        // Retornando a view com a variável 'data' 
-        return view('pages.chat.index', ['data' => $data]);
-});
-
-Route::get('/chat', [ChatController::class, 'index'])
-    ->name('chat.index')
-    ->middleware('auth');
-
 Route::get('/grade', [HourController::class, 'show_dsm'])->name("grade");
 Route::get('/index', function () {
     return view('pages.index');
@@ -123,6 +87,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/mural/{post}/edit', [PostController::class, 'edit'])->name('edit');
     Route::post('/mural/{post}', [PostController::class, 'update'])->name('update');
     Route::delete('/mural/delete/{post}', [PostController::class, 'destroy'])->name('delete');
+    Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
 });
 
 require __DIR__ . '/auth.php';

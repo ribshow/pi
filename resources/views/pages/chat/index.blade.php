@@ -10,11 +10,14 @@
 </head>
 <body class="flex flex-col min-h-screen">
 <section class="flex-grow">
-    <div class="header"></div>
-    <div class="container h-full">
+    <div class="header">
+    <a class="logo" href="{{url('index')}}"><img class="logo" src="img/logo.svg" width="40" alt="logo"></a>
+    </div>
+    <div class="container flex flex-col justify-center w-full h-full">
         <div class="title">
             <h1 class="title">ChatHub</h1>
         </div>
+        <div class="container-chat">
         <div class="chat">
             <div id="chat-box" class="chat-box flex flex-col gap-4">
             @if(!empty($data))
@@ -37,6 +40,7 @@
                     <input type="text" name="messageInput" id="messageInput" placeholder="Digite sua mensagem">
                     <input type="button" id="sendButton" class="btn-form" value="Enviar" />
                 </div>  
+        </div>
         </div>
     </div>
     <div class="footer">

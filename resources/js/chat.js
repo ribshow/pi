@@ -7,17 +7,14 @@ const connection = new HubConnectionBuilder()
 // desabilita o botão até que a conexão seja estabelecida
 document.getElementById("sendButton").disabled = true;
 
-const buttonEl = document.querySelector(".btn-form");
-
-buttonEl.disabled = true;
-
 // função para manter o foco sempre no rodapé da div de mensagem
 const scrollToBottom = () => {
     const chatBox = document.querySelector(".chat-box");
     chatBox.scrollTop = chatBox.scrollHeight;
 };
 
-connection.on("ReceiveMessage", (user, message) => {
+// função para montar o corpo da mensagem
+const messageBody = (user, message) => {
     let date = new Date().toLocaleString();
 
     let divChat = document.createElement("div");
@@ -51,7 +48,11 @@ connection.on("ReceiveMessage", (user, message) => {
     document
         .querySelector(".chat-box")
         .appendChild(divChat, divChatMessage, pAuthor, pMessage, pDate);
+};
 
+// atualizando dinamicamente o chat com as mensagens
+connection.on("ReceiveMessage", (user, message) => {
+    messageBody(user, message);
     scrollToBottom();
 });
 
@@ -64,17 +65,45 @@ connection
         return console.error(err.toString());
     });
 
+// função que cria o formulário e salva no banco de dados
+const handleForm = (user, message) => {
+    // crio um formulário
+    const formData = new FormData();
+
+    // adiciono os campos do formulário
+    formData.append("user", user);
+    formData.append("message", message);
+
+    // faço uma requisição post para o servidor
+    fetch("https://localhost:7125/chat/send", {
+        method: "POST",
+        body: formData,
+    }) // pego a resposta da requisição
+        .then((response) => {
+            if (response.ok) {
+                console.log("Mensagem enviada com sucesso!");
+                return response.json();
+            }
+            return console.error("Erro ao enviar mensage!");
+        })
+        .catch((err) => {
+            console.log(err.toString());
+        });
+};
 document.getElementById("sendButton").addEventListener("click", (event) => {
     var user = document.getElementById("userInput").value;
     var message = document.getElementById("messageInput").value;
 
-    try {
+    if (!message) {
+        alert("Digite uma mensagem!");
+    } else {
+        handleForm(user, message);
+        // chamo o método SendMessage do servidor
         connection.invoke("SendMessage", user, message).catch((err) => {
             console.log(err.toString());
         });
-    } catch (err) {
-        console.log(err);
     }
+
     // limpando o campo de mensagem
     document.getElementById("messageInput").value = "";
     event.preventDefault();

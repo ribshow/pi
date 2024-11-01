@@ -50,6 +50,13 @@ section .header {
 section .header h2 {
   font-size: 1rem;
 }
+section .header .logo {
+  padding-bottom: 5px;
+  transition: transform 0.2s;
+}
+section .header .logo:hover {
+  transform: scale(1.1);
+}
 section .footer {
   width: 100%;
 }
@@ -64,13 +71,19 @@ section .footer footer {
 section .footer footer h2 {
   font-size: 1rem;
 }
+section .container-chat {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 section .chat {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid #b2000b;
   margin: 1rem;
-  height: 35rem;
+  height: 36rem;
+  width: 80vw;
 }
 section .chat .chat-box {
   padding: 1rem;
@@ -99,6 +112,7 @@ section .chat .chat-input input {
   background: radial-gradient(circle, rgb(238, 174, 202) 0%, rgb(148, 187, 233) 100%);
 }
 section .chat .chat-input .btn-form {
+  width: 12rem;
   border: 1px solid lightcoral;
   padding: 0.5rem;
   transition: background-color 0.2s;
