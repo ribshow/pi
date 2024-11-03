@@ -4,6 +4,7 @@
 $bg-color: #b2000b;
 $font-color: #ff0011;
 $text-primary: #f9f9f9;
+$text-secondary: #000;
 
 * {
     margin: 0;
@@ -218,6 +219,7 @@ section {
                 overflow: auto;
 
                 .author {
+                    font-size: 14px;
                     font-weight: 700;
                     color: $font-color;
                     border-bottom: 1px solid $text-primary;

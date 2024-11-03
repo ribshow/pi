@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const linkUserEl = document.getElementById("link-user");
     const linkHourEl = document.getElementById("link-hour");
     const linkCreateHourEl = document.getElementById("link-create-hour");
+    const linkChatEl = document.getElementById("link-chat");
     const textEl = document.querySelector(".text-h3");
     const section = document.getElementById("show-template");
     const adminEl = document.getElementById("admin-container");
@@ -114,6 +115,8 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
+
+    // função que muda a role de um usuário para professor
     function addEditListeners() {
         const editUsers = document.querySelectorAll(".edit-user-form");
         editUsers.forEach((form) => {
@@ -165,6 +168,17 @@ document.addEventListener("DOMContentLoaded", function () {
         pesquisarUser();
     }
 
+    function loadChatTemplate() {
+        const templateChat = document
+            .getElementById("my-chats")
+            .content.cloneNode(true);
+        section.innerHTML = "";
+        section.appendChild(templateChat);
+        if (textEl) {
+            textEl.remove();
+        }
+    }
+
     // Função para carregar e exibir o template de criação de horários
     function loadHourTemplate() {
         const templateHour = document
@@ -206,6 +220,12 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
         loadHourTemplate();
         ajustarAltura();
+    });
+
+    // Ouvinte de clique para o botão de ver chat
+    linkChatEl.addEventListener("click", (event) => {
+        event.preventDefault();
+        loadChatTemplate();
     });
 
     // Função para filtrar usuários dinamicamente

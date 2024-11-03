@@ -46,6 +46,12 @@
 .perfil-img {
     width: 250px;
 }
+
+.text-black {
+    color: black;
+    font-style: italic;
+    font-weight: normal;
+}
 /* Media Queries para Responsividade */
 
 /* Dispositivos pequenos (smartphones em modo retrato e paisagem) */
@@ -79,7 +85,6 @@
 @media (min-width: 601px) and (max-width: 1024px) {
     .p-container {
         margin: 2rem;
-        padding-top: 14rem;
     }
     .info-perfil,
     .info-senha {
@@ -100,6 +105,15 @@
     .e-user {
         margin: 1rem;
         font-size: 1.2rem;
+    }
+
+    .container-img {
+        margin: 1rem;
+        margin-top: -2rem;
+    }
+
+    .perfil-img {
+        width: 150px;
     }
 }
 

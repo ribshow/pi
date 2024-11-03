@@ -66,16 +66,16 @@ Route::put('/update-hour/{id}', [AdmController::class, 'store'])
 Route::put('/admin-edit/{id}', [AdmController::class, 'editUser'])
     ->name('update.user')
     ->middleware(CheckAdmin::class);
+Route::delete('/chat/{id}', [AdmController::class, 'deleteChat'])
+    ->name('chat.delete')
+    ->middleware(CheckAdmin::class);
 
+// Rota para chegar ao mural, necessita estar logado e verificado
 Route::get('/mural', function () {
     return view('pages.mural');
 })->middleware(['auth', 'verified'])->name('mural');
 
-// TESTE
-Route::get('/debug', function () {
-    return view('pages.hora');
-});
-
+// grupo de rotas que necessitam de autenticação
 Route::middleware('auth')->group(function () {
     Route::get('/perfil', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/perfil', [ProfileController::class, 'update'])->name('profile.update');

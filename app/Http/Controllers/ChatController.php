@@ -15,7 +15,7 @@ class ChatController extends Controller
     {
         try {
             // Consumindo a API
-            $response = Http::withoutVerifying()->get('http://localhost:7125/Chat');
+            $response = Http::withoutVerifying()->get('https://localhost:7125/Chat');
 
                  // Verifica se a requisição foi bem-sucedida
             if ($response->successful()) {

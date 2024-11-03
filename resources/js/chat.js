@@ -1,7 +1,7 @@
 import { HubConnectionBuilder } from "@microsoft/signalr";
 
 const connection = new HubConnectionBuilder()
-    .withUrl("http://localhost:7125/chatHub")
+    .withUrl("https://localhost:7125/chatHub")
     .build();
 
 // desabilita o botão até que a conexão seja estabelecida
@@ -75,7 +75,7 @@ const handleForm = (user, message) => {
     formData.append("message", message);
 
     // faço uma requisição post para o servidor
-    fetch("http://localhost:7125/chat/send", {
+    fetch("https://localhost:7125/chat/send", {
         method: "POST",
         body: formData,
     }) // pego a resposta da requisição
@@ -90,6 +90,32 @@ const handleForm = (user, message) => {
             console.log(err.toString());
         });
 };
+
+// enviando a mensagem apertando enter
+document
+    .getElementById("messageInput")
+    .addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            var user = document.getElementById("userInput").value;
+            var message = document.getElementById("messageInput").value;
+
+            if (!message) {
+                alert("Digite uma mensagem!");
+            } else {
+                handleForm(user, message);
+                // chamo o método SendMessage do servidor
+                connection.invoke("SendMessage", user, message).catch((err) => {
+                    console.log(err.toString());
+                });
+            }
+
+            // limpando o campo de mensagem
+            document.getElementById("messageInput").value = "";
+            event.preventDefault();
+        }
+    });
+
+// enviando a mensagem clicando no botão
 document.getElementById("sendButton").addEventListener("click", (event) => {
     var user = document.getElementById("userInput").value;
     var message = document.getElementById("messageInput").value;

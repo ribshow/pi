@@ -23,8 +23,8 @@
             <img src="/storage/{{$user->image_url}}" alt="perfil" class="perfil-img">
             @endif
         </div>
-        <p class="n-user"> Nome: {{Auth::user()->name}}</p>
-        <p class="e-user"> Email: {{Auth::user()->email}}</p>
+        <p class="n-user"> Nome:<span class="text-black"> {{Auth::user()->name}}</span></p>
+        <p class="e-user"> Email:<span class="text-black"> {{Auth::user()->email}}</span></p>
         <br/>
         <h3><b>Atualize suas informações de cadastro aqui.</b></h3>
         <br/>

@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+/* Cores personalizadas */
+$bg-color: #b2000b;
+$font-color: #ff0011;
+$text-primary: #f9f9f9;
+$text-secondary: #000;
+
+.chat-message {
+    padding: 1rem;
+    border: 1px solid $bg-color;
+    border-radius: 1rem;
+    margin: 1rem;
+
+    .chat-delete {
+        display: flex;
+        justify-content: center;
+        padding: 0.2rem;
+    }
+
+    .delete-button {
+        width: 4rem;
+        padding: 0.3rem;
+        cursor: pointer;
+        color: $font-color;
+    }
+
+    .author {
+        font-weight: bold;
+        color: $text-secondary;
+        padding: 0.2rem;
+    }
+
+    .chat-message-content {
+        padding: 0.2rem;
+    }
+
+    .chat-date {
+        font-size: 0.8rem;
+        color: $text-secondary;
+        padding: 0.2rem;
+    }
+}

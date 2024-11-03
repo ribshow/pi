@@ -26,7 +26,7 @@
         <div class="show-posts">
             @foreach ($posts as $post)
                 <div class="post">
-                    <p class="user">Publicado por: {{ $post->user->name }}</p>
+                    <p class="user">Publicado por: <br /> {{ $post->user->name }}</p>
                     <p class="date">{{ $post->created_at->format('H:i - d/m/Y') }}</p>
                     <p class="title"> <b>{{ $post->title }}</b></p>
                     <p class="content">{{ $post->message }}</p>

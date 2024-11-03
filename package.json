@@ -4,7 +4,7 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "sass": "sass --watch ./public/sass/edit_adm.scss ./public/css/edit_adm.css"
+        "sass": "sass --watch ./public/sass/chat-adm.scss ./public/css/chat-adm.css"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",

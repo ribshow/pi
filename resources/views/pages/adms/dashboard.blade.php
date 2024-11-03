@@ -27,6 +27,11 @@
                             <button id="link-create-hour" class="my-user-btn">Cadastrar Horário</button>
                         </div>
                     </div>
+                    <div class="admin-left-card">
+                        <div class="my-user-btn">
+                            <button id="link-chat" class="my-user-btn">Chat</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </aside>
@@ -34,6 +39,7 @@
             @include('pages.adms.users')
             @include('pages.making')
             @include('pages.adms.hours')
+            @include('pages.adms.chat')
             <div class="welcome">
                 <h3 class="text-h3"> Bem vindo ao painel de controle, <span class="text-blue-500">{{ auth()->user()->name }}!</span>
                 </h3>

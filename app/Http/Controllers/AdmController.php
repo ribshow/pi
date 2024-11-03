@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Http;
+use Illuminate\View\View;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Course;
@@ -17,6 +19,21 @@ class AdmController extends Controller
 {
     public function index()
     {
+        try{
+            // consumindo a API
+            $response = Http::withoutVerifying()->get('https://localhost:7125/Chat');
+            
+            if($response->successful()){
+                $data = $response->json();
+            }
+            else {
+                $data = [];
+            }
+            
+        }catch(\Exception $e){
+            return throw new \Exception('Erro ao consumir a API');
+        }
+        
         $posts = Post::all();
         // usuários
         $users = User::all();
@@ -87,6 +104,7 @@ class AdmController extends Controller
             compact(
                 'posts',
                 'users',
+                'data',
                 // disciplinas
                 'blocks',
                 'rooms',
@@ -210,5 +228,18 @@ class AdmController extends Controller
         // Atualizar Hora
         $hour->hora = $request->hora;
         $hour->save();
+    }
+
+    // Deletando um chat
+    public function deleteChat($id)
+    {
+        $response = Http::withoutVerifying()->delete('https://localhost:7125/Chat/'.$id);
+        
+        if($response->successful()){
+            return response()->json(['success' => 'Chat excluído com sucesso!']);
+        }
+        else {
+            return response()->json(['error' => 'Erro ao excluir chat!']);
+        }
     }
 }
