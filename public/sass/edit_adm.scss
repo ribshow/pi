@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+/* Cores personalizadas */
+$bg-color: #b2000b;
+$font-color: #ff0011;
+$text-primary: #f9f9f9;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: $bg-color;
+    color: $text-primary;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+
+    .retornar {
+        width: 100%;
+    }
+
+    .editar-hora {
+        display: flex;
+        justify-content: center;
+
+        .input {
+            width: 420px;
+            height: 2.5rem;
+        }
+    }
+
+    .btn-2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+
+        .bt-alterar {
+            width: 5rem;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid $text-primary;
+            transition: background-color 0.5s;
+
+            &:hover {
+                background-color: $text-primary;
+                color: $bg-color;
+            }
+        }
+    }
+}
+
+@media (max-width: 668px) {
+    .container {
+        width: 100%;
+
+        .editar-hora {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+
+            .input {
+                width: 100%;
+                height: 2.5rem;
+            }
+        }
+
+        .course {
+            width: 100%;
+        }
+    }
+}

@@ -1,73 +1,13 @@
-<link rel="stylesheet" href={{ asset('/css/style.css') }}>
-<style>
-    .editar-hora {
-        display: flex;
-        align-content: center;
-        justify-content: center;
-    }
-
-    .container {
-        background-color: var(--dsm-bg-color-tertiary);
-        height: 100vh;
-        padding-top: 1rem;
-    }
-
-    .curso,
-    .disciplina,
-    .professor {
-        width: 26rem;
-        height: 2rem;
-    }
-
-    select {
-        width: 300px;
-        height: 2rem;
-    }
-
-    input {
-        width: 300px;
-        height: 2rem;
-    }
-
-    .retornar {
-        position: absolute;
-        display: flex;
-        align-content: left;
-        justify-content: left;
-        margin: 1rem;
-    }
-
-    .btn-back {
-        transition: transform 0.2s;
-    }
-
-    .btn-back:hover {
-        transform: scale(1.2);
-    }
-
-    .btn-2 {
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        margin: 0.5rem;
-    }
-
-    .bt-alterar {
-        padding: 0.5rem;
-        font-weight: bold;
-        transition: background-color 0.3s, color 0.2s;
-        border: 1px solid var(--dsm-bg-color-quaternary);
-        border-radius: 15px;
-    }
-
-    .bt-alterar:hover {
-        cursor: pointer;
-        background-color: var(--dsm-bg-color-septenary);
-        color: var(--dsm-bg-color-secondary);
-        border-radius: 15px;
-    }
-</style>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar - IntegraFATEC</title>
+    <link rel="stylesheet" href={{ asset('/css/edit_adm.css') }}>
+</head>
+@vite("resources/css/app.css")
+<body>
 <div class="container">
     <div class="retornar">
         <a class="btn-back" href="javascript:history.back()">
@@ -79,12 +19,12 @@
             @csrf
             @method('PUT')
             <h3 style="text-align: center"> Editar Horário</h3>
-            <div>
+            <div class="course">
                 <label for="curso">
                     <b>Curso</b>
                 </label>
                 <br />
-                <select name="course_id" id="courses">
+                <select name="course_id" id="courses" class="input courses text-black text-center">
                     <option value="{{ $hour->course_id }}">{{ $hour->course->description }}</option>
                     <optgroup Label="..."></optgroup>
                     @foreach ($courses as $course)
@@ -92,12 +32,12 @@
                     @endforeach
                 </select>
             </div>
-            <div>
+            <div class="discipline">
                 <label for="disciplina">
                     <b>Disciplina</b>
                 </label>
                 <br />
-                <select name="discipline_id" id="disciplines">
+                <select name="discipline_id" id="disciplines" class="input disciplines text-black text-center">
                     <option value="{{ $hour->discipline_id }}">{{ $hour->discipline->name }}</option>
                     <optgroup label="..."></optgroup>
                     @foreach ($disciplines as $discipline)
@@ -105,12 +45,12 @@
                     @endforeach
                 </select>
             </div>
-            <div>
+            <div class="professor">
                 <label for="professor">
                     <b>Professor</b>
                 </label>
                 <br />
-                <select name="user_id" id="users">
+                <select name="user_id" id="users" class="input professors text-black text-center">
                     <option value="{{ $hour->user_id }}">{{ $hour->user->name }}s</option>
                     <optgroup label="..."></optgroup>
                     @foreach ($users as $user)
@@ -118,12 +58,12 @@
                     @endforeach
                 </select>
             </div>
-            <div>
+            <div class="room">
                 <label for="sala">
                     <b>Sala</b>
                 </label>
                 <br />
-                <select name="room_id" id="rooms">
+                <select name="room_id" id="rooms" class="input rooms text-black text-center">
                     <option value="{{ $hour->room_id }}">{{ $hour->room->name }}</option>
                     <optgroup label="..."></optgroup>
                     @foreach ($rooms as $room)
@@ -131,12 +71,12 @@
                     @endforeach
                 </select>
             </div>
-            <div>
+            <div class="block">
                 <label for="bloco">
                     <b>Bloco</b>
                     <br />
                 </label>
-                <select name="block_id" id="blocks">
+                <select name="block_id" id="blocks" class="input blocks text-black text-center">
                     <option value="{{ $hour->block_id }}">{{ $hour->block->block }}</option>
                     <optgroup label="Blocos"></optgroup>
                     @foreach ($blocks as $block)
@@ -144,12 +84,12 @@
                     @endforeach
                 </select>
             </div>
-            <div>
+            <div class="semester">
                 <label for="semestre">
                     <b>Semestre</b>
                     <br />
                 </label>
-                <select name="semester_id" id="semesters">
+                <select name="semester_id" id="semesters" class="input semesters text-black text-center">
                     <option value="{{ $hour->semester_id }}">{{ $hour->semester->name }}</option>
                     <optgroup label="Semestres"></optgroup>
                     @foreach ($semesters as $semester)
@@ -157,19 +97,19 @@
                     @endforeach
                 </select>
             </div>
-            <div>
+            <div class="day">
                 <label for="dia">
                     <b>Dia</b>
                     <br />
                 </label>
-                <input class="dia" type="text" name="dia" value="{{ $hour->dia }}">
+                <input class="input days text-black" type="text" name="dia" value="{{ $hour->dia }}">
             </div>
-            <div>
+            <div class="hours">
                 <label for="hora">
                     <b>Hora</b>
                     <br />
                 </label>
-                <input class="hora" type="text" name="hora" value="{{ $hour->hora }}">
+                <input class="input hours text-black" type="text" name="hora" value="{{ $hour->hora }}">
             </div>
             <div class="btn-2">
                 <button class="bt-alterar" type="submit">Alterar</button>
@@ -177,6 +117,7 @@
         </form>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
         $('form').on('submit', function(event) {
@@ -202,3 +143,6 @@
         });
     });
 </script>
+
+</body>
+</html>

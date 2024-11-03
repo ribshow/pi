@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+/* Cores personalizadas */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #b2000b;
+  color: #f9f9f9;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+}
+.container .retornar {
+  width: 100%;
+}
+.container .editar-hora {
+  display: flex;
+  justify-content: center;
+}
+.container .editar-hora .input {
+  width: 420px;
+  height: 2.5rem;
+}
+.container .btn-2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+.container .btn-2 .bt-alterar {
+  width: 5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #f9f9f9;
+  transition: background-color 0.5s;
+}
+.container .btn-2 .bt-alterar:hover {
+  background-color: #f9f9f9;
+  color: #b2000b;
+}
+
+@media (max-width: 668px) {
+  .container {
+    width: 100%;
+  }
+  .container .editar-hora {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+  }
+  .container .editar-hora .input {
+    width: 100%;
+    height: 2.5rem;
+  }
+  .container .course {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=edit_adm.css.map */
