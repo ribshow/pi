@@ -3,13 +3,18 @@
 @section('conteudo')
 <div class="main-container">
     <div class="card-container">
-      <form method="POST" action="{{ route('registro') }}">
+      <form method="POST" action="{{ route('registro') }}" enctype="multipart/form-data">
         @csrf
         <div class="form-container">
           <div class="text-logo">DADOS CADASTRAIS</div>
           <div class="cursor-container">
             <div class="input-box1"></div>
             <input class="input-box" type="text" id="name" name="name" placeholder="Nome" required/>
+            <div class="input-box2"></div>
+          </div>
+          <div class="cursor-container">
+            <div class="input-box1"></div>
+            <input class="input-box" type="text" id="nickname" name="nickname" placeholder="Nome de usuário" required/>
             <div class="input-box2"></div>
           </div>
           <div class="cursor-container">
@@ -25,6 +30,11 @@
           <div class="cursor-container">
             <div class="input-box1"></div>
             <input class="input-box" type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirme a Senha" required autocomplete="new-password"/>
+            <div class="input-box2"></div>
+          </div>
+          <div class="cursor-container">
+            <div class="input-box1"></div>
+            <input class="input-box" type="file" id="image_url" name="image_url" accept="image/jpg, image/jpeg, image/svg, image/png" placeholder="Formatos aceitos: jpg,png,svg"/>
             <div class="input-box2"></div>
           </div>
           @if ($errors->any())

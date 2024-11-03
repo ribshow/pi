@@ -1,7 +1,7 @@
 import { HubConnectionBuilder } from "@microsoft/signalr";
 
 const connection = new HubConnectionBuilder()
-    .withUrl("https://localhost:7125/chatHub")
+    .withUrl("http://localhost:7125/chatHub")
     .build();
 
 // desabilita o botão até que a conexão seja estabelecida
@@ -75,7 +75,7 @@ const handleForm = (user, message) => {
     formData.append("message", message);
 
     // faço uma requisição post para o servidor
-    fetch("https://localhost:7125/chat/send", {
+    fetch("http://localhost:7125/chat/send", {
         method: "POST",
         body: formData,
     }) // pego a resposta da requisição

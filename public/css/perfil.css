@@ -1,24 +1,24 @@
-.p-container{
+.p-container {
     margin: 4rem;
 }
-.info-perfil{
+.info-perfil {
     margin: 2rem;
 }
-.info-senha{
+.info-senha {
     margin: 2rem;
 }
-.i-perfil{
+.i-perfil {
     width: 35%;
     height: 2rem;
 }
-.i-perfil:focus{
+.i-perfil:focus {
     outline: 1px solid crimson;
 }
-.head{
+.head {
     border-bottom: 1px solid gainsboro;
     padding-bottom: 2rem;
 }
-.i-button{
+.i-button {
     width: 4rem;
     height: 2rem;
     background-color: var(--dsm-bg-color-primary);
@@ -28,14 +28,23 @@
     border: none;
     transition: background-color 0.25s;
 }
-.i-button:hover{
+.i-button:hover {
     background-color: crimson;
     cursor: pointer;
 }
-.n-user, .e-user{
+.n-user,
+.e-user {
     margin: 1rem;
     font-weight: bold;
     color: var(--dsm-bg-color-primary);
+}
+.container-img {
+    position: relative;
+    float: right;
+    border: 1px solid var(--dsm-bg-color-primary);
+}
+.perfil-img {
+    width: 250px;
 }
 /* Media Queries para Responsividade */
 
@@ -44,7 +53,8 @@
     .p-container {
         margin: 1rem;
     }
-    .info-perfil, .info-senha {
+    .info-perfil,
+    .info-senha {
         margin: 1rem;
     }
     .i-perfil {
@@ -58,7 +68,8 @@
         height: 3rem;
         font-size: 1rem;
     }
-    .n-user, .e-user {
+    .n-user,
+    .e-user {
         margin: 0.5rem;
         font-size: 1rem;
     }
@@ -70,7 +81,8 @@
         margin: 2rem;
         padding-top: 14rem;
     }
-    .info-perfil, .info-senha {
+    .info-perfil,
+    .info-senha {
         margin: 1.5rem;
     }
     .i-perfil {
@@ -84,7 +96,8 @@
         height: 2.5rem;
         font-size: 1rem;
     }
-    .n-user, .e-user {
+    .n-user,
+    .e-user {
         margin: 1rem;
         font-size: 1.2rem;
     }
@@ -95,7 +108,8 @@
     .p-container {
         margin: 4rem;
     }
-    .info-perfil, .info-senha {
+    .info-perfil,
+    .info-senha {
         margin: 2rem;
     }
     .i-perfil {
@@ -109,7 +123,8 @@
         height: 2rem;
         font-size: 1rem;
     }
-    .n-user, .e-user {
+    .n-user,
+    .e-user {
         margin: 1rem;
         font-size: 1.2rem;
     }

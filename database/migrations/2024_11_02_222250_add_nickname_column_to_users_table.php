@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('horario', function (Blueprint $table) {
-            // definindo uma chave estrangeira
-            $table->foreignId('semester_id')->constrained('semester')->onDelete('cascade');
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('nickname')->required();
         });
     }
 
@@ -22,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('horario', function (Blueprint $table) {
-            $table->dropColumn('semester_id');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('nickname');
         });
     }
 };

@@ -13,10 +13,11 @@ class ChatController extends Controller
      */
     public function index() :View
     {
-        // Consumindo a API
-        $response = Http::withoutVerifying()->get('https://localhost:7125/Chat');
+        try {
+            // Consumindo a API
+            $response = Http::withoutVerifying()->get('http://localhost:7125/Chat');
 
-            // Verifica se a requisição foi bem-sucedida
+                 // Verifica se a requisição foi bem-sucedida
             if ($response->successful()) {
                 $data = $response->json();
             } else {
@@ -26,6 +27,9 @@ class ChatController extends Controller
     
             // Retornando a view com a variável 'data' 
             return view('pages.chat.index', ['data' => $data]);
+        }catch(\Exception $e){
+            return view('pages.chat.index', ['data' => []]);
+        }
     }
 
     /**

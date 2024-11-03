@@ -16,18 +16,25 @@
 
     <div class="info-perfil">
         <h3>Informações de perfil</h3>
+        <div class="container-img">
+            <img src="/storage/{{$user->image_url}}" alt="perfil" class="perfil-img">
+        </div>
         <p class="n-user"> Nome: {{Auth::user()->name}}</p>
         <p class="e-user"> Email: {{Auth::user()->email}}</p>
         <br/>
         <h3><b>Atualize suas informações de cadastro aqui.</b></h3>
         <br/>
 
-        <label for="name">Nome</label><br/>
-        <input class="i-perfil" type="text" id="name" name="name"/>
+        <label for="name">Nome:</label><br/>
+        <input class="i-perfil" value="{{$user->name}}" type="text" id="name" name="name"/>
         <br/><br/>
 
-        <label for="email">Email</label><br/>
-        <input class="i-perfil" type="text" id="email" name="email" value="">
+        <label for="name">Nickname:</label><br/>
+        <input class="i-perfil" type="text" value="{{$user->nickname}}" id="nickname" name="nickname"/>
+        <br/><br/>
+
+        <label for="email">Email:</label><br/>
+        <input class="i-perfil" type="text" value="{{$user->email}}" id="email" name="email" value="">
         <br/><br/>
 
         <button class="i-button" type="submit">Salvar</button>
@@ -48,15 +55,15 @@
     @method('put')
 
     <div class="info-senha">
-        <h3>Atualizar Senha</h3>
+        <h3>Atualizar Senha:</h3>
         <p>Mantenha sua conta segura, atualize sua senha.</p>
         <br/>
 
-        <label for="update_password_current_password">Senha atual</label><br/>
+        <label for="update_password_current_password">Senha atual:</label><br/>
         <input class="i-perfil" type="password" name="current_password" id="update_password_current_password">
         <br/><br/>
         <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
-        <label for="update_password_password">Nova senha</label><br/>
+        <label for="update_password_password">Nova senha:</label><br/>
         <input class="i-perfil" type="password" name="password" id="update_password_password">
         <br/><br/>
 

@@ -35,9 +35,14 @@
             @include('pages.making')
             @include('pages.adms.hours')
             <div class="welcome">
-                <h3 class="text-h3"> Bem vindo ao painel de controle, {{ auth()->user()->name }}!
+                <h3 class="text-h3"> Bem vindo ao painel de controle, <span class="text-blue-500">{{ auth()->user()->name }}!</span>
                 </h3>
             </div>
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
         </div>
     </div>
     <script src={{ asset('js/create-hour.js') }}></script>

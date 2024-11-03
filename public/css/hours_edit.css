@@ -13,7 +13,8 @@ td {
     border-collapse: collapse;
 }
 
-#my-table th, #my-table td {
+#my-table th,
+#my-table td {
     padding: 8px;
     text-align: left;
     border: 1px solid #ddd;
@@ -39,7 +40,8 @@ td {
         flex-direction: column;
         justify-content: center;
         width: 100%;
-        margin-bottom: 1rem;
+        margin: 0.1rem;
+        padding: 0.1rem;
     }
 
     #section_1 {
@@ -50,7 +52,10 @@ td {
         display: none; /* Oculta o cabeçalho da tabela */
     }
 
-    #my-table, #my-table tbody, #my-table tr, #my-table td {
+    #my-table,
+    #my-table tbody,
+    #my-table tr,
+    #my-table td {
         display: block;
     }
 
@@ -79,4 +84,3 @@ td {
         padding: 0.5rem;
     }
 }
-
