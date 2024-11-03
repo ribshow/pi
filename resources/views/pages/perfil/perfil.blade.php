@@ -17,7 +17,11 @@
     <div class="info-perfil">
         <h3>Informações de perfil</h3>
         <div class="container-img">
+            @if($user->image_url === '')
+            <img src="/storage/users/avatar-profile.jpg" alt="perfil" class="perfil-img">
+            @else
             <img src="/storage/{{$user->image_url}}" alt="perfil" class="perfil-img">
+            @endif
         </div>
         <p class="n-user"> Nome: {{Auth::user()->name}}</p>
         <p class="e-user"> Email: {{Auth::user()->email}}</p>
