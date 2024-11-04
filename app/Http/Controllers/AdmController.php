@@ -31,7 +31,7 @@ class AdmController extends Controller
             }
             
         }catch(\Exception $e){
-            return throw new \Exception('Erro ao consumir a API');
+            $data = [];
         }
         
         $posts = Post::all();

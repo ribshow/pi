@@ -11,26 +11,16 @@ use App\Models\Discipline;
 use App\Models\Hour;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdmController;
+use App\Http\Controllers\AlertController;
 use App\Http\Middleware\CheckAdmin;
+use App\Http\Middleware\CheckTeacher;
 use Illuminate\Support\Facades\Http;
 
-Route::get('/', function () {
-    return view('pages.index');
-});
+Route::get('/', [AlertController::class, 'getIndex'])->name('index');
 
 Route::get('/grade', [HourController::class, 'show_dsm'])->name("grade");
 Route::get('/index', function () {
     return view('pages.index');
-});
-
-Route::get('/find', function () {
-    $courses = Course::all();
-    foreach ($courses as $course) {
-        echo "<h2>$course->id - $course->description</h2><br/>";
-        foreach ($course->disciplines as $disc) {
-            echo "$disc->id - $disc->name<br>";
-        }
-    }
 });
 
 Route::get('/fazer', [HourController::class, 'grade'])->name('fazer');
@@ -49,6 +39,15 @@ Route::get('/horario', function () {
         echo "<p>{$hour->room->name}</p>";
     }
 });
+
+
+// ROTAS PROTEGIDAS PELO MIDDLEWARE CHECKTEACHER
+Route::get('/alerts', [AlertController::class, 'index'])
+    ->name('alerts.index')
+    ->middleware(CheckTeacher::class);
+Route::post('/alerts/store', [AlertController::class, 'store'])
+    ->name('alerts.store')
+    ->middleware(CheckTeacher::class);
 
 // ROTAS ADMINISTRADOR PROTEGIDAS POR UM MIDDLEWARE
 Route::get('/dash', [AdmController::class, 'index'])

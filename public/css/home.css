@@ -1,6 +1,13 @@
+.text-white {
+    color: #fff;
+}
+
 .home-container {
     padding: 40px;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .home-container h1 {
@@ -11,20 +18,52 @@
 
 .home-cards {
     display: grid;
+    columns: 3;
     grid-gap: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.section-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem;
+    width: 100%;
+}
+
+.button-add {
+    padding-top: 1rem;
+}
+
+.btn-add {
+    width: 6rem;
+    padding: 0.5rem;
+    border: 1px solid var(--dsm-font-color-primary);
+    border-radius: 10px;
+    background-color: var(--dsm-bg-color-primary);
+    color: var(--dsm-font-color-primary);
+    transition: background-color 0.25s, color 0.25s, border 0.25s;
+}
+
+.btn-add:hover {
+    border: 1px solid var(--dsm-bg-color-primary);
+    background-color: var(--dsm-font-color-primary);
+    color: var(--dsm-bg-color-primary);
+    cursor: pointer;
 }
 
 .catalog-card {
-    background-color: var(--dsm-bg-color-quinary);
+    background-color: var(--dsm-bg-color-primary);
     border-radius: 10px 10px 0 0;
-    height: 150px;
     display: flex;
+    flex-direction: column;
     text-align: center;
     align-items: center;
     font-size: 14px;
     letter-spacing: 0.03em;
     padding: 10px;
+    height: 200px;
 }
 
 .catalog-card img {
@@ -42,17 +81,42 @@
     border-radius: 10px;
 }
 
+/* CARD de aviso */
 .cards {
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
     border-radius: 10px;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.alert-title {
+    padding: 0.5rem;
+}
+
+.alert-content {
+    padding: 0.5rem;
+}
+
+.content-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .edit-card {
     display: flex;
-    justify-content: right;
+    justify-content: center;
     background-color: var(--dsm-bg-color-quinary);
     border-radius: 0 0 10px 10px;
-    padding: 0 10px 10px 10px;
+    padding: 0px 10px 10px 10px;
+    height: 60px;
+}
+
+.author-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .edit-btn {
@@ -72,23 +136,59 @@
 
 .edit-red {
     background-color: var(--dsm-font-color-senary);
-    filter: invert(50%) sepia(100%) saturate(10000%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    filter: invert(50%) sepia(100%) saturate(10000%) hue-rotate(0deg)
+        brightness(100%) contrast(100%);
 }
 
 .edit-blue {
     background-color: var(--dsm-font-color-septenary);
-    filter: invert(15%) sepia(100%) saturate(500%) hue-rotate(180deg) brightness(100%) contrast(100%);
+    filter: invert(15%) sepia(100%) saturate(500%) hue-rotate(180deg)
+        brightness(100%) contrast(100%);
 }
 
-@media(min-width: 576px) {
+@media (max-width: 600px) {
+    .home-cards {
+        flex-direction: column;
+        width: auto;
+    }
+
+    .catalog-card {
+        padding: 0;
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-cards {
+        width: auto;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .catalog-card {
+        height: 300px;
+    }
+}
+
+@media (min-width: 2559px) {
+    .home-cards {
+        display: unset;
+    }
+    .catalog-card {
+        width: 400px;
+        height: 250px;
+    }
+}
+
+@media (min-width: 1023) {
+    .home-cards {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (min-width: 576px) {
     .home-container h1 {
         font-size: 32px;
     }
-
-    .home-cards {
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    }
-
     .catalog-card {
         font-size: 16px;
     }
