@@ -79,6 +79,15 @@
         margin: 0.5rem;
         font-size: 1rem;
     }
+    .perfil-img {
+        width: 150px;
+    }
+}
+
+@media (max-width: 450px) {
+    .perfil-img {
+        width: 100%;
+    }
 }
 
 /* Dispositivos médios (tablets) */

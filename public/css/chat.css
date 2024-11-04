@@ -87,7 +87,7 @@ section .chat {
 }
 section .chat .chat-box {
   padding: 1rem;
-  overflow-y: scroll;
+  overflow: auto;
 }
 section .chat .chat-box .author {
   font-weight: 700;

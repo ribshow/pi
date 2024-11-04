@@ -25,16 +25,13 @@
         </div>
         <p class="n-user"> Nome:<span class="text-black"> {{Auth::user()->name}}</span></p>
         <p class="e-user"> Email:<span class="text-black"> {{Auth::user()->email}}</span></p>
+        <p class="n-user"> Nickname:<span class="text-black">{{Auth::user()->nickname}}</span></p>
         <br/>
         <h3><b>Atualize suas informações de cadastro aqui.</b></h3>
         <br/>
 
         <label for="name">Nome:</label><br/>
         <input class="i-perfil" value="{{$user->name}}" type="text" id="name" name="name"/>
-        <br/><br/>
-
-        <label for="name">Nickname:</label><br/>
-        <input class="i-perfil" type="text" value="{{$user->nickname}}" id="nickname" name="nickname"/>
         <br/><br/>
 
         <label for="email">Email:</label><br/>

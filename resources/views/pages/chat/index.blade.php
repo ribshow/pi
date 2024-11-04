@@ -28,10 +28,10 @@
                         <p class="chat-message-text">{{$chat['message']}}</p>
                         <p class="chat-date">{{\Carbon\Carbon::parse($chat['date'])->format('d/m/Y - H:i:s')}}</p>
                     </div>
-                    <ul id="messagesList"></ul>
                 </div>
                 @endforeach
             @else
+                <ul id="messagesList"></ul>
                 <p>Não há mensagens anteriores</p>
             @endif
             </div>

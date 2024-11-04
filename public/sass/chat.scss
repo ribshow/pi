@@ -107,7 +107,7 @@ section {
 
         .chat-box {
             padding: 1rem;
-            overflow-y: scroll;
+            overflow: auto;
 
             .author {
                 font-weight: 700;

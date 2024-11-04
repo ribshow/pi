@@ -62,6 +62,13 @@ connection
         document.getElementById("sendButton").disabled = false;
     })
     .catch((err) => {
+        const listElement = document.createElement("li");
+        const divElement = document.getElementById("messagesList");
+
+        listElement.innerHTML = `Erro de conexão: ${err.toString()}`;
+
+        divElement.appendChild(listElement);
+        console.log(divElement);
         return console.error(err.toString());
     });
 
