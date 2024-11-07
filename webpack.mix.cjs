@@ -14,3 +14,5 @@ mix.js("resources/js/app.js", "public/js")
     .sourceMaps();
 
 mix.js("resources/js/chat.js", "public/js").setPublicPath("public");
+
+mix.js("resources/js/chattech.js", "public/js").setPublicPath("public");

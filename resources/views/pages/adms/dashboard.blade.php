@@ -9,11 +9,6 @@
                 <div class="admin-left-container">
                     <div class="admin-left-card">
                         <div class="my-user-btn">
-                            <button id="" class="my-user-btn">Publicações</button>
-                        </div>
-                    </div>
-                    <div class="admin-left-card">
-                        <div class="my-user-btn">
                             <button id="link-user" class="my-user-btn">Usuários</button>
                         </div>
                     </div>
@@ -29,7 +24,12 @@
                     </div>
                     <div class="admin-left-card">
                         <div class="my-user-btn">
-                            <button id="link-chat" class="my-user-btn">Chat</button>
+                            <button id="link-chat" class="my-user-btn">Chat Geral</button>
+                        </div>
+                    </div>
+                    <div class="admin-left-card">
+                        <div class="my-user-btn">
+                            <button id="link-chat-tech" class="my-user-btn">Chat Tech</button>
                         </div>
                     </div>
                 </div>
@@ -40,6 +40,7 @@
             @include('pages.making')
             @include('pages.adms.hours')
             @include('pages.adms.chat')
+            @include('pages.adms.chattech')
             <div class="welcome">
                 <h3 class="text-h3"> Bem vindo ao painel de controle, <span class="text-blue-500">{{ auth()->user()->name }}!</span>
                 </h3>

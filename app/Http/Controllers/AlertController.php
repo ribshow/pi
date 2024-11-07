@@ -48,8 +48,17 @@ class AlertController extends Controller
         {
             $alerts = [];
         }
-        //dd($alerts);
-
         return view('pages.index', compact('alerts'));
+    }
+
+    public function destroy($id)
+    {
+        if(isset($id)){
+            Alert::where('id', $id)->delete();
+            return response()->json(['message'=> 'Deletado com sucesso!']);
+        }else {
+            return back()->with('error', 'Não foi possível apagar o alerta!');
+        }
+
     }
 }

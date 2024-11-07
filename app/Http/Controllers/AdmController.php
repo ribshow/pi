@@ -21,17 +21,24 @@ class AdmController extends Controller
     {
         try{
             // consumindo a API
-            $response = Http::withoutVerifying()->get('https://localhost:7125/Chat');
+            $responseHub = Http::withoutVerifying()->get('https://localhost:7125/Chat');
+
             
-            if($response->successful()){
-                $data = $response->json();
+            if($responseHub->successful()){
+                $dataHub = $responseHub->json();
             }
-            else {
-                $data = [];
-            }
-            
         }catch(\Exception $e){
             $data = [];
+        }
+
+        try{
+            $responseTech = Http::withoutVerifying()->get('https://localhost:7125/ChatTech');
+            if($responseTech->successful()){
+                $dataTech = $responseTech->json();
+            }
+
+        }catch(\Exception $e){
+            $dataTech = [];
         }
         
         $posts = Post::all();
@@ -104,7 +111,7 @@ class AdmController extends Controller
             compact(
                 'posts',
                 'users',
-                'data',
+                'dataHub', 'dataTech',
                 // disciplinas
                 'blocks',
                 'rooms',
@@ -230,7 +237,7 @@ class AdmController extends Controller
         $hour->save();
     }
 
-    // Deletando um chat
+    // Deletando um chat geral
     public function deleteChat($id)
     {
         $response = Http::withoutVerifying()->delete('https://localhost:7125/Chat/'.$id);
@@ -242,4 +249,42 @@ class AdmController extends Controller
             return response()->json(['error' => 'Erro ao excluir chat!']);
         }
     }
+
+    //  Limpando chat geral
+    public function deleteChatAll()
+    {
+        $response = Http::withoutVerifying()->delete('https://localhost:7125/chat/delete/all');
+        
+        if($response->successful()){
+            return response()->json(['success' => 'Chat limpo com sucesso!']);
+        } else {
+            return response()->json(['error' => 'Erro ao limpar chat!']);
+        }
+    }
+
+    // Apagando 1 mensagem específica do chatTech
+    public function deleteChatTech($id)
+    {
+        $response = Http::withoutVerifying()->delete('https://localhost:7125/ChatTech/'.$id);
+
+        if($response->successful()){
+            return response()->json(['success' => 'Chat exclúido com sucesso!']);
+        }
+        else {
+            return response()->json(['error' => 'Erro ao excluir chat!']);
+        }
+    }
+
+    // Limpando todas as mensagens do chatTech
+    public function deleteChatTechAll()
+    {
+        $response = Http::withoutVerifying()->delete('https://localhost:7125/chattech/delete/all');
+
+        if($response->successful()){
+            return $response;
+        } else {
+            return response()->json(['error' => 'Erro ao limpar chat!']);
+        }
+    }
+
 }

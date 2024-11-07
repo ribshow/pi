@@ -35,8 +35,8 @@
                 <p>Não há mensagens anteriores</p>
             @endif
             </div>
-                <input type="hidden" name="userInput" id="userInput" value="{{ Auth::user()->name}}"/>
-                <input type="hidden" name="nickname" id="nickname" value="{{Auth::user()->nickname}}"/>
+                <input type="hidden" name="userInput" id="userInput" value="{{ Auth::user()->name}}" />
+                <input type="hidden" name="nickname" id="nickname" value="{{Auth::user()->nickname}}" />
                 <div class="chat-input">
                     <input type="text" name="messageInput" id="messageInput" placeholder="Digite sua mensagem">
                     <input type="button" id="sendButton" class="btn-form" value="Enviar" />
@@ -49,7 +49,7 @@
             <p>&copy IntegraFatec - 2024</p>
         </footer>
     </div>
-    <script src="{{ asset('js/chat.js') }}"></script>
+    <script src="{{ asset('js/chattech.js') }}"></script>
 </section>
 </body>
 </html>

@@ -203,7 +203,7 @@ td:hover {
     .admin-left-container {
         height: 100%;
         width: 100%;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: initial;
         font-size: 12px;
     }
@@ -270,20 +270,12 @@ td:hover {
         flex-direction: column;
     }
 
-    .admin-left-card {
-        width: 280px;
-    }
-
     .my-user-btn {
         background-color: var(--dsm-bg-color-quinary);
     }
 }
 
 @media (max-width: 1024px) {
-    .admin-left-card {
-        width: 280px;
-    }
-
     .my-user-btn {
         background-color: var(--dsm-bg-color-quinary);
     }

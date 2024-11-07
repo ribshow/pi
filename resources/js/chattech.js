@@ -1,7 +1,7 @@
 import { HubConnectionBuilder } from "@microsoft/signalr";
 
 const connection = new HubConnectionBuilder()
-    .withUrl("https://localhost:7125/chatHub")
+    .withUrl("https://localhost:7125/chatHubTech")
     .build();
 
 // desabilita o botão até que a conexão seja estabelecida
@@ -83,7 +83,7 @@ const handleForm = (user, nickname, message) => {
     formData.append("message", message);
 
     // faço uma requisição post para o servidor
-    fetch("https://localhost:7125/chat/send", {
+    fetch("https://localhost:7125/chattech/send", {
         method: "POST",
         body: formData,
     }) // pego a resposta da requisição
@@ -129,8 +129,6 @@ document.getElementById("sendButton").addEventListener("click", (event) => {
     var user = document.getElementById("userInput").value;
     var nickname = document.getElementById("nickname").value;
     var message = document.getElementById("messageInput").value;
-
-    console.log(nickname);
 
     if (!message) {
         alert("Digite uma mensagem!");

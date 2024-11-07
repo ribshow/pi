@@ -1,5 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 /* Cores personalizadas */
+.chat-box .delete-all {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.chat-box .delete-all .btn-delete-all {
+  padding: 0.5rem;
+  border: 1px solid #ff0011;
+  border-radius: 0.5rem;
+  background-color: #ff0011;
+  opacity: 0.8;
+  color: #f9f9f9;
+  font-weight: bold;
+  transition: background-color 0.25s, color 0.25s;
+}
+.chat-box .delete-all .btn-delete-all:hover {
+  background-color: #ffb6c1;
+  color: #ff0011;
+  cursor: pointer;
+}
+
 .chat-message {
   padding: 1rem;
   border: 1px solid #b2000b;
@@ -16,6 +39,16 @@
   padding: 0.3rem;
   cursor: pointer;
   color: #ff0011;
+  border: 1px solid #ff0011;
+  border-radius: 0.5rem;
+  transition: background-color 0.25s;
+  outline: none;
+}
+.chat-message .delete-button:hover {
+  background-color: #ffb6c1;
+}
+.chat-message .delete-button:focus-within {
+  border: 1px solid #ff0011;
 }
 .chat-message .author {
   font-weight: bold;

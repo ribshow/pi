@@ -4,6 +4,7 @@ use App\Http\Controllers\HourController;
 use App\Http\Controllers\IntegraController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ChatController;
+use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\Facades\Route;
 use App\Models\Course;
 use App\Models\Semester;
@@ -22,6 +23,10 @@ Route::get('/grade', [HourController::class, 'show_dsm'])->name("grade");
 Route::get('/index', function () {
     return view('pages.index');
 });
+
+
+Route::delete('/alerts/delete/{id}', [AlertController::class, 'destroy'])
+    ->middleware(VerifyCsrfToken::class);
 
 Route::get('/fazer', [HourController::class, 'grade'])->name('fazer');
 Route::post('/store', [HourController::class, 'store'])->name('store');
@@ -50,24 +55,26 @@ Route::post('/alerts/store', [AlertController::class, 'store'])
     ->middleware(CheckTeacher::class);
 
 // ROTAS ADMINISTRADOR PROTEGIDAS POR UM MIDDLEWARE
+Route::middleware(CheckAdmin::class)->group(function(){
 Route::get('/dash', [AdmController::class, 'index'])
-    ->name('dash')
-    ->middleware(CheckAdmin::class);
+    ->name('dash');
 Route::delete('/admin/{id}', [AdmController::class, 'delete'])
-    ->name('users.delete')
-    ->middleware(CheckAdmin::class);
+    ->name('users.delete');
 Route::post('/edit/{id}', [AdmController::class, 'editHour'])
-    ->name('edit.hour')
-    ->middleware(CheckAdmin::class);
+    ->name('edit.hour');
 Route::put('/update-hour/{id}', [AdmController::class, 'store'])
-    ->name('update.hour')
-    ->middleware(CheckAdmin::class);
+    ->name('update.hour');
 Route::put('/admin-edit/{id}', [AdmController::class, 'editUser'])
-    ->name('update.user')
-    ->middleware(CheckAdmin::class);
+    ->name('update.user');
 Route::delete('/chat/{id}', [AdmController::class, 'deleteChat'])
-    ->name('chat.delete')
-    ->middleware(CheckAdmin::class);
+    ->name('chat.delete');
+Route::delete('/delete-chatall', [AdmController::class, 'deleteChatAll'])
+    ->name('chat.deleteall');
+Route::delete('/chattech/{id}', [AdmController::class, 'deleteChatTech'])
+    ->name('chat.tech.delete');
+Route::delete('/delete-techall', [AdmController::class, 'deleteChatTechAll'])
+    ->name('chat.tech.deleteall');
+});
 
 // Rota para chegar ao mural, necessita estar logado e verificado
 Route::get('/mural', function () {
@@ -87,6 +94,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/mural/{post}', [PostController::class, 'update'])->name('update');
     Route::delete('/mural/delete/{post}', [PostController::class, 'destroy'])->name('delete');
     Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
+    Route::get('/chattech', [ChatController::class, 'indexTech'])->name('chat.tech');
 });
 
 require __DIR__ . '/auth.php';
