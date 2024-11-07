@@ -54,6 +54,9 @@ Route::post('/alerts/store', [AlertController::class, 'store'])
     ->name('alerts.store')
     ->middleware(CheckTeacher::class);
 
+Route::get('/chatgeek', [ChatController::class, 'indexGeek'])->name('chat.geek');
+Route::delete('/chatgeek/{id}', [AdmController::class, 'deleteChatGeek'])->name('chat.tech.delete');
+
 // ROTAS ADMINISTRADOR PROTEGIDAS POR UM MIDDLEWARE
 Route::middleware(CheckAdmin::class)->group(function(){
 Route::get('/dash', [AdmController::class, 'index'])
@@ -74,6 +77,10 @@ Route::delete('/chattech/{id}', [AdmController::class, 'deleteChatTech'])
     ->name('chat.tech.delete');
 Route::delete('/delete-techall', [AdmController::class, 'deleteChatTechAll'])
     ->name('chat.tech.deleteall');
+Route::delete('/chatgeek/{id}', [AdmController::class, 'deleteChatGeek'])
+    ->name('chat.geek.delete');
+Route::delete('/delete-geekall', [AdmController::class, 'deleteChatGeekAll'])
+    ->name('chat.geek.deleteall');
 });
 
 // Rota para chegar ao mural, necessita estar logado e verificado

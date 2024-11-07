@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const linkCreateHourEl = document.getElementById("link-create-hour");
     const linkChatEl = document.getElementById("link-chat");
     const linkChatTechEl = document.getElementById("link-chat-tech");
+    const linkChatGeekEl = document.getElementById("link-chat-geek");
     const textEl = document.querySelector(".text-h3");
     const section = document.getElementById("show-template");
     const adminEl = document.getElementById("admin-container");
@@ -180,12 +181,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Carregando template do chat tech
     function loadChatTechTemplate() {
         const templateChatTech = document
             .getElementById("my-chats-tech")
             .content.cloneNode(true);
         section.innerHTML = "";
         section.appendChild(templateChatTech);
+        if (textEl) {
+            textEl.remove();
+        }
+    }
+
+    // Carregando template do chat geek
+    function loadChatGeekTemplate() {
+        const templateChatGeek = document
+            .getElementById("my-chats-geek")
+            .content.cloneNode(true);
+        section.innerHTML = "";
+        section.appendChild(templateChatGeek);
         if (textEl) {
             textEl.remove();
         }
@@ -234,16 +248,22 @@ document.addEventListener("DOMContentLoaded", function () {
         ajustarAltura();
     });
 
-    // Ouvinte de clique para o botão de ver chat
+    // Ouvinte de clique para o botão de ver chat geral
     linkChatEl.addEventListener("click", (event) => {
         event.preventDefault();
         loadChatTemplate();
     });
 
-    // Ouvinte de clique para o botão de ver chat
+    // Ouvinte de clique para o botão de ver chat tech
     linkChatTechEl.addEventListener("click", (event) => {
         event.preventDefault();
         loadChatTechTemplate();
+    });
+
+    // Ouvinte de clique para o botão de ver chat Geek
+    linkChatGeekEl.addEventListener("click", (event) => {
+        event.preventDefault();
+        loadChatGeekTemplate();
     });
 
     // Função para filtrar usuários dinamicamente

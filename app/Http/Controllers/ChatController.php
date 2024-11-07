@@ -38,15 +38,31 @@ class ChatController extends Controller
             $response = Http::withoutVerifying()->get('https://localhost:7125/chattech');
                 if($response->successful())
                 {
-                    $data = $response->json();
+                    $dataTech = $response->json();
                 } else {
-                    $data = [];
+                    $dataTech = [];
                 }
         }catch(\Exception $e)
         {
-            return view('pages.chat.index', ['data' => []]);
+            return view('pages.chat.index', ['dataTech' => []]);
         }
 
-        return view("pages.chat.chattech", ["data" => $data]);
+        return view("pages.chat.chattech", ["dataTech" => $dataTech]);
+    }
+
+    public function indexGeek():View
+    {
+        try{
+            $response = Http::withoutVerifying()->get('https://localhost:7125/chatgeek');
+            
+            if($response->successful()){
+                $dataGeek = $response->json();
+            } else  {
+                $dataGeek = [];
+            }
+        } catch(\Exception $e){
+            return view('pages.chat.chatgeek', ['dataGeek' => []]);
+        }
+        return view("pages.chat.chatGeek", ["dataGeek" => $dataGeek]);
     }
 }

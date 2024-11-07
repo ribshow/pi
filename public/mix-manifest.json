@@ -1,5 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/chat.js": "/js/chat.js",
-    "/js/chattech.js": "/js/chattech.js"
+    "/js/chattech.js": "/js/chattech.js",
+    "/js/chatgeek.js": "/js/chatgeek.js"
 }

@@ -23,7 +23,6 @@ class AdmController extends Controller
             // consumindo a API
             $responseHub = Http::withoutVerifying()->get('https://localhost:7125/Chat');
 
-            
             if($responseHub->successful()){
                 $dataHub = $responseHub->json();
             }
@@ -39,6 +38,16 @@ class AdmController extends Controller
 
         }catch(\Exception $e){
             $dataTech = [];
+        }
+
+        try{
+            $responseGeek = Http::withoutVerifying()->get('https://localhost:7125/ChatGeek');
+            if($responseGeek->successful()){
+                $dataGeek = $responseGeek->json();
+            }
+
+        }catch(\Exception $e){
+            $dataGeek = [];
         }
         
         $posts = Post::all();
@@ -111,7 +120,7 @@ class AdmController extends Controller
             compact(
                 'posts',
                 'users',
-                'dataHub', 'dataTech',
+                'dataHub', 'dataTech','dataGeek',
                 // disciplinas
                 'blocks',
                 'rooms',
@@ -284,6 +293,29 @@ class AdmController extends Controller
             return $response;
         } else {
             return response()->json(['error' => 'Erro ao limpar chat!']);
+        }
+    }
+
+    // Apagando uma mensagem do chat geek
+    public function deleteChatGeek($id)
+    {
+        $response = Http::withoutVerifying()->delete('https://localhost:7125/chatgeek/'. $id);
+        
+        if($response->successful()){
+            return $response;
+        } else {
+            return response()->json(['error'=> 'Error ao excluir mensagem']);
+        }
+    }
+
+    public function deleteChatGeekAll()
+    {
+        $response = Http::withoutVerifying()->delete('https://localhost:7125/chatgeek/delete/all');
+
+        if($response->successful()){
+            return response()->json(['success' => 'Chat limpo com sucesso!']);
+        } else {
+            return response()->json(['error' => 'Ocorreu um erro ao limpar o chat!']);
         }
     }
 
