@@ -49,6 +49,16 @@ class AdmController extends Controller
         }catch(\Exception $e){
             $dataGeek = [];
         }
+
+        try{
+            $response = Http::withoutVerifying()->get('https://localhost:7125/chatsci');
+            
+            if($response->successful()){
+                $dataSci = $response->json();
+            }
+        } catch(\Exception $e){
+            $dataSci = [];
+        }
         
         $posts = Post::all();
         // usuários
@@ -120,7 +130,8 @@ class AdmController extends Controller
             compact(
                 'posts',
                 'users',
-                'dataHub', 'dataTech','dataGeek',
+                // chats
+                'dataHub', 'dataTech','dataGeek', 'dataSci',
                 // disciplinas
                 'blocks',
                 'rooms',
@@ -308,6 +319,7 @@ class AdmController extends Controller
         }
     }
 
+    // Limpando o chat geek
     public function deleteChatGeekAll()
     {
         $response = Http::withoutVerifying()->delete('https://localhost:7125/chatgeek/delete/all');
@@ -316,6 +328,30 @@ class AdmController extends Controller
             return response()->json(['success' => 'Chat limpo com sucesso!']);
         } else {
             return response()->json(['error' => 'Ocorreu um erro ao limpar o chat!']);
+        }
+    }
+
+    // Apagando uma mensagem do chat scientific
+    public function deleteChatSci($id)
+    {
+        $response = Http::withoutVerifying()->delete('https://localhost:7125/chatsci/' . $id);
+        
+        if($response->successful()){
+            return response()->json(['success' => 'Mensagem apagada com sucesso!']);
+        } else {
+            return response()->json(['error' => 'Ocorreu um erro ao apagar a mensagem!']);
+        }
+    }
+
+    // Limpando o chat scientific
+    public function deleteChatSciAll()
+    {
+        $response = Http::withoutVerifying()->delete('https://localhost:7125/chatsci/delete/all');
+
+        if($response->successful()){
+            return response()->json(['success' => 'Chat limpo com sucesso!']);
+        }else {
+            return response()->json(['error' => 'Ocorreu um erro ao limpar o chat']);
         }
     }
 

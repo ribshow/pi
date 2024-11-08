@@ -20,9 +20,7 @@ use Illuminate\Support\Facades\Http;
 Route::get('/', [AlertController::class, 'getIndex'])->name('index');
 
 Route::get('/grade', [HourController::class, 'show_dsm'])->name("grade");
-Route::get('/index', function () {
-    return view('pages.index');
-});
+Route::get('/index', [AlertController::class, 'getIndex'])->name('index.home');
 
 
 Route::delete('/alerts/delete/{id}', [AlertController::class, 'destroy'])
@@ -54,9 +52,6 @@ Route::post('/alerts/store', [AlertController::class, 'store'])
     ->name('alerts.store')
     ->middleware(CheckTeacher::class);
 
-Route::get('/chatgeek', [ChatController::class, 'indexGeek'])->name('chat.geek');
-Route::delete('/chatgeek/{id}', [AdmController::class, 'deleteChatGeek'])->name('chat.tech.delete');
-
 // ROTAS ADMINISTRADOR PROTEGIDAS POR UM MIDDLEWARE
 Route::middleware(CheckAdmin::class)->group(function(){
 Route::get('/dash', [AdmController::class, 'index'])
@@ -81,6 +76,10 @@ Route::delete('/chatgeek/{id}', [AdmController::class, 'deleteChatGeek'])
     ->name('chat.geek.delete');
 Route::delete('/delete-geekall', [AdmController::class, 'deleteChatGeekAll'])
     ->name('chat.geek.deleteall');
+Route::delete('/chatsci/{id}', [AdmController::class, 'deleteChatSci'])
+    ->name('chat.sci.delete');
+Route::delete('/delete-sciall', [AdmController::class, 'deleteChatSciAll'])
+    ->name('chat.sci.deleteall');
 });
 
 // Rota para chegar ao mural, necessita estar logado e verificado
@@ -102,6 +101,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/mural/delete/{post}', [PostController::class, 'destroy'])->name('delete');
     Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
     Route::get('/chattech', [ChatController::class, 'indexTech'])->name('chat.tech');
+    Route::get('/chatgeek', [ChatController::class, 'indexGeek'])->name('chat.geek');
+    Route::get('/chatsci', [ChatController::class, 'indexSci'])->name('chat.sci');
 });
 
 require __DIR__ . '/auth.php';

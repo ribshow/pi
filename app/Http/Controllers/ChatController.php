@@ -65,4 +65,20 @@ class ChatController extends Controller
         }
         return view("pages.chat.chatGeek", ["dataGeek" => $dataGeek]);
     }
+
+    public function indexSci():View
+    {
+        try{
+            $response = Http::withoutVerifying()->get('https://localhost:7125/chatsci');
+            
+            if($response->successful()){
+                $dataSci = $response->json();
+            } else {
+                $dataSci = [];
+            }
+        } catch(\Exception $e){
+            return view('pages.chat.chatsci', ['dataSci' => []]);
+        }
+        return view('pages.chat.chatsci', ['dataSci' => $dataSci]);
+    }
 }
