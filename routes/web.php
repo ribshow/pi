@@ -93,7 +93,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/perfil', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/perfil', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/mural', [IntegraController::class, 'mural'])->name('mural');
-    Route::get('/index', [IntegraController::class, 'index'])->name('index');
+    Route::get('/index', [AlertController::class, 'getIndex'])->name('index');
     Route::post('/mural', [PostController::class, 'store'])->name('mural');
     Route::get('/mural', [PostController::class, 'show'])->name('mural');
     Route::get('/mural/{post}/edit', [PostController::class, 'edit'])->name('edit');

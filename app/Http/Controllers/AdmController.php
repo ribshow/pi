@@ -27,7 +27,7 @@ class AdmController extends Controller
                 $dataHub = $responseHub->json();
             }
         }catch(\Exception $e){
-            $data = [];
+            $dataHub = [];
         }
 
         try{

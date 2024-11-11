@@ -19,7 +19,7 @@
         <div class="header-container generic-style">
           <div class="logo-container">
             <!--Rota para index-->
-            <a href="{{url('index')}}"><img src="img/logo.svg" alt="logo"></a>
+            <a href="{{url('')}}"><img src="img/logo.svg" alt="logo"></a>
           </div>
           <div class="nav-burguer">
             <span id="burguer" class="material-symbols-outlined" onclick="clickMenu()" onchange="clickBody">menu</span>
@@ -31,7 +31,7 @@
             @if (auth()->check() && auth()->user()->isAdmin())
             <li><a href="{{url('dash')}}">Admin</a></li>
             @endif
-            <li style="padding-top: 11px"><a href="{{url('index')}}">Home</a></li>
+            <li style="padding-top: 11px"><a href="{{url('')}}">Home</a></li>
             <li><a href="{{url('grade')}}">Horário</a></li>
             <li><a href="{{url('mural')}}">Mural</a></li>
             <!--Verificando se o usuário está logado-->

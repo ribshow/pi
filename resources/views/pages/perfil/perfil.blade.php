@@ -25,7 +25,7 @@
         </div>
         <p class="n-user"> Nome:<span class="text-black"> {{Auth::user()->name}}</span></p>
         <p class="e-user"> Email:<span class="text-black"> {{Auth::user()->email}}</span></p>
-        <p class="n-user"> Nickname:<span class="text-black">{{Auth::user()->nickname}}</span></p>
+        <p class="n-user"> Nickname:<span class="text-black"> {{Auth::user()->nickname}}</span></p>
         <br/>
         <h3><b>Atualize suas informações de cadastro aqui.</b></h3>
         <br/>

@@ -2,14 +2,13 @@
     <h2>Quadro de Avisos</h2>
     <div class="button-add">
         @if(auth()->check() && auth()->user()->isTeacher() || auth()->check() && auth()->user()->isAdmin())
-        <button id="btn-add" class="btn-add">
+        <a href="{{route('alerts.index')}}"id="btn-add" class="btn-add">
             Criar novo
-        </button>
+        </a>
         @endif
     </div>
 </div>
 <div class="home-cards">
-
 @foreach($alerts as $alert)
     <div class="cards">
         <div class="catalog-card">
@@ -36,6 +35,6 @@
     btnElement.addEventListener('click', (event) => {
         event.preventDefault();
 
-        window.location.href = 'http://localhost:8000/alerts';
+        window.location.href = 'http://127.0.0.1:8000/alerts';
     })
 </script>

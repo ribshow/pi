@@ -13,7 +13,7 @@
     <header class="header-fixed" id="mobile-menu">
         <div class="header-container generic-style">
             <div class="logo-container">
-                <a href="{{url('index')}}"><img src="img/logo.svg" alt="logo"></a>
+                <a href="{{url('')}}"><img src="img/logo.svg" alt="logo"></a>
             </div>
             <div class="nav-burguer">
                 <span id="burguer" class="material-symbols-outlined" onclick="clickMenu()"

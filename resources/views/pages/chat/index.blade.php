@@ -11,7 +11,7 @@
 <body class="flex flex-col min-h-screen">
 <section class="flex-grow">
     <div class="header">
-    <a class="logo" href="{{url('index')}}"><img class="logo" src="img/logo.svg" width="40" alt="logo"></a>
+    <a class="logo" href="{{url('')}}"><img class="logo" src="img/logo.svg" width="40" alt="logo"></a>
     </div>
     <div class="container flex flex-col justify-center w-full h-full">
         <div class="title">
