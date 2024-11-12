@@ -89,8 +89,32 @@
     margin-bottom: 1rem;
 }
 
+.title-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.btn-delete-alert {
+    position: relative;
+    float: right;
+    height: 40px;
+    width: 2rem;
+    cursor: pointer;
+    transition: all 0.25s;
+    border: none;
+    color: red;
+    border-radius: 5px;
+}
+
+.btn-delete-alert:hover {
+    background-color: #fff;
+    border: #fff;
+}
+
 .alert-title {
     padding: 0.5rem;
+    width: 100%;
 }
 
 .alert-content {
@@ -165,7 +189,7 @@
     }
 
     .catalog-card {
-        height: 300px;
+        height: 350px;
     }
 }
 

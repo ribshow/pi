@@ -20,8 +20,16 @@ class AlertController extends Controller
         $user = auth()->id();
 
         $request->validate([
-            "title" => "required|string|max:100",
+            "title" => "required|string|max:40",
             "content" => "required|string|max:255"
+        ],
+        [
+            "title.required" => "O título é requerido",
+            "title.string" => "O título deve ser do tipo texto",
+            "title.max" => "O título deve ter no máximo :max caracteres",
+            "content.required" => "A mensagem não pode estar em branco",
+            "content.string" => "A mensagem deve ser do tipo string",
+            "content.max" => "A mensagem não pode ter mais do que :max caracteres"
         ]);
 
         Alert::create([
@@ -35,7 +43,7 @@ class AlertController extends Controller
 
     public function getIndex(): View
     {
-        $alerts = Alert::all();
+        $alerts = Alert::latest()->get();
 
         foreach($alerts as $alert)
         {

@@ -24,7 +24,8 @@ Route::get('/index', [AlertController::class, 'getIndex'])->name('index.home');
 
 
 Route::delete('/alerts/delete/{id}', [AlertController::class, 'destroy'])
-    ->middleware(VerifyCsrfToken::class);
+    ->name('delete.alert')
+    ->middleware(CheckTeacher::class);
 
 Route::get('/fazer', [HourController::class, 'grade'])->name('fazer');
 Route::post('/store', [HourController::class, 'store'])->name('store');
