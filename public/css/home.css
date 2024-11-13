@@ -18,9 +18,10 @@
 
 .home-cards {
     display: grid;
-    columns: 3;
+    columns: 2;
     grid-gap: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(45%, 1fr));
 }
 
 .section-title {
@@ -170,22 +171,9 @@
         brightness(100%) contrast(100%);
 }
 
-@media (max-width: 600px) {
-    .home-cards {
-        flex-direction: column;
-        width: auto;
-    }
-
-    .catalog-card {
-        padding: 0;
-        height: 200px;
-    }
-}
-
 @media (max-width: 768px) {
     .home-cards {
-        width: auto;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
     }
 
     .catalog-card {
@@ -193,9 +181,21 @@
     }
 }
 
+@media (max-width: 600px) {
+    .home-cards {
+        width: 280px;
+        grid-template-columns: repeat(1, minmax(200px, 1fr));
+    }
+
+    .catalog-card {
+        padding: 0;
+        height: 350px;
+    }
+}
+
 @media (min-width: 2559px) {
     .home-cards {
-        display: unset;
+        width: auto;
     }
     .catalog-card {
         width: 400px;
@@ -205,6 +205,7 @@
 
 @media (min-width: 1023) {
     .home-cards {
+        width: 400px;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 }

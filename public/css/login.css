@@ -94,7 +94,7 @@
     transition: background-color 0.5s;
 }
 
-.btn-enter:hover{
+.btn-enter:hover {
     background-color: var(--dsm-font-color-quaternary);
 }
 
@@ -124,7 +124,6 @@
 }
 
 @media (min-width: 576px) {
-
     .form-container {
         padding: 47px;
     }
@@ -163,5 +162,15 @@
 
     .possui-cadastro {
         font-size: 18px;
+    }
+}
+
+@media (min-width: 768px) {
+    .icon-img img {
+        height: 45px;
+    }
+
+    .input-box {
+        height: 47px;
     }
 }

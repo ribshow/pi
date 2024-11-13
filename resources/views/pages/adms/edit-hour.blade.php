@@ -18,7 +18,7 @@
         <form action="{{ route('update.hour', $hour->id) }}" method="POST">
             @csrf
             @method('PUT')
-            <h3 style="text-align: center"> Editar Horário</h3>
+            <h3 class="text-black text-center title-hour"> Editar Horário</h3>
             <div class="course">
                 <label for="curso">
                     <b>Curso</b>

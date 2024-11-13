@@ -8,7 +8,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #b2000b;
+  background-color: #f9f9f9;
   color: #f9f9f9;
   width: 100%;
   height: 100vh;
@@ -22,6 +22,10 @@ body {
   width: 100%;
   padding: 1rem;
 }
+.container .title-hour {
+  color: black;
+  font-size: 24px;
+}
 .container .retornar {
   width: 100%;
 }
@@ -33,6 +37,13 @@ body {
   width: 420px;
   height: 2.5rem;
 }
+.container .editar-hora label {
+  color: #000;
+}
+.container select,
+.container input {
+  border: 1px solid #ff0011;
+}
 .container .btn-2 {
   width: 100%;
   display: flex;
@@ -43,8 +54,9 @@ body {
   width: 5rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  border: 1px solid #f9f9f9;
-  transition: background-color 0.5s;
+  border: 1px solid #b2000b;
+  color: #ff0011;
+  transition: all 0.5s;
 }
 .container .btn-2 .bt-alterar:hover {
   background-color: #f9f9f9;
