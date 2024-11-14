@@ -29,13 +29,11 @@ class ProfileController extends Controller
         $validateData = $request->validate([
             'name' => 'required|string|max:100',
             'email' => 'required|email',
-            'nickname' => 'required|string|max:25'
         ]);
         if($validateData['email'] !== $request->user()->email){
             return Redirect::route('profile.edit')->withErrors(['email'=>'Email fornecido incorreto!']);
         }
         $request->user()->name = $validateData['name'];
-        $request->user()->nickname = $validateData['nickname'];
         $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');

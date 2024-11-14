@@ -1,5 +1,7 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 /* Cores personalizadas */
+/* Reset e fonte */
 * {
   margin: 0;
   padding: 0;
@@ -7,358 +9,195 @@
   box-sizing: border-box;
 }
 
+/* Estilização do corpo */
 body {
-  background-color: rgb(238, 174, 202);
-  background: radial-gradient(circle, rgb(238, 174, 202) 0%, rgb(148, 187, 233) 100%);
+  background-color: #e0f7fa; /* Azul muito claro */
 }
 
+/* Seção principal */
 section {
-  height: 100%;
+  height: 100vh;
   display: flex;
+  background-image: url("../img/geral.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex: 1;
+  background-color: #004d40;
+  border: 5px solid #004d40;
 }
-section .title {
-  padding: 0.5rem;
-}
-section .title h1.title {
-  font-size: 1rem;
-  text-align: center;
-}
-section .title li .author {
-  width: 100%;
-  font-weight: 700;
-  color: #ff0011;
-  border-bottom: 1px solid #f9f9f9;
-}
-section .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  flex: 1;
-}
-section .header {
+
+/* Cabeçalho */
+.header {
   width: 100%;
   height: 3rem;
-  border: 1px solid lightcoral;
-  margin-bottom: 1rem;
-  background-color: #b2000b;
+  background: linear-gradient(to right, #00bfa5, #00796b);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
-section .header h2 {
-  font-size: 1rem;
+
+/* Estilização do título */
+.title h1.title,
+.header h1 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-section .header .logo {
-  padding-bottom: 5px;
-  transition: transform 0.2s;
-}
-section .header .logo:hover {
-  transform: scale(1.1);
-}
-section .footer {
-  width: 100%;
-}
-section .footer footer {
-  width: 100%;
-  border: 1px solid lightcoral;
-  margin-top: 0.8rem;
-  align-items: end;
-  background-color: #b2000b;
-  color: white;
-}
-section .footer footer h2 {
-  font-size: 1rem;
-}
-section .container-chat {
+
+/* Container do chat */
+.container-chat {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-section .chat {
+
+/* Caixa de chat */
+.chat {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid #b2000b;
   margin: 1rem;
-  height: 36rem;
-  width: 80vw;
+  height: 28rem;
+  width: 60vw;
+  background: linear-gradient(to bottom, #00bfa5, #00796b);
+  border: 10px solid #004d40;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 8px; /* Bordas arredondadas */
 }
-section .chat .chat-box {
+
+/* Div container button */
+.container-button {
+  border-top: 5px solid #004d40;
+}
+
+/* Caixa de mensagens */
+.chat-box {
   padding: 1rem;
   overflow: auto;
+  border-bottom: 2px solid #00796b;
 }
-section .chat .chat-box .author {
+
+/* Autor da mensagem */
+.author {
   font-weight: 700;
-  color: #ff0011;
-  border-bottom: 1px solid #f9f9f9;
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
 }
-section .chat .chat-box .chat-date {
+
+/* Mensagem */
+.chat-message {
+  color: #ffffff;
+}
+
+/* Data da mensagem */
+.chat-date {
   font-size: 0.8rem;
-  color: #f9f9f9;
+  color: #ffffff;
 }
-section .chat .chat-input {
+
+/* Input do chat */
+.chat-input {
   width: 100%;
   display: flex;
   flex-direction: row;
+  border-top: 2px solid #00796b;
 }
-section .chat .chat-input input {
+
+/* Campo de input */
+input {
   width: 100%;
   padding: 0.5rem;
   border: none;
-  border-top: 1px solid lightcoral;
-  background-color: rgb(238, 174, 202);
-  background: radial-gradient(circle, rgb(238, 174, 202) 0%, rgb(148, 187, 233) 100%);
+  background-color: #004d40;
+  color: #ffffff;
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 4px; /* Bordas arredondadas no campo de input */
 }
-section .chat .chat-input .btn-form {
+
+/* Botão de enviar */
+.btn-form {
   width: 12rem;
-  border: 1px solid lightcoral;
   padding: 0.5rem;
+  border: 1px solid #00796b;
+  background-color: #00796b;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: center;
   transition: background-color 0.2s;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
-section .chat .chat-input .btn-form:hover {
-  background-color: #f9f9f9;
-  color: rgb(244, 22, 118);
+
+.btn-form:hover {
+  background-color: #005662;
   cursor: pointer;
 }
 
-@media (max-width: 600px) {
-  section {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* Rodapé */
+.footer {
+  background: linear-gradient(to right, #00bfa5, #00796b);
+  width: 100%;
+  color: #ffffff;
+}
+
+/* Media queries para responsividade */
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  .chat {
+    width: 60vw;
+    height: 26rem;
   }
-  section .title {
-    padding: 0.5rem;
+  .header h1,
+  .title h1.title {
+    font-size: 2rem;
   }
-  section .title h1.title {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-  section .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-  }
-  section .header {
-    width: 100%;
-    height: 3rem;
-    border: 1px solid lightcoral;
-    margin-bottom: 1rem;
-    background-color: #b2000b;
-  }
-  section .header h2 {
-    font-size: 1rem;
-  }
-  section .footer {
-    width: 100%;
-  }
-  section .footer footer {
-    width: 100%;
-    border: 1px solid lightcoral;
-    margin-top: 5.1rem;
-    align-items: end;
-    background-color: #b2000b;
-    color: white;
-  }
-  section .footer footer h2 {
-    font-size: 1rem;
-  }
-  section .chat {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 24rem;
-    border: 1px solid #b2000b;
-    margin: 1rem;
-  }
-  section .chat .chat-box {
-    padding: 1rem;
-    overflow: auto;
-  }
-  section .chat .chat-box .author {
-    font-size: 14px;
-    font-weight: 700;
-    color: #ff0011;
-    border-bottom: 1px solid #f9f9f9;
-  }
-  section .chat .chat-box .chat-date {
-    font-size: 0.8rem;
-    color: #f9f9f9;
-  }
-  section .chat .chat-input {
-    width: 100%;
-  }
-  section .chat .chat-input input {
-    width: 100%;
-    padding: 0.5rem;
-    border: none;
-    border-top: 1px solid lightcoral;
-    background-color: rgb(238, 174, 202);
-    background: radial-gradient(circle, rgb(238, 174, 202) 0%, rgb(148, 187, 233) 100%);
+  .btn-form {
+    width: 10rem;
   }
 }
-@media (min-width: 768px) {
-  section {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+@media (max-width: 768px) {
+  .chat {
+    width: 70vw;
+    height: 25rem;
   }
-  section .title {
-    padding: 0.5rem;
+  .header {
+    position: fixed;
+    top: 0;
+    height: 2.5rem;
   }
-  section .title h1.title {
+  .footer {
+    position: fixed;
+    bottom: 0;
+  }
+  .header h1,
+  .title h1.title {
     font-size: 1.5rem;
-    text-align: center;
   }
-  section .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-  }
-  section .header {
-    width: 100%;
-    height: 3rem;
-    border: 1px solid lightcoral;
-    margin-bottom: 1rem;
-    background-color: #b2000b;
-  }
-  section .header h2 {
-    font-size: 1rem;
-  }
-  section .footer {
-    width: 100%;
-  }
-  section .footer footer {
-    width: 100%;
-    border: 1px solid lightcoral;
-    margin-top: 5.1rem;
-    align-items: end;
-    background-color: #b2000b;
-    color: white;
-  }
-  section .footer footer h2 {
-    font-size: 1rem;
-  }
-  section .chat {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 24rem;
-    border: 1px solid #b2000b;
-    margin: 1rem;
-  }
-  section .chat .chat-box {
-    padding: 1rem;
-    overflow: auto;
-  }
-  section .chat .chat-box .author {
-    font-weight: 700;
-    color: #ff0011;
-    border-bottom: 1px solid #f9f9f9;
-  }
-  section .chat .chat-box .chat-date {
-    font-size: 0.8rem;
-    color: #f9f9f9;
-  }
-  section .chat .chat-input {
-    width: 100%;
-  }
-  section .chat .chat-input input {
-    width: 100%;
-    padding: 0.5rem;
-    border: none;
-    border-top: 1px solid lightcoral;
-    background-color: rgb(238, 174, 202);
-    background: radial-gradient(circle, rgb(238, 174, 202) 0%, rgb(148, 187, 233) 100%);
+  .btn-form {
+    width: 8rem;
   }
 }
-@media (min-width: 1024px) {
-  body {
-    font-size: 17px;
-  }
-  section {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  section .title {
-    padding: 0.5rem;
-  }
-  section .title h1.title {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-  section .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+@media (max-width: 480px) {
+  .chat {
     width: 100%;
   }
-  section .header {
-    width: 100%;
-    height: 3rem;
-    border: 1px solid lightcoral;
-    margin-bottom: 1rem;
-    background-color: #b2000b;
+  .header h1,
+  .title h1.title {
+    font-size: 1.2rem;
   }
-  section .header h2 {
-    font-size: 1rem;
+  input {
+    padding: 0.3rem;
+    font-size: 0.9rem;
   }
-  section .footer {
-    width: 100%;
-  }
-  section .footer footer {
-    width: 100%;
-    border: 1px solid lightcoral;
-    margin-top: 0.8rem;
-    align-items: end;
-    background-color: #b2000b;
-    color: white;
-  }
-  section .footer footer h2 {
-    font-size: 1rem;
-  }
-  section .chat {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid #b2000b;
-    margin: 1rem;
-    height: 28.5rem;
-  }
-  section .chat .chat-box {
-    padding: 1rem;
-    overflow: auto;
-  }
-  section .chat .chat-box .author {
-    font-weight: 700;
-    color: #ff0011;
-    border-bottom: 1px solid #f9f9f9;
-  }
-  section .chat .chat-box .chat-date {
-    font-size: 0.8rem;
-    color: #f9f9f9;
-  }
-  section .chat .chat-input {
-    width: 100%;
-  }
-  section .chat .chat-input input {
-    width: 100%;
-    padding: 0.5rem;
-    border: none;
-    border-top: 1px solid lightcoral;
-    background-color: rgb(238, 174, 202);
-    background: radial-gradient(circle, rgb(238, 174, 202) 0%, rgb(148, 187, 233) 100%);
+  .btn-form {
+    width: 6rem;
+    padding: 0.3rem;
   }
 }
 

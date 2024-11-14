@@ -1,0 +1,112 @@
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    max-width: 400px;
+    height: 100px;
+    margin: 0 10px;
+    box-shadow: 0 1px 10px gray;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #00bfa5;
+}
+
+.logo-player {
+    background-color: #00bfa5;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.logo-player i {
+    font-size: 24px;
+}
+
+#musicName {
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1rem;
+    color: black;
+}
+
+.controls button {
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.controls i {
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: #f7f7f7;
+    transition: all 0.2s;
+}
+
+.controls i:hover {
+    background-color: lightgray;
+}
+
+.time {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.time span {
+    font-size: 16px;
+    color: #333;
+}
+
+.footer-player {
+    width: 100%;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: #00796b;
+    cursor: pointer;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.progress {
+    height: 8px;
+    background-color: #333;
+    border-radius: 5px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none; /* Remove o estilo padrão no Chrome */
+    appearance: none;
+    height: 8px;
+    background: #ddd; /* Cor da barra */
+    border-radius: 5px;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 8px;
+    height: 8px;
+    background-color: #00796b; /* Cor do botão */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background-color: rgb(180, 244, 180); /* Cor da barra */
+    border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-track {
+    background-color: #ddd;
+    border-radius: 5px;
+}
