@@ -23,7 +23,7 @@ const messageBody = (user, message) => {
     let pAuthor = document.createElement("p");
     pAuthor.classList.add("author");
 
-    pAuthor.innerHTML = ` - ${user}`;
+    pAuthor.innerHTML = ` - ${user} <i class="bx bx-message-rounded-dots"></i>`;
 
     divChat.appendChild(pAuthor);
 

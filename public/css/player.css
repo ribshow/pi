@@ -4,16 +4,15 @@
     justify-content: space-around;
     flex-direction: column;
     max-width: 400px;
+    width: 100%;
     height: 100px;
     margin: 0 10px;
     box-shadow: 0 1px 10px gray;
     padding: 10px;
     border-radius: 5px;
-    background-color: #00bfa5;
 }
 
 .logo-player {
-    background-color: #00bfa5;
     width: 100%;
     height: 50%;
     display: flex;
@@ -70,7 +69,6 @@
 
 .progress-bar {
     height: 8px;
-    background-color: #00796b;
     cursor: pointer;
     margin-bottom: 5px;
     border-radius: 5px;
@@ -96,13 +94,12 @@ input[type="range"]::-webkit-slider-thumb {
     appearance: none;
     width: 8px;
     height: 8px;
-    background-color: #00796b; /* Cor do botão */
+    background-color: #333; /* Cor do botão */
     border-radius: 50%;
     cursor: pointer;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
-    background-color: rgb(180, 244, 180); /* Cor da barra */
     border-radius: 5px;
 }
 

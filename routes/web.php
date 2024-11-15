@@ -100,7 +100,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/mural/{post}/edit', [PostController::class, 'edit'])->name('edit');
     Route::post('/mural/{post}', [PostController::class, 'update'])->name('update');
     Route::delete('/mural/delete/{post}', [PostController::class, 'destroy'])->name('delete');
-    Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
+    Route::get('/chat', [ChatController::class, 'index'])->name('chat.general');
     Route::get('/chattech', [ChatController::class, 'indexTech'])->name('chat.tech');
     Route::get('/chatgeek', [ChatController::class, 'indexGeek'])->name('chat.geek');
     Route::get('/chatsci', [ChatController::class, 'indexSci'])->name('chat.sci');

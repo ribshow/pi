@@ -26,9 +26,9 @@ class ChatController extends Controller
             }
     
             // Retornando a view com a variável 'data' 
-            return view('pages.chat.index', ['data' => $data]);
+            return view('pages.chat.chat', ['data' => $data]);
         }catch(\Exception $e){
-            return view('pages.chat.index', ['data' => []]);
+            return view('pages.chat.chat', ['data' => []]);
         }
     }
 
@@ -44,7 +44,7 @@ class ChatController extends Controller
                 }
         }catch(\Exception $e)
         {
-            return view('pages.chat.index', ['dataTech' => []]);
+            return view('pages.chat.chattech', ['dataTech' => []]);
         }
 
         return view("pages.chat.chattech", ["dataTech" => $dataTech]);

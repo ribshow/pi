@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>IntegraFatec - Chat</title>
-<link href={{asset('css/chat.css')}} rel="stylesheet"/>
+    <link href={{asset('css/chatsci.css')}} rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 @vite('resources/css/app.css')
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="min-h-screen">
 <section class="flex-grow">
     <div class="header">
     <a class="logo" href="{{url('index')}}"><img class="logo" src="img/logo.svg" width="40" alt="logo"></a>
-    </div>
-    <div class="container flex flex-col justify-center w-full h-full">
         <div class="title">
             <h1 class="title">ChatHub</h1>
+        </div>
+    </div>
+    <div class="container flex flex-col justify-center w-full h-full">
+        <div class="container-player flex justify-center w-full m-4">
+            @include('pages.chat.player')
         </div>
         <div class="container-chat">
         <div class="chat">
@@ -23,10 +27,10 @@
             @if(!empty($dataSci))
                 @foreach ($dataSci as $chat)
                 <div class="chat-message">
-                    <p class="author">{{$chat['fullname']}}</p>
+                    <p class="author text-black"> - {{$chat['fullname']}} <i class="bx bx-message-rounded-dots"></i></p>
                     <div class="chat-message-content">
-                        <p class="chat-message-text">{{$chat['message']}}</p>
-                        <p class="chat-date">{{\Carbon\Carbon::parse($chat['date'])->format('d/m/Y - H:i:s')}}</p>
+                        <p class="chat-message-text text-green-700 p-2">{{$chat['message']}}</p>
+                        <p class="chat-date text-black"><i class="bx bx-stopwatch"></i> {{\Carbon\Carbon::parse($chat['date'])->format('d/m/Y - H:i:s')}}</p>
                     </div>
                 </div>
                 @endforeach

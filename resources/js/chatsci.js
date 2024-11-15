@@ -22,8 +22,9 @@ const messageBody = (user, message) => {
 
     let pAuthor = document.createElement("p");
     pAuthor.classList.add("author");
+    pAuthor.classList.add("text-black");
 
-    pAuthor.innerHTML = user;
+    pAuthor.innerHTML = ` - ${user} <i class="bx bx-message-rounded-dots"></i>`;
 
     divChat.appendChild(pAuthor);
 
@@ -34,13 +35,16 @@ const messageBody = (user, message) => {
 
     let pMessage = document.createElement("p");
     pMessage.classList.add("chat-message-text");
+    pMessage.classList.add("p-2");
+    pMessage.style.color = "green";
 
     pMessage.innerHTML = message;
 
     let pDate = document.createElement("p");
     pDate.classList.add("chat-date");
+    pDate.classList.add("text-black");
 
-    pDate.innerHTML = date;
+    pDate.innerHTML = `<i class="bx bx-stopwatch"></i> ${date}`;
 
     divChatMessage.appendChild(pMessage);
     divChatMessage.appendChild(pDate);

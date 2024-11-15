@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 @vite('resources/css/app.css')
 </head>
-<body class="flex-col min-h-screen">
+<body class="min-h-screen">
 <section class="flex-grow">
     <div class="header">
         <a class="logo" href="{{url('')}}"><img class="logo" src="img/logo.svg" width="40" alt="logo"></a>
@@ -30,7 +30,7 @@
                         <p class="author"> - {{$chat['fullname']}} <i class="bx bx-message-rounded-dots"></i></p>
                         <div class="chat-message-content">
                             <p class="chat-message-text text-black p-2">{{$chat['message']}}</p>
-                            <p class="chat-date"><i class="bx bx-stopwatch"></i>  {{\Carbon\Carbon::parse($chat['date'])->format('d/m/Y - H:i:s')}}</p>
+                            <p class="chat-date"><i class="bx bx-stopwatch"></i>  {{\Carbon\Carbon::parse($chat['date'])->format('d/m/Y, H:i:s')}}</p>
                         </div>
                     </div>
                     @endforeach

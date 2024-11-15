@@ -3,5 +3,6 @@
     "/js/chat.js": "/js/chat.js",
     "/js/chattech.js": "/js/chattech.js",
     "/js/chatgeek.js": "/js/chatgeek.js",
-    "/js/chatsci.js": "/js/chatsci.js"
+    "/js/chatsci.js": "/js/chatsci.js",
+    "/css/app.css": "/css/app.css"
 }

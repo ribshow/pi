@@ -1,6 +1,5 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-/* Cores personalizadas */
 /* Reset e fonte */
 * {
   margin: 0;
@@ -11,14 +10,14 @@
 
 /* Estilização do corpo */
 body {
-  background-color: #e0f7fa; /* Azul muito claro */
+  background-color: #e8f5e9; /* Verde muito claro */
 }
 
 /* Seção principal */
 section {
   height: 100vh;
   display: flex;
-  background-image: url("../img/geral.jpg");
+  background-image: url("../img/cientifico.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -26,15 +25,15 @@ section {
   justify-content: center;
   align-items: center;
   flex: 1;
-  background-color: #004d40;
-  border: 5px solid #004d40;
+  background-color: #1e3a3a; /* Verde escuro acinzentado */
+  border: 5px solid #388e3c;
 }
 
 /* Cabeçalho */
 .header {
   width: 100%;
   height: 3rem;
-  background: linear-gradient(to right, #00bfa5, #00796b);
+  background-color: #388e3c; /* Verde escuro */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,25 +63,20 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border: 10px solid #388e3c;
+  border-radius: 5px;
   margin: 1rem;
   height: 28rem;
   width: 60vw;
-  background: linear-gradient(to bottom, #00bfa5, #00796b);
-  border: 10px solid #004d40;
+  background: linear-gradient(to bottom, #66bb6a, #a5d6a7);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-  border-radius: 8px; /* Bordas arredondadas */
-}
-
-/* Div container button */
-.container-button {
-  border-top: 5px solid #004d40;
 }
 
 /* Caixa de mensagens */
 .chat-box {
   padding: 1rem;
   overflow: auto;
-  border-bottom: 2px solid #00796b;
+  border-bottom: 2px solid #66bb6a;
 }
 
 /* Autor da mensagem */
@@ -94,13 +88,13 @@ section {
 
 /* Mensagem */
 .chat-message {
-  color: #ffffff;
+  color: #008000;
 }
 
 /* Data da mensagem */
 .chat-date {
   font-size: 0.8rem;
-  color: #ffffff;
+  color: #dddddd;
 }
 
 /* Input do chat */
@@ -108,7 +102,7 @@ section {
   width: 100%;
   display: flex;
   flex-direction: row;
-  border-top: 2px solid #00796b;
+  border-top: 5px solid #388e3c;
 }
 
 /* Campo de input */
@@ -116,59 +110,43 @@ input {
   width: 100%;
   padding: 0.5rem;
   border: none;
-  background-color: #004d40;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #1e3a3a;
   box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.3);
-  border-radius: 4px; /* Bordas arredondadas no campo de input */
+  border-top-left-radius: 4px; /* Bordas arredondadas no topo esquerdo */
+  border-bottom-left-radius: 4px; /* Bordas arredondadas no fundo esquerdo */
 }
 
 /* Botão de enviar */
 .btn-form {
   width: 12rem;
   padding: 0.5rem;
-  border: 1px solid #00796b;
-  background-color: #00796b;
+  border: 1px solid #007acc;
+  background-color: #007acc;
   color: #ffffff;
   font-weight: 700;
   text-align: center;
+  cursor: pointer;
   transition: background-color 0.2s;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .btn-form:hover {
-  background-color: #005662;
-  cursor: pointer;
+  background-color: #005fa3;
 }
 
 /* Rodapé */
 .footer {
-  background: linear-gradient(to right, #00bfa5, #00796b);
+  background-color: #388e3c;
   width: 100%;
   color: #ffffff;
 }
 
-/* CORES DO PLAYER */
-.player {
-  background-color: #00bfa5;
-}
-.player .logo-player {
-  background-color: #00bfa5;
-}
-.player .progress-bar {
-  background-color: #00796b;
-}
-.player .input[type=range]::-webkit-slider-thumb {
-  background-color: #00796b; /* Cor do botão */
-}
-.player input[type=range]::-webkit-slider-runnable-track {
-  background-color: rgb(180, 244, 180); /* Cor da barra */
-}
-
 /* Media queries para responsividade */
-@media screen and (min-width: 1024px) and (max-width: 1440px) {
+@media (max-width: 1200px) {
   .chat {
     width: 60vw;
-    height: 26rem;
+    height: 28rem;
   }
   .header h1,
   .title h1.title {
@@ -184,13 +162,7 @@ input {
     height: 25rem;
   }
   .header {
-    position: fixed;
-    top: 0;
     height: 2.5rem;
-  }
-  .footer {
-    position: fixed;
-    bottom: 0;
   }
   .header h1,
   .title h1.title {
@@ -218,4 +190,4 @@ input {
   }
 }
 
-/*# sourceMappingURL=chat.css.map */
+/*# sourceMappingURL=chatsci.css.map */

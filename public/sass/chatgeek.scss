@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap"); /* Fonte Noto Serif JP */
+
+/* Reset e fonte */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Serif JP", serif;
+    box-sizing: border-box;
+}
+
+/* Estilização do corpo */
+body {
+    background: linear-gradient(
+        to bottom,
+        #ff7043,
+        #ffab91
+    ); /* Degradê de laranja suave para laranja claro */
+    color: #333333; /* Texto cinza escuro */
+}
+
+/* Seção principal */
+section {
+    height: 100vh; /* Garantir que ocupa a altura total da tela */
+    display: flex;
+    background-image: url("../img/geek3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; /* Estica a imagem para cobrir toda a tela */
+    background-position: center; /* Centraliza a imagem de fundo */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: #1e3a3a; /* Verde escuro acinzentado */
+    border: 5px solid #f4511e;
+}
+
+/* Cabeçalho */
+.header {
+    width: 100%;
+    height: 3rem;
+    background: linear-gradient(
+        to right,
+        #ff7043,
+        #f4511e
+    ); /* Degradê de laranja para laranja forte */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    color: #ffffff; /* Letras brancas */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Estilização do título */
+.title h1.title,
+.header h1 {
+    text-align: center; /* Centraliza o título */
+    color: #ffffff; /* Letras brancas */
+    font-size: 2.5rem; /* Aumenta o tamanho da fonte */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona sombra ao texto */
+}
+
+/* Container do chat */
+.container-chat {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Caixa de chat */
+.chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 10px solid #f4511e; /* Laranja forte */
+    margin: 1rem;
+    height: 28rem;
+    width: 60vw;
+    background: linear-gradient(
+        to bottom,
+        #ffab91,
+        #ffccbc
+    ); /* Degradê de laranja claro para laranja muito claro */
+    border-radius: 12px; /* Bordas mais arredondadas */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+/* Caixa de mensagens */
+.chat-box {
+    padding: 1rem;
+    overflow: auto;
+    border-bottom: 2px solid #f4511e; /* Laranja forte */
+}
+
+/* Autor da mensagem */
+.author {
+    font-weight: 700;
+    color: #f4511e; /* Laranja forte */
+    border-bottom: 1px solid #f4511e; /* Linha laranja */
+}
+
+/* Mensagem */
+.chat-message {
+    color: gray; /* Cinza escuro */
+}
+
+/* Data da mensagem */
+.chat-date {
+    font-size: 0.8rem;
+    color: #050505; /* Cinza médio */
+}
+
+/* Input do chat */
+.chat-input {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-top: 2px solid #f4511e; /* Laranja forte */
+}
+
+/* Campo de input */
+input {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    background-color: #ffccbc; /* Laranja muito claro */
+    color: #333333; /* Cinza escuro */
+    box-shadow: inset 0px 2px 4px rgba(244, 81, 30, 0.5); /* Sombra interna laranja */
+}
+
+/* Botão de enviar */
+.btn-form {
+    width: 12rem;
+    padding: 0.5rem;
+    border: 1px solid #f4511e; /* Laranja forte */
+    background-color: #f4511e; /* Laranja forte */
+    color: #ffffff; /* Branco */
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: 0px 4px 6px rgba(244, 81, 30, 0.5); /* Sombra */
+}
+
+.btn-form:hover {
+    background-color: #e64a19; /* Tom mais escuro de laranja no hover */
+}
+
+/* Rodapé */
+.footer {
+    background: linear-gradient(
+        to right,
+        #f4511e,
+        #ff7043
+    ); /* Degradê de laranja forte para laranja */
+    width: 100%;
+    color: #ffffff; /* Branco */
+    border-top: 2px solid #e64a19; /* Linha laranja escuro */
+}
+
+/* CORES PLAYER */
+.player {
+    background-color: #ffab91;
+}
+
+/* Media queries para responsividade */
+@media (max-width: 1200px) {
+    .chat {
+        width: 60vw;
+        height: 28rem;
+    }
+
+    .header h1,
+    .title h1.title {
+        font-size: 2rem;
+    }
+
+    .btn-form {
+        width: 10rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .chat {
+        width: 70vw;
+        height: 25rem;
+    }
+
+    .header {
+        height: 2.5rem;
+    }
+
+    .header h1,
+    .title h1.title {
+        font-size: 1.5rem;
+    }
+
+    .btn-form {
+        width: 8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .chat {
+        width: 100%;
+    }
+
+    .header h1,
+    .title h1.title {
+        font-size: 1.2rem;
+    }
+
+    input {
+        padding: 0.3rem;
+        font-size: 0.9rem;
+    }
+
+    .btn-form {
+        width: 6rem;
+        padding: 0.3rem;
+    }
+}
