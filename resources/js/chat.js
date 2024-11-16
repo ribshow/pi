@@ -75,7 +75,7 @@ connection
     });
 
 // função que cria o formulário e salva no banco de dados
-const handleForm = (user, nickname, message) => {
+const handleForm = (user, nickname, message, token) => {
     // crio um formulário
     const formData = new FormData();
 
@@ -84,9 +84,13 @@ const handleForm = (user, nickname, message) => {
     formData.append("nickname", nickname);
     formData.append("message", message);
 
+    var bearer = "Bearer " + token;
     // faço uma requisição post para o servidor
     fetch("https://localhost:7125/chat/send", {
         method: "POST",
+        headers: {
+            Authorization: bearer,
+        },
         body: formData,
     }) // pego a resposta da requisição
         .then((response) => {
@@ -94,7 +98,7 @@ const handleForm = (user, nickname, message) => {
                 console.log("Mensagem enviada com sucesso!");
                 return response.json();
             }
-            return console.error("Erro ao enviar mensage!");
+            return console.error("Erro ao enviar mensagem!");
         })
         .catch((err) => {
             console.log(err.toString());
@@ -109,11 +113,12 @@ document
             var user = document.getElementById("userInput").value;
             var nickname = document.getElementById("nickname").value;
             var message = document.getElementById("messageInput").value;
+            var token = document.getElementById("token").value;
 
             if (!message) {
                 alert("Digite uma mensagem!");
             } else {
-                handleForm(user, nickname, message);
+                handleForm(user, nickname, message, token);
                 // chamo o método SendMessage do servidor
                 connection.invoke("SendMessage", user, message).catch((err) => {
                     console.log(err.toString());
@@ -131,13 +136,14 @@ document.getElementById("sendButton").addEventListener("click", (event) => {
     var user = document.getElementById("userInput").value;
     var nickname = document.getElementById("nickname").value;
     var message = document.getElementById("messageInput").value;
+    var token = document.getElementById("token").value;
 
     console.log(nickname);
 
     if (!message) {
         alert("Digite uma mensagem!");
     } else {
-        handleForm(user, nickname, message);
+        handleForm(user, nickname, message, token);
         // chamo o método SendMessage do servidor
         connection.invoke("SendMessage", user, message).catch((err) => {
             console.log(err.toString());

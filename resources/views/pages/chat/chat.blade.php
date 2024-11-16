@@ -24,8 +24,8 @@
         <div class="container-chat">
             <div class="chat">
                 <div id="chat-box" class="chat-box flex flex-col gap-4">
-                @if(!empty($data))
-                    @foreach ($data as $chat)
+                @if(!empty($dataHub))
+                    @foreach ($dataHub as $chat)
                     <div class="chat-message">
                         <p class="author"> - {{$chat['fullname']}} <i class="bx bx-message-rounded-dots"></i></p>
                         <div class="chat-message-content">
@@ -41,6 +41,7 @@
                 </div>
                     <input type="hidden" name="userInput" id="userInput" value="{{ Auth::user()->name}}"/>
                     <input type="hidden" name="nickname" id="nickname" value="{{Auth::user()->nickname}}"/>
+                    <input type="hidden" name="token" id="token" value="{{ session('api_token') }}" />
                     <div class="chat-input">
                         <input type="text" name="messageInput" id="messageInput" placeholder="Digite sua mensagem">
                         <input type="button" id="sendButton" class="btn-form" value="Enviar" />

@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -36,6 +37,15 @@ class RegisteredUserController extends Controller
             'nickname' => ['required', 'string', 'max:25', 'unique:'.User::class],
             'image_url' => ['required','image', 'mimes:jpeg,png,jpg,png', 'max:2048'],
         ]);
+
+        // registrando o usuário na api
+        try {
+            Http::withoutVerifying()->post("https://localhost:7125/api/auth/register", 
+                ["email" => $request->email, "password" => $request->password]);
+        }catch(\Exception $e)
+        {
+                return back()->with('errors', $e);
+        }
 
         $imagePath = 'users/avatar-profile.png';
 

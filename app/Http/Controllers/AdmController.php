@@ -19,9 +19,14 @@ class AdmController extends Controller
 {
     public function index()
     {
+        $token = session('api_token');
         try{
             // consumindo a API
-            $responseHub = Http::withoutVerifying()->get('https://localhost:7125/Chat');
+            $responseHub = Http::withoutVerifying()
+                ->withHeaders([
+                    'Authorization' => 'Bearer ' . $token,
+                ])
+                ->get('https://localhost:7125/Chat');
 
             if($responseHub->successful()){
                 $dataHub = $responseHub->json();
@@ -31,7 +36,11 @@ class AdmController extends Controller
         }
 
         try{
-            $responseTech = Http::withoutVerifying()->get('https://localhost:7125/ChatTech');
+            $responseTech = Http::withoutVerifying()
+                ->withHeaders([
+                    'Authorization' => 'Bearer ' . $token,
+                ])
+                ->get('https://localhost:7125/ChatTech');
             if($responseTech->successful()){
                 $dataTech = $responseTech->json();
             }
@@ -41,7 +50,11 @@ class AdmController extends Controller
         }
 
         try{
-            $responseGeek = Http::withoutVerifying()->get('https://localhost:7125/ChatGeek');
+            $responseGeek = Http::withoutVerifying()
+                ->withHeaders([
+                    'Authorization' => 'Bearer ' . $token,
+                ])
+                ->get('https://localhost:7125/ChatGeek');
             if($responseGeek->successful()){
                 $dataGeek = $responseGeek->json();
             }
@@ -51,7 +64,11 @@ class AdmController extends Controller
         }
 
         try{
-            $response = Http::withoutVerifying()->get('https://localhost:7125/chatsci');
+            $response = Http::withoutVerifying()
+                ->withHeaders([
+                    'Authorization' => 'Bearer ' . $token,
+                ])
+                ->get('https://localhost:7125/chatsci');
             
             if($response->successful()){
                 $dataSci = $response->json();
@@ -260,7 +277,12 @@ class AdmController extends Controller
     // Deletando um chat geral
     public function deleteChat($id)
     {
-        $response = Http::withoutVerifying()->delete('https://localhost:7125/Chat/'.$id);
+        $token = session('api_token');
+        $response = Http::withoutVerifying()
+            ->withHeaders([
+                'Authorization' => 'Bearer ' . $token,
+            ])
+            ->delete('https://localhost:7125/Chat/'.$id);
         
         if($response->successful()){
             return response()->json(['success' => 'Chat excluído com sucesso!']);
@@ -273,7 +295,12 @@ class AdmController extends Controller
     //  Limpando chat geral
     public function deleteChatAll()
     {
-        $response = Http::withoutVerifying()->delete('https://localhost:7125/chat/delete/all');
+        $token = session('api_token');
+        $response = Http::withoutVerifying()
+            ->withHeaders([
+                'Authorization' => 'Bearer ' . $token 
+            ])
+            ->delete('https://localhost:7125/chat/delete/all');
         
         if($response->successful()){
             return response()->json(['success' => 'Chat limpo com sucesso!']);
@@ -285,7 +312,12 @@ class AdmController extends Controller
     // Apagando 1 mensagem específica do chatTech
     public function deleteChatTech($id)
     {
-        $response = Http::withoutVerifying()->delete('https://localhost:7125/ChatTech/'.$id);
+        $token = session('api_token');
+        $response = Http::withoutVerifying()
+            ->withHeaders([
+                'Authorization' => 'Bearer ' . $token,
+            ])
+            ->delete('https://localhost:7125/ChatTech/'.$id);
 
         if($response->successful()){
             return response()->json(['success' => 'Chat exclúido com sucesso!']);
@@ -298,7 +330,12 @@ class AdmController extends Controller
     // Limpando todas as mensagens do chatTech
     public function deleteChatTechAll()
     {
-        $response = Http::withoutVerifying()->delete('https://localhost:7125/chattech/delete/all');
+        $token = session('api_token');
+        $response = Http::withoutVerifying()
+            ->withHeaders([
+                'Authorization' => 'Bearer ' . $token,
+            ])
+            ->delete('https://localhost:7125/chattech/delete/all');
 
         if($response->successful()){
             return $response;
@@ -310,7 +347,12 @@ class AdmController extends Controller
     // Apagando uma mensagem do chat geek
     public function deleteChatGeek($id)
     {
-        $response = Http::withoutVerifying()->delete('https://localhost:7125/chatgeek/'. $id);
+        $token = session('api_token');
+        $response = Http::withoutVerifying()
+            ->withHeaders([
+                'Authorization' => 'Bearer ' . $token,
+            ])
+            ->delete('https://localhost:7125/chatgeek/'. $id);
         
         if($response->successful()){
             return $response;
@@ -322,7 +364,12 @@ class AdmController extends Controller
     // Limpando o chat geek
     public function deleteChatGeekAll()
     {
-        $response = Http::withoutVerifying()->delete('https://localhost:7125/chatgeek/delete/all');
+        $token = session('api_token');
+        $response = Http::withoutVerifying()
+            ->withHeaders([
+                'Authorization' => 'Bearer ' . $token,
+            ])
+            ->delete('https://localhost:7125/chatgeek/delete/all');
 
         if($response->successful()){
             return response()->json(['success' => 'Chat limpo com sucesso!']);
@@ -334,7 +381,12 @@ class AdmController extends Controller
     // Apagando uma mensagem do chat scientific
     public function deleteChatSci($id)
     {
-        $response = Http::withoutVerifying()->delete('https://localhost:7125/chatsci/' . $id);
+        $token = session('api_token');
+        $response = Http::withoutVerifying()
+            ->withHeaders([
+                'Authorization' => 'Bearer ' . $token,
+            ])
+            ->delete('https://localhost:7125/chatsci/' . $id);
         
         if($response->successful()){
             return response()->json(['success' => 'Mensagem apagada com sucesso!']);
@@ -346,7 +398,12 @@ class AdmController extends Controller
     // Limpando o chat scientific
     public function deleteChatSciAll()
     {
-        $response = Http::withoutVerifying()->delete('https://localhost:7125/chatsci/delete/all');
+        $token = session('api_token');
+        $response = Http::withoutVerifying()
+            ->withHeaders([
+                'Authorization' => 'Bearer ' . $token,
+            ])
+            ->delete('https://localhost:7125/chatsci/delete/all');
 
         if($response->successful()){
             return response()->json(['success' => 'Chat limpo com sucesso!']);

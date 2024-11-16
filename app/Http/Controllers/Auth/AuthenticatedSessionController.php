@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
@@ -25,6 +26,17 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
+
+        $credentials = $request->only('email', 'password');
+        $response = Http::withoutVerifying()->post('https://localhost:7125/api/auth', $credentials);
+        
+        if($response->successful()){
+            // Armazena o token JWT na session do Laravel
+            $token = $response->json()['token'];
+            session(['api_token' => $token]);
+        } else {
+            return back()->withErrors(['error' => 'Authenticated failed with webApi']);
+        }
 
         $request->session()->regenerate();
 

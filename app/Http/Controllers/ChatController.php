@@ -13,29 +13,40 @@ class ChatController extends Controller
      */
     public function index() :View
     {
+        // capturo o token JWT que está armazenado na sessão
+        $token = session('api_token');
         try {
-            // Consumindo a API
-            $response = Http::withoutVerifying()->get('https://localhost:7125/Chat');
-
-                 // Verifica se a requisição foi bem-sucedida
-            if ($response->successful()) {
-                $data = $response->json();
-            } else {
-                // Caso a API falhe, define um array vazio
-                $data = [];
-            }
-    
-            // Retornando a view com a variável 'data' 
-            return view('pages.chat.chat', ['data' => $data]);
-        }catch(\Exception $e){
-            return view('pages.chat.chat', ['data' => []]);
+            // passo o token como um header na requisição
+            $response = Http::withoutVerifying()
+                ->withHeaders([
+                    'Authorization' => 'Bearer '. $token
+                ])
+                ->get('https://localhost:7125/Chat');
+                if($response->successful())
+                {
+                    $dataHub = $response->json();
+                } else {
+                    $dataHub = [];
+                }
+        }catch(\Exception $e)
+        {
+            return view('pages.chat.chat', ["dataHub" => []]);
         }
+
+        return view("pages.chat.chat", ["dataHub" => $dataHub]);
     }
 
     public function indexTech():View
     {
+        // capturo o token JWT que está armazenado na sessão
+        $token = session('api_token');
         try {
-            $response = Http::withoutVerifying()->get('https://localhost:7125/chattech');
+            // passo o token como um header na requisição
+            $response = Http::withoutVerifying()
+                ->withHeaders([
+                    'Authorization' => 'Bearer '. $token
+                ])
+                ->get('https://localhost:7125/chattech');
                 if($response->successful())
                 {
                     $dataTech = $response->json();
@@ -52,8 +63,13 @@ class ChatController extends Controller
 
     public function indexGeek():View
     {
+        $token = session('api_token');
         try{
-            $response = Http::withoutVerifying()->get('https://localhost:7125/chatgeek');
+            $response = Http::withoutVerifying()
+                ->withHeaders([
+                    'Authorization' => 'Bearer ' . $token
+                ])
+                ->get('https://localhost:7125/chatgeek');
             
             if($response->successful()){
                 $dataGeek = $response->json();
@@ -68,8 +84,16 @@ class ChatController extends Controller
 
     public function indexSci():View
     {
+        $token = session('api_token');
+        if(!$token){
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
         try{
-            $response = Http::withoutVerifying()->get('https://localhost:7125/chatsci');
+            $response = Http::withoutVerifying()
+                ->withHeaders([
+                    'Authorization' => 'Bearer ' . $token
+                ])
+                ->get('https://localhost:7125/chatsci');
             
             if($response->successful()){
                 $dataSci = $response->json();
