@@ -5,11 +5,12 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid lightcoral;
+    border: 4px solid lightcoral;
     background-color: rgb(252, 210, 210);
     padding: 2rem;
     border-radius: 2rem;
     margin-top: 2rem;
+    width: 50vw;
 }
 .edit-button {
     padding: 0.5rem;
@@ -24,6 +25,14 @@ body {
 .m-post {
     height: 300px;
 }
+input[type="text"] {
+    width: 40vw;
+    border: 2px solid lightcoral;
+}
+
+textarea[type="text"] {
+    border: 2px solid lightcoral;
+}
 
 .edit-button:hover {
     background-color: rgb(241, 106, 106);
@@ -33,5 +42,18 @@ body {
 @media (max-width: 600px) {
     .m-post {
         height: 240px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        border: 2px solid lightcoral;
+    }
+
+    .t-post {
+        width: 100%;
+    }
+
+    .main-post {
+        width: 100%;
     }
 }

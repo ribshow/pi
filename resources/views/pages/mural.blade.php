@@ -27,7 +27,7 @@
             @foreach ($posts as $post)
                 <div class="post">
                     <p class="user">Publicado por: <br /> {{ $post->user->name }}</p>
-                    <p class="date">{{ $post->created_at->format('H:i - d/m/Y') }}</p>
+                    <p class="date border-red-300">{{ $post->created_at->diffForHumans()}}</p>
                     <p class="title"> <b>{{ $post->title }}</b></p>
                     <p class="content">{{ $post->message }}</p>
                     @if (auth()->user()->isAdmin())

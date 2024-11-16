@@ -35,6 +35,7 @@ class PostController extends Controller
     public function show(): View
     {
         $posts = Post::latest()->get();
+
         return view('pages.mural', compact('posts'));
     }
 

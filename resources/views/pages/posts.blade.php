@@ -31,7 +31,7 @@
                                 name="title" placeholder="{{ __('Título') }}" required />
                         </div>
                         <div class="py-2 w-full h-full">
-                            <textarea class="m-post py-2 w-full" maxlength="255" name="message" required>{{ old('message', $post->message) }}</textarea>
+                            <textarea type="text" class="m-post py-2 w-full" maxlength="255" name="message" required>{{ old('message', $post->message) }}</textarea>
                         </div>
                         <div class="py-2 flex justify-center">
                             <button class="edit-button" type='submit'>Editar</button>
