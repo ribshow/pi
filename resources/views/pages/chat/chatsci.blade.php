@@ -41,6 +41,7 @@
             </div>
                 <input type="hidden" name="userInput" id="userInput" value="{{ Auth::user()->name}}" />
                 <input type="hidden" name="nickname" id="nickname" value="{{Auth::user()->nickname}}" />
+                <input type="hidden" name="token" id="token" value="{{ session("api_token") }}" />
                 <div class="chat-input">
                     <input type="text" name="messageInput" id="messageInput" placeholder="Digite sua mensagem">
                     <input type="button" id="sendButton" class="btn-form" value="Enviar" />

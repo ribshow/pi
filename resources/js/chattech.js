@@ -1,7 +1,10 @@
 import { HubConnectionBuilder } from "@microsoft/signalr";
 
+const token = document.getElementById("token").value;
 const connection = new HubConnectionBuilder()
-    .withUrl("https://localhost:7125/chatHubTech")
+    .withUrl("https://localhost:7125/chatHubTech", {
+        accessTokenFactory: () => token,
+    })
     .build();
 
 // desabilita o botão até que a conexão seja estabelecida
@@ -75,7 +78,7 @@ connection
     });
 
 // função que cria o formulário e salva no banco de dados
-const handleForm = (user, nickname, message) => {
+const handleForm = (user, nickname, message, token) => {
     // crio um formulário
     const formData = new FormData();
 
@@ -84,9 +87,13 @@ const handleForm = (user, nickname, message) => {
     formData.append("nickname", nickname);
     formData.append("message", message);
 
+    var bearer = "Bearer " + token;
     // faço uma requisição post para o servidor
     fetch("https://localhost:7125/chattech/send", {
         method: "POST",
+        headers: {
+            Authorization: bearer,
+        },
         body: formData,
     }) // pego a resposta da requisição
         .then((response) => {
@@ -113,7 +120,7 @@ document
             if (!message) {
                 alert("Digite uma mensagem!");
             } else {
-                handleForm(user, nickname, message);
+                handleForm(user, nickname, message, token);
                 // chamo o método SendMessage do servidor
                 connection.invoke("SendMessage", user, message).catch((err) => {
                     console.log(err.toString());
@@ -135,7 +142,7 @@ document.getElementById("sendButton").addEventListener("click", (event) => {
     if (!message) {
         alert("Digite uma mensagem!");
     } else {
-        handleForm(user, nickname, message);
+        handleForm(user, nickname, message, token);
         // chamo o método SendMessage do servidor
         connection.invoke("SendMessage", user, message).catch((err) => {
             console.log(err.toString());
