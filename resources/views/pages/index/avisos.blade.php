@@ -36,7 +36,12 @@ href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
         </div>
         <div class="edit-card">
             <div class="author-center">
-            <p class="alert-author">Criador por: {{$alert->user_id}}</p>
+            <p class="alert-author">
+            <img class="img-width" src="/storage/{{auth()->user()->image_url}}" alt="perfil" class="perfil-img">
+            <span class="author-post">
+                Criador por: {{$alert->user_id}}
+            </span>
+            </p>
             </div>
         </div>
     </div>

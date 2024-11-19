@@ -27,6 +27,9 @@
     padding: 0.5rem;
 }
 .user {
+    display: flex;
+    flex-direction: space-between;
+    width: 100%;
     font-size: 16px;
     font-weight: bold;
     color: crimson;
@@ -43,6 +46,16 @@
     float: left;
     position: relative;
     box-shadow: 1px 10px 10px 1px;
+}
+
+.img-width {
+    width: 50px;
+    border-radius: 100%;
+}
+
+.author-post {
+    width: 100%;
+    margin-left: 3rem;
 }
 
 /* Media Queries para Responsividade */

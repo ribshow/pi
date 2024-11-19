@@ -13,6 +13,9 @@ export default {
         "./public/**/*.css",
         "./public/**/*.scss",
     ],
+    blocklist: [
+        'container'
+    ],
     mode: "jit",
     theme: {
         extend: {

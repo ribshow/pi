@@ -22,7 +22,13 @@ Route::get('/', [AlertController::class, 'getIndex'])->name('index');
 Route::get('/grade', [HourController::class, 'show_dsm'])->name("grade");
 Route::get('/index', [AlertController::class, 'getIndex'])->name('index.home');
 
+Route::get('/chat-index', function() {
+    return view('pages.chat.index');
+});
 
+
+
+// route para deletar um alerta da home page
 Route::delete('/alerts/delete/{id}', [AlertController::class, 'destroy'])
     ->name('delete.alert')
     ->middleware(CheckTeacher::class);

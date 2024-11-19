@@ -20,3 +20,5 @@ mix.js("resources/js/chattech.js", "public/js").setPublicPath("public");
 mix.js("resources/js/chatgeek.js", "public/js").setPublicPath("public");
 
 mix.js("resources/js/chatsci.js", "public/js").setPublicPath("public");
+
+mix.js("resources/js/index-chat.js", "public/js").setPublicPath("public");

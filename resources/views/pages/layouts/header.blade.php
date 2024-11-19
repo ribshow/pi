@@ -37,7 +37,7 @@
             <!--Verificando se o usuário está logado-->
             @if(auth()->check())
             <li><a href="{{url('perfil')}}">Perfil</a></li>
-            <li><a href="{{url('chat')}}" target="_blank">Chat</a></li>
+            <li><a href="{{url('chat-index')}}">Chat</a></li>
             <form method="POST" action="{{ route('logout') }}">
             @csrf
             <li>

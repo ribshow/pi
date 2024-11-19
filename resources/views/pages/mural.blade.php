@@ -26,7 +26,12 @@
         <div class="show-posts">
             @foreach ($posts as $post)
                 <div class="post">
-                    <p class="user">Publicado por: <br /> {{ $post->user->name }}</p>
+                    <p class="user">
+                        <img class="img-width" src="/storage/{{$post->user->image_url}}" alt="perfil" class="perfil-img">
+                        <span class="author-post">
+                            Publicado por: <br /> {{ $post->user->name }}
+                        </span>
+                    </p>
                     <p class="date border-red-300">{{ $post->created_at->diffForHumans()}}</p>
                     <p class="title"> <b>{{ $post->title }}</b></p>
                     <p class="content">{{ $post->message }}</p>

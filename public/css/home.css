@@ -122,6 +122,17 @@
     padding: 0.5rem;
 }
 
+.alert-author {
+    display: flex;
+    flex-direction: row;
+}
+
+.author-post {
+    width: 100%;
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+}
+
 .content-center {
     display: flex;
     justify-content: center;
@@ -169,6 +180,11 @@
     background-color: var(--dsm-font-color-septenary);
     filter: invert(15%) sepia(100%) saturate(500%) hue-rotate(180deg)
         brightness(100%) contrast(100%);
+}
+
+.img-width {
+    width: 50px;
+    border-radius: 100%;
 }
 
 @media (max-width: 768px) {

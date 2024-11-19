@@ -26,6 +26,7 @@
     display: block;
     width: 100%;
     padding-bottom: 5px;
+    margin-top: 0.5rem;
     background-color: var(--dsm-bg-color-primary);
     text-align: center;
 }
@@ -42,7 +43,6 @@
 
 .header-container {
     height: 60px;
-    padding: 15px 37px;
     background-color: var(--dsm-bg-color-primary);
     color: var(--dsm-font-color-primary);
     top: 0;
@@ -53,6 +53,12 @@
 .logo-container a {
     padding: 0;
     margin: 0;
+}
+
+@media(max-width: 667px) {
+    .header-container {
+        padding: 15px 37px;
+    }
 }
 
 @media(min-width: 576px) {

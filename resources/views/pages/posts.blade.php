@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="container grid grid-cols-1 flex items-center justify-center w-full">
+    <div class="container flex items-center justify-center w-full">
         <div class='main-post space-x-0.5 flex justify-center'>
             <div class="form-post flex justify-center">
                 <form method="POST" action="{{ route('update', $post) }}">
