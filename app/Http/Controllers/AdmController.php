@@ -31,6 +31,9 @@ class AdmController extends Controller
             if($responseHub->successful()){
                 $dataHub = $responseHub->json();
             }
+            else {
+                $dataHub = [];
+            }
         }catch(\Exception $e){
             $dataHub = [];
         }
@@ -43,6 +46,8 @@ class AdmController extends Controller
                 ->get('https://localhost:7125/ChatTech');
             if($responseTech->successful()){
                 $dataTech = $responseTech->json();
+            } else {
+                $dataTech = [];
             }
 
         }catch(\Exception $e){
@@ -57,6 +62,8 @@ class AdmController extends Controller
                 ->get('https://localhost:7125/ChatGeek');
             if($responseGeek->successful()){
                 $dataGeek = $responseGeek->json();
+            } else {
+                $dataGeek = [];
             }
 
         }catch(\Exception $e){
@@ -72,6 +79,8 @@ class AdmController extends Controller
             
             if($response->successful()){
                 $dataSci = $response->json();
+            } else {
+                $dataSci = [];
             }
         } catch(\Exception $e){
             $dataSci = [];

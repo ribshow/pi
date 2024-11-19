@@ -2,6 +2,8 @@ import { HubConnectionBuilder } from "@microsoft/signalr";
 
 const token = document.getElementById("token").value;
 
+console.log("Token" + token);
+
 // accessTokenFactory: garante que o token seja incluído automaticamente nos transporte que o suportam
 const connection = new HubConnectionBuilder()
     .withUrl("https://localhost:7125/chatHub", {

@@ -38,10 +38,21 @@ class RegisteredUserController extends Controller
             'image_url' => ['required','image', 'mimes:jpeg,png,jpg,png', 'max:2048'],
         ]);
 
-        // registrando o usuário na api
+        // registrando o usuário na api e gerando toker
         try {
             Http::withoutVerifying()->post("https://localhost:7125/api/auth/register", 
                 ["email" => $request->email, "password" => $request->password]);
+
+            $response = Http::withoutVerifying()->post("https://localhost:7125/api/auth",
+                ['email' => $request->email, 'password' => $request->password]);
+
+            if($response->successful()){
+                // Armazena o token JWT na session do Laravel
+                $token = $response->json()['token'];
+                session(['api_token' => $token]);
+            } else {
+                return back()->withErrors(['error' => 'Authenticated failed with webApi']);
+            }
         }catch(\Exception $e)
         {
                 return back()->with('errors', $e);
