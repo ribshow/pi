@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="container flex flex-col justify-center w-full h-full">
-        <div class="container-player flex justify-center w-full m-4">
+        <div class="container-player flex justify-center m-4">
             @include('pages.chat.player')
         </div>
         <div class="container-chat">

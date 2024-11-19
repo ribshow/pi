@@ -90,7 +90,6 @@
                         </ul>
                     </div>
                     <div class="social-network">
-                        <h3>REDES SOCIAIS</h3>
                         <a href="https://www.facebook.com/fatecjahu" target="_blank"><img src="img/Facebook.svg"
                                 alt="facebook-icon"></a>
                         <a href="https://www.instagram.com/fatecjahu/?hl=en" target="_blank"><img

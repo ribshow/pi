@@ -17,6 +17,13 @@
     width: 100%;
 }
 
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .footer-card h3 {
     font-size: 14px;
     margin-bottom: 10px;
@@ -32,6 +39,8 @@
 }
 
 .social-network {
+    display: flex;
+    justify-content: center;
     align-items: center;
     margin-bottom: 20px;
 }
@@ -58,7 +67,7 @@
     margin-bottom: 20px;
 }
 
-.fatec-about h3{
+.fatec-about h3 {
     margin-top: 10px;
 }
 
@@ -79,7 +88,7 @@
     width: 100%;
 }
 
-@media(min-width: 576px) {
+@media (min-width: 576px) {
     .footer-card h3 {
         font-size: 16px;
     }
@@ -101,8 +110,7 @@
     }
 }
 
-@media(min-width: 768px) {
-
+@media (min-width: 768px) {
     .footer-card {
         display: flex;
         justify-content: space-between;
@@ -121,9 +129,8 @@
     }
 }
 
-@media(min-width: 992px) {
-
-    .fatec-about h3{
+@media (min-width: 992px) {
+    .fatec-about h3 {
         margin-top: 20px;
     }
 
@@ -148,9 +155,7 @@
     }
 }
 
-@media(min-width: 1400px) {
-
-
+@media (min-width: 1400px) {
     .fatec-location {
         width: 100%;
     }
