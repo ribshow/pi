@@ -37,11 +37,13 @@ href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
         <div class="edit-card">
             <div class="author-center">
             <p class="alert-author">
-            @if(auth()->check())
-                <img class="img-width" src="/storage/{{auth()->user()->image_url}}" alt="perfil" class="perfil-img">
-            @endif
+                @if($alert->author->image_url == '')
+                    <img class="img-width" src="/storage/users/avatar-profile.jpg" alt="perfil" class="perfil-img">
+                @else
+                    <img class="img-width" src="/storage/{{$alert->author->image_url}}" alt="perfil" class="perfil-img">
+                @endif
             <span class="author-post">
-                Criador por: {{$alert->user_id}}
+                Criador por: {{$alert->author->name}}
             </span>
             </p>
             </div>

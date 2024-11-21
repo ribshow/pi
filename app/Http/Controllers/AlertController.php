@@ -43,19 +43,13 @@ class AlertController extends Controller
 
     public function getIndex(): View
     {
-        $alerts = Alert::latest()->get();
-
-        foreach($alerts as $alert)
-        {
-            $user = User::where('id', $alert->user_id)->first();
-
-            $alert->user_id = $user->name;
-        }
+        $alerts = Alert::latest()->with('author')->get();
 
         if($alerts->count() === 0)
         {
             $alerts = [];
         }
+        
         return view('pages.index', compact('alerts'));
     }
 
