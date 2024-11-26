@@ -13,12 +13,14 @@
                     </form>
                 </div>
                 @foreach ($dataHub as $chat)
+                <input type="hidden" name="chat" id="chat" value="{{$chat['status']}}" />
                 <div class="chat-message">
                     <p class="author">nome: {{$chat['fullname']}}</p>
                     <p class="author">nick: {{$chat['nickname']}}</p>
                     <div class="chat-message-content">
                         <p class="chat-message-text">{{$chat['message']}}</p>
                         <p class="chat-date">{{\Carbon\Carbon::parse($chat['date'])->format('d/m/Y - H:i:s')}}</p>
+                        <p class="author status">Status: {{$chat['status']}}</p>
                     </div>
                     <div class="chat-delete">
                         <form id="chat-delete" action="{{route('chat.delete', $chat['id'])}}" method="POST">

@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 /* Cores personalizadas */
+.background-red {
+  color: #ff0011;
+}
+
 .chat-box .delete-all {
   width: 100%;
   display: flex;

@@ -27,3 +27,14 @@ $(document).ready(function () {
         });
     });
 });
+
+/*
+const statusElement = document.getElementById("chat").value;
+
+if(statusElement == "Denunciado")
+{
+    const divChat = document.querySelectorAll(".chat-message");
+    divChat.forEach((chat) => {
+        chat.classList.add("background-red");
+    })
+} */

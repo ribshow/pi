@@ -16,7 +16,7 @@
   \************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\nvar linkChatGeneral = document.querySelector(\"chat-general\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvaW5kZXgtY2hhdC5qcyIsIm1hcHBpbmdzIjoiO0FBQUEsSUFBTUEsZUFBZSxHQUFHQyxRQUFRLENBQUNDLGFBQWEsQ0FBQyxjQUFjLENBQUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9waS8uL3Jlc291cmNlcy9qcy9pbmRleC1jaGF0LmpzPzkwNTYiXSwic291cmNlc0NvbnRlbnQiOlsiY29uc3QgbGlua0NoYXRHZW5lcmFsID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcImNoYXQtZ2VuZXJhbFwiKTtcclxuXHJcbiJdLCJuYW1lcyI6WyJsaW5rQ2hhdEdlbmVyYWwiLCJkb2N1bWVudCIsInF1ZXJ5U2VsZWN0b3IiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/js/index-chat.js\n");
+eval("__webpack_require__.r(__webpack_exports__);\nvar linkChatGeneral = document.querySelector(\"chat-general\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvaW5kZXgtY2hhdC5qcyIsIm1hcHBpbmdzIjoiO0FBQUEsSUFBTUEsZUFBZSxHQUFHQyxRQUFRLENBQUNDLGFBQWEsQ0FBQyxjQUFjLENBQUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9waS8uL3Jlc291cmNlcy9qcy9pbmRleC1jaGF0LmpzPzkwNTYiXSwic291cmNlc0NvbnRlbnQiOlsiY29uc3QgbGlua0NoYXRHZW5lcmFsID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcImNoYXQtZ2VuZXJhbFwiKTtcblxuIl0sIm5hbWVzIjpbImxpbmtDaGF0R2VuZXJhbCIsImRvY3VtZW50IiwicXVlcnlTZWxlY3RvciJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/js/index-chat.js\n");
 
 /***/ })
 

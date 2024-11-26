@@ -80,16 +80,9 @@
         font-size: 1rem;
     }
     .perfil-img {
-        width: 150px;
+        width: 4rem;
     }
 }
-
-@media (max-width: 450px) {
-    .perfil-img {
-        width: 100%;
-    }
-}
-
 /* Dispositivos médios (tablets) */
 @media (min-width: 601px) and (max-width: 1024px) {
     .p-container {

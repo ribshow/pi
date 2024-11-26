@@ -1,8 +1,7 @@
 import { HubConnectionBuilder } from "@microsoft/signalr";
+import { BufferAttribute } from "three";
 
 const token = document.getElementById("token").value;
-
-console.log("Token" + token);
 
 // accessTokenFactory: garante que o token seja incluído automaticamente nos transporte que o suportam
 const connection = new HubConnectionBuilder()
@@ -161,3 +160,47 @@ document.getElementById("sendButton").addEventListener("click", (event) => {
     document.getElementById("messageInput").value = "";
     event.preventDefault();
 });
+
+// função para marcar mensagem como denunciada usando event delegate
+export const reportMsg = (button) => {
+    const formData = new FormData();
+
+    const token = document.getElementById("token").value;
+
+    // cada botão possuí um identificador único atrelado ao id da mensagem
+    const chatId = button.getAttribute('data-chat-id');
+
+    const status = "Denunciado";
+
+    formData.append("status", status);
+    formData.append("id", chatId);
+
+    var bearer = "Bearer " + token; 
+
+    fetch("https://localhost:7125/chat/report", {
+        method: "POST",
+        headers: {
+            Authorization: bearer
+        },
+        body: formData
+    })
+        .then((response) => {
+            if(response.ok) {
+                console.log("Mensagem enviada com sucesso!");
+                return response.json();
+            }
+            return console.error("Erro ao enviar mensagem!");
+        })
+        .catch((error) => {
+            console.log(error.toString());
+        })
+}
+
+// delegação de eventos, ele passa para a função reportMsg qual botão foi clicado
+document.addEventListener("click", (e) => {
+    if(e.target && e.target.matches("#btn-report")){
+        e.preventDefault();
+        reportMsg(e.target);
+    }
+});
+
