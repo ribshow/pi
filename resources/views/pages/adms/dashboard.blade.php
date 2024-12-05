@@ -3,48 +3,7 @@
 @extends('pages.layouts.header')
 @section('conteudo')
     <div class="container-all">
-        <aside>
-            <!--MENU DA DIREITA-->
-            <div class="admin-container" id="admin-container">
-                <div class="admin-left-container">
-                    <div class="admin-left-card">
-                        <div class="my-user-btn">
-                            <button id="link-user" class="my-user-btn">Usuários</button>
-                        </div>
-                    </div>
-                    <div class="admin-left-card">
-                        <div class="my-user-btn">
-                            <button id="link-hour" class="my-user-btn">Horários</button>
-                        </div>
-                    </div>
-                    <div class="admin-left-card">
-                        <div class="my-user-btn">
-                            <button id="link-create-hour" class="my-user-btn">Cadastrar Horário</button>
-                        </div>
-                    </div>
-                    <div class="admin-left-card">
-                        <div class="my-user-btn">
-                            <button id="link-chat" class="my-user-btn">Chat Geral</button>
-                        </div>
-                    </div>
-                    <div class="admin-left-card">
-                        <div class="my-user-btn">
-                            <button id="link-chat-tech" class="my-user-btn">Chat Tech</button>
-                        </div>
-                    </div>
-                    <div class="admin-left-card">
-                        <div class="my-user-btn">
-                            <button id="link-chat-geek" class="my-user-btn">Chat Geek</button>
-                        </div>
-                    </div>
-                    <div class="admin-left-card">
-                        <div class="my-user-btn">
-                            <button id="link-chat-sci" class="my-user-btn">Chat Sci</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </aside>
+        @include("pages.adms.components.aside")
         <div class="container-adm">
             @include('pages.adms.users')
             @include('pages.making')
@@ -53,6 +12,7 @@
             @include('pages.adms.chattech')
             @include('pages.adms.chatgeek')
             @include('pages.adms.chatsci')
+            @include('pages.adms.reports')
             <div class="welcome">
                 <h3 class="text-h3"> Bem vindo ao painel de controle, <span class="text-white">{{ auth()->user()->name }}!</span>
                 </h3>
@@ -64,5 +24,5 @@
             @endif
         </div>
     </div>
-    <script src={{ asset('js/create-hour.js') }}></script>
+    <script src={{ asset('js/admin.js') }}></script>
 @endsection

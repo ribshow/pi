@@ -168,39 +168,38 @@ export const reportMsg = (button) => {
     const token = document.getElementById("token").value;
 
     // cada botão possuí um identificador único atrelado ao id da mensagem
-    const chatId = button.getAttribute('data-chat-id');
+    const chatId = button.getAttribute("data-chat-id");
 
     const status = "Denunciado";
 
     formData.append("status", status);
     formData.append("id", chatId);
 
-    var bearer = "Bearer " + token; 
+    var bearer = "Bearer " + token;
 
-    fetch("https://localhost:7125/chat/report", {
+    fetch(`https://localhost:7125/report/chathub`, {
         method: "POST",
         headers: {
-            Authorization: bearer
+            Authorization: bearer,
         },
-        body: formData
+        body: formData,
     })
         .then((response) => {
-            if(response.ok) {
-                console.log("Mensagem enviada com sucesso!");
+            if (response.ok) {
+                console.log("Report enviado com sucesso!");
                 return response.json();
             }
-            return console.error("Erro ao enviar mensagem!");
+            return console.error("Erro ao reportar mensagem!");
         })
         .catch((error) => {
             console.log(error.toString());
-        })
-}
+        });
+};
 
 // delegação de eventos, ele passa para a função reportMsg qual botão foi clicado
 document.addEventListener("click", (e) => {
-    if(e.target && e.target.matches("#btn-report")){
+    if (e.target && e.target.matches("#btn-report")) {
         e.preventDefault();
         reportMsg(e.target);
     }
 });
-

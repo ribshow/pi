@@ -20,6 +20,7 @@ class AdmController extends Controller
     public function index()
     {
         $token = session('api_token');
+        // buscando as mensagens do chat geral
         try{
             // consumindo a API
             $responseHub = Http::withoutVerifying()
@@ -37,7 +38,7 @@ class AdmController extends Controller
         }catch(\Exception $e){
             $dataHub = [];
         }
-
+        // buscando as mensagens do chatTech
         try{
             $responseTech = Http::withoutVerifying()
                 ->withHeaders([
@@ -53,7 +54,8 @@ class AdmController extends Controller
         }catch(\Exception $e){
             $dataTech = [];
         }
-
+        
+        // buscando as mensagens do chat geek
         try{
             $responseGeek = Http::withoutVerifying()
                 ->withHeaders([
@@ -69,7 +71,7 @@ class AdmController extends Controller
         }catch(\Exception $e){
             $dataGeek = [];
         }
-
+        // buscando as mensagens do chat science
         try{
             $response = Http::withoutVerifying()
                 ->withHeaders([
@@ -84,6 +86,22 @@ class AdmController extends Controller
             }
         } catch(\Exception $e){
             $dataSci = [];
+        }
+
+        // buscando as mensagens reportadas de todos os chats
+        try{
+            $response = Http::withoutVerifying()
+            ->withHeaders(['Authorization' => 'Bearer ' . $token])
+            ->get('https://localhost:7125/report/all');
+
+            if($response->successful()){
+                $reports = $response->json();
+                //dd($reports);
+            } else {
+                $reports = [];
+            }
+        }catch(\Exception $e){
+            $reports = [];
         }
         
         $posts = Post::all();
@@ -157,7 +175,7 @@ class AdmController extends Controller
                 'posts',
                 'users',
                 // chats
-                'dataHub', 'dataTech','dataGeek', 'dataSci',
+                'dataHub', 'dataTech','dataGeek', 'dataSci', 'reports',
                 // disciplinas
                 'blocks',
                 'rooms',
@@ -418,6 +436,22 @@ class AdmController extends Controller
             return response()->json(['success' => 'Chat limpo com sucesso!']);
         }else {
             return response()->json(['error' => 'Ocorreu um erro ao limpar o chat']);
+        }
+    }
+
+    public function deleteReport($id)
+    {
+        $token = session('api_token');
+        $response = Http::withoutVerifying()
+            ->withHeaders([
+                'Authorization' => 'Bearer ' . $token,
+            ])
+            ->delete('https://localhost:7125/report/'.$id);
+
+        if($response->succesful()){
+            return $response;
+        }else {
+            return response()->json(['error' => 'Ocorreu um erro ao apagar a mensagem']);
         }
     }
 

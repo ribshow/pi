@@ -2,6 +2,7 @@
 
 /* Cores personalizadas */
 $bg-color: #b2000b;
+$bg-color-secondary: #e04c56;
 $font-color: #ff0011;
 $font-secondary: #32cd32;
 $font-tertiary: #98fb98;
@@ -43,7 +44,9 @@ $text-secondary: #000;
     border: 1px solid $bg-color;
     border-radius: 1rem;
     margin: 1rem;
-
+    background-color: $bg-color-secondary;
+    max-width: 100%;
+    width: 20rem;
     .chat-delete {
         display: flex;
         justify-content: center;
@@ -69,18 +72,29 @@ $text-secondary: #000;
     }
 
     .author {
-        font-weight: bold;
         color: $text-secondary;
         padding: 0.2rem;
+
+        .text-author {
+            color: white;
+        }
     }
 
     .chat-message-content {
-        padding: 0.2rem;
+        text-align: center;
+        color: white;
+        padding: 0.4rem;
     }
 
     .chat-date {
         font-size: 0.8rem;
         color: $text-secondary;
         padding: 0.2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .chat-message {
+        width: 16rem;
     }
 }

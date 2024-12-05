@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const linkChatTechEl = document.getElementById("link-chat-tech");
     const linkChatGeekEl = document.getElementById("link-chat-geek");
     const linkChatSciEl = document.getElementById("link-chat-sci");
+    const linkChatReports = document.getElementById("link-chat-reports");
     const textEl = document.querySelector(".text-h3");
     const section = document.getElementById("show-template");
     const adminEl = document.getElementById("admin-container");
@@ -218,6 +219,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Carregando o template do chat report
+    function loadChatReportTemplate() {
+        const templateReportsChat = document
+            .getElementById("my-chats-reports")
+            .content.cloneNode(true);
+        section.innerHTML = "";
+        section.appendChild(templateReportsChat);
+        if (textEl) {
+            textEl.remove();
+        }
+    }
+
     // Função para carregar e exibir o template de criação de horários
     function loadHourTemplate() {
         const templateHour = document
@@ -285,6 +298,11 @@ document.addEventListener("DOMContentLoaded", function () {
         loadChatSciTemplate();
     });
 
+    // Ouvinte de clique para o botão de reports chat
+    linkChatReports.addEventListener("click", (event) => {
+        event.preventDefault();
+        loadChatReportTemplate();
+    });
     // Função para filtrar usuários dinamicamente
     function pesquisarUser() {
         const searchInput = document.querySelector(".search-user");

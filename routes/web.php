@@ -4,18 +4,13 @@ use App\Http\Controllers\HourController;
 use App\Http\Controllers\IntegraController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ChatController;
-use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\Facades\Route;
-use App\Models\Course;
-use App\Models\Semester;
-use App\Models\Discipline;
 use App\Models\Hour;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdmController;
 use App\Http\Controllers\AlertController;
 use App\Http\Middleware\CheckAdmin;
 use App\Http\Middleware\CheckTeacher;
-use Illuminate\Support\Facades\Http;
 
 Route::get('/', [AlertController::class, 'getIndex'])->name('index');
 
@@ -25,8 +20,6 @@ Route::get('/index', [AlertController::class, 'getIndex'])->name('index.home');
 Route::get('/chat-index', function() {
     return view('pages.chat.index');
 });
-
-
 
 // route para deletar um alerta da home page
 Route::delete('/alerts/delete/{id}', [AlertController::class, 'destroy'])

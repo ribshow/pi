@@ -32,6 +32,9 @@
   border: 1px solid #b2000b;
   border-radius: 1rem;
   margin: 1rem;
+  background-color: #e04c56;
+  max-width: 100%;
+  width: 20rem;
 }
 .chat-message .chat-delete {
   display: flex;
@@ -55,17 +58,27 @@
   border: 1px solid #ff0011;
 }
 .chat-message .author {
-  font-weight: bold;
   color: #000;
   padding: 0.2rem;
 }
+.chat-message .author .text-author {
+  color: white;
+}
 .chat-message .chat-message-content {
-  padding: 0.2rem;
+  text-align: center;
+  color: white;
+  padding: 0.4rem;
 }
 .chat-message .chat-date {
   font-size: 0.8rem;
   color: #000;
   padding: 0.2rem;
+}
+
+@media (max-width: 600px) {
+  .chat-message {
+    width: 16rem;
+  }
 }
 
 /*# sourceMappingURL=chat-adm.css.map */

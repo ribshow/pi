@@ -29,7 +29,7 @@
                     <div class="chat-message">
                         <div class="container-author-btn flex flex-1 justify-between">
                             <p class="author w-full"> - {{$chat['fullname']}} <i class="bx bx-message-rounded-dots"></i></p>
-                            <button id="btn-report" class="btn-report" data-chat-id="{{ $chat['id'] }}" value="{{ session('api_token') }}" type="click">!</button>
+                            <button id="btn-report" class="btn-report" data-chat-id="{{ $chat['id'] }}" value="{{ session('api_token') }}" type="click">!</p>
                             <input type="hidden" name="chat-id" id="chat-id" value="{{$chat['id']}}" />
                         </div>
                         <div class="chat-message-content">
