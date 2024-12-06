@@ -21,6 +21,8 @@ Route::get('/chat-index', function() {
     return view('pages.chat.index');
 });
 
+Route::delete('/report/{id}', [AdmController::class, 'deleteReport'])->name("report");
+
 // route para deletar um alerta da home page
 Route::delete('/alerts/delete/{id}', [AlertController::class, 'destroy'])
     ->name('delete.alert')

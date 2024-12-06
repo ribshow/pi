@@ -27,7 +27,11 @@
             @if(!empty($dataGeek))
                 @foreach ($dataGeek as $chat)
                 <div class="chat-message">
-                    <p class="author"> - {{$chat['fullname']}} <i class="bx bx-message-rounded-dots"></i></p>
+                    <div class="container-author-btn flex flex-1 justify-between">
+                        <p class="author w-full"> - {{$chat['fullname']}} <i class="bx bx-message-rounded-dots"></i></p>
+                        <button id="btn-report" class="btn-report" data-chat-id="{{ $chat['id'] }}" value="{{ session('api_token') }}" type="click">!</button>
+                        <input type="hidden" name="chat-id" id="chat-id" value="{{$chat['id']}}" />
+                    </div>
                     <div class="chat-message-content">
                         <p class="chat-message-text p-2">{{$chat['message']}}</p>
                         <p class="chat-date"><i class="bx bx-stopwatch"></i> {{\Carbon\Carbon::parse($chat['date'])->format('d/m/Y - H:i:s')}}</p>

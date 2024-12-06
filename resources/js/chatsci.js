@@ -21,9 +21,11 @@ const scrollToBottom = () => {
 const messageBody = (user, message) => {
     let date = new Date().toLocaleString();
 
+    // criando a div que conterá todos os elementos
     let divChat = document.createElement("div");
     divChat.classList.add("chat-message");
 
+    // criando o parágrafo que conterá o autor
     let pAuthor = document.createElement("p");
     pAuthor.classList.add("author");
     pAuthor.classList.add("text-black");
@@ -32,6 +34,7 @@ const messageBody = (user, message) => {
 
     divChat.appendChild(pAuthor);
 
+    // criando a div que receberá mensagem e data
     let divChatMessage = document.createElement("div");
     divChatMessage.classList.add("chat-message-content");
 
@@ -53,9 +56,17 @@ const messageBody = (user, message) => {
     divChatMessage.appendChild(pMessage);
     divChatMessage.appendChild(pDate);
 
+    // adicionando ao document
     document
         .querySelector(".chat-box")
-        .appendChild(divChat, divChatMessage, pAuthor, pMessage, pDate);
+        .appendChild(
+            divChat,
+            divChatMessage,
+            pAuthor,
+            buttonReport,
+            pMessage,
+            pDate
+        );
 };
 
 // atualizando dinamicamente o chat com as mensagens
@@ -155,4 +166,47 @@ document.getElementById("sendButton").addEventListener("click", (event) => {
     // limpando o campo de mensagem
     document.getElementById("messageInput").value = "";
     event.preventDefault();
+});
+
+// função para marcar mensagem como denunciada usando event delegate
+export const reportMsg = (button) => {
+    const formData = new FormData();
+
+    const token = document.getElementById("token").value;
+
+    // cada botão possuí um identificador único atrelado ao id da mensagem
+    const chatId = button.getAttribute("data-chat-id");
+
+    const origin = "ChatSci";
+
+    formData.append("origin", origin);
+    formData.append("id", chatId);
+
+    var bearer = "Bearer " + token;
+
+    fetch(`https://localhost:7125/report/chathub`, {
+        method: "POST",
+        headers: {
+            Authorization: bearer,
+        },
+        body: formData,
+    })
+        .then((response) => {
+            if (response.ok) {
+                alert("Report enviado com sucesso!");
+                return response.json();
+            }
+            return console.error("Erro ao reportar mensagem!");
+        })
+        .catch((error) => {
+            console.log(error.toString());
+        });
+};
+
+// delegação de eventos, ele passa para a função reportMsg qual botão foi clicado
+document.addEventListener("click", (e) => {
+    if (e.target && e.target.matches("#btn-report")) {
+        e.preventDefault();
+        reportMsg(e.target);
+    }
 });

@@ -1,5 +1,4 @@
 import { HubConnectionBuilder } from "@microsoft/signalr";
-import { BufferAttribute } from "three";
 
 const token = document.getElementById("token").value;
 
@@ -170,9 +169,9 @@ export const reportMsg = (button) => {
     // cada botão possuí um identificador único atrelado ao id da mensagem
     const chatId = button.getAttribute("data-chat-id");
 
-    const status = "Denunciado";
+    const origin = "ChatHub";
 
-    formData.append("status", status);
+    formData.append("origin", origin);
     formData.append("id", chatId);
 
     var bearer = "Bearer " + token;
@@ -186,7 +185,7 @@ export const reportMsg = (button) => {
     })
         .then((response) => {
             if (response.ok) {
-                console.log("Report enviado com sucesso!");
+                alert("Report enviado com sucesso!");
                 return response.json();
             }
             return console.error("Erro ao reportar mensagem!");

@@ -154,3 +154,46 @@ document.getElementById("sendButton").addEventListener("click", (event) => {
     document.getElementById("messageInput").value = "";
     event.preventDefault();
 });
+
+// função para marcar mensagem como denunciada usando event delegate
+export const reportMsg = (button) => {
+    const formData = new FormData();
+
+    const token = document.getElementById("token").value;
+
+    // cada botão possuí um identificador único atrelado ao id da mensagem
+    const chatId = button.getAttribute("data-chat-id");
+
+    const origin = "ChatGeek";
+
+    formData.append("origin", origin);
+    formData.append("id", chatId);
+
+    var bearer = "Bearer " + token;
+
+    fetch(`https://localhost:7125/report/chathub`, {
+        method: "POST",
+        headers: {
+            Authorization: bearer,
+        },
+        body: formData,
+    })
+        .then((response) => {
+            if (response.ok) {
+                alert("Report enviado com sucesso!");
+                return response.json();
+            }
+            return console.error("Erro ao reportar mensagem!");
+        })
+        .catch((error) => {
+            console.log(error.toString());
+        });
+};
+
+// delegação de eventos, ele passa para a função reportMsg qual botão foi clicado
+document.addEventListener("click", (e) => {
+    if (e.target && e.target.matches("#btn-report")) {
+        e.preventDefault();
+        reportMsg(e.target);
+    }
+});

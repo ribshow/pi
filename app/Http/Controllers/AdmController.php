@@ -310,13 +310,20 @@ class AdmController extends Controller
                 'Authorization' => 'Bearer ' . $token,
             ])
             ->delete('https://localhost:7125/Chat/'.$id);
+
+            $responseReport = Http::withoutVerifying()
+            ->withHeaders([
+                'Authorization' => 'Bearer ' . $token,
+            ])
+            ->delete('https://localhost:7125/report/'.$id);
         
-        if($response->successful()){
+        if($response->successful() && $responseReport->successful()){
             return response()->json(['success' => 'Chat excluído com sucesso!']);
         }
         else {
             return response()->json(['error' => 'Erro ao excluir chat!']);
         }
+
     }
 
     //  Limpando chat geral
@@ -346,8 +353,14 @@ class AdmController extends Controller
             ])
             ->delete('https://localhost:7125/ChatTech/'.$id);
 
-        if($response->successful()){
-            return response()->json(['success' => 'Chat exclúido com sucesso!']);
+            $responseReport = Http::withoutVerifying()
+            ->withHeaders([
+                'Authorization' => 'Bearer ' . $token,
+            ])
+            ->delete('https://localhost:7125/report/'.$id);
+        
+        if($response->successful() && $responseReport->successful()){
+            return response()->json(['success' => 'Chat excluído com sucesso!']);
         }
         else {
             return response()->json(['error' => 'Erro ao excluir chat!']);
@@ -439,20 +452,83 @@ class AdmController extends Controller
         }
     }
 
-    public function deleteReport($id)
+    public function deleteReport(Request $request, $id)
     {
+        // recebendo via parâmetro o id da mensagem e via form a origem
         $token = session('api_token');
-        $response = Http::withoutVerifying()
-            ->withHeaders([
-                'Authorization' => 'Bearer ' . $token,
-            ])
-            ->delete('https://localhost:7125/report/'.$id);
+        $origin = $request->origin;
+        // verificando a origem e fazendo o tratamento necessário com a função
+        switch($origin)
+        {
+            // Caso a mensagem se origine do hub geral
+            case $origin == "ChatHub":
+                $response = Http::withoutVerifying()
+                    ->withHeaders([
+                        'Authorization' => 'Bearer ' . $token,
+                    ])
+                    ->delete('https://localhost:7125/chat/' . $id);
 
-        if($response->succesful()){
-            return $response;
-        }else {
-            return response()->json(['error' => 'Ocorreu um erro ao apagar a mensagem']);
+                $responseReport = Http::withoutVerifying()
+                    ->withHeaders([
+                        'Authorization' => 'Bearer ' . $token
+                    ])
+                    -> delete('https://localhost:7125/report/' . $id);
+                if($response->successful() && $responseReport->successful()){
+                    return response()->json(['success' => 'Chat limpo com sucesso!']);
+                }else {
+                    return response()->json(['error' => 'Ocorreu um erro ao limpar o chat']);
+                }
+            // Caso a mensagem se origine do hub tech
+            case $origin == "ChatTech":
+                $response = Http::withoutVerifying()
+                    ->withHeaders([
+                        'Authorization' => 'Bearer ' . $token,
+                    ])
+                    ->delete('https://localhost:7125/chatTech/' . $id);
+                $responseReport = Http::withoutVerifying()
+                    ->withHeaders([
+                        'Authorization' => 'Bearer ' . $token
+                    ])
+                    -> delete('https://localhost:7125/report/' . $id);
+                if($response->successful() && $responseReport->successful()){
+                    return response()->json(['success' => 'Chat limpo com sucesso!']);
+                }else {
+                    return response()->json(['error' => 'Ocorreu um erro ao limpar o chat']);
+                }
+            // Caso a mensagem se origine do hub Geek
+            case $origin == "ChatGeek":
+                $response = Http::withoutVerifying()
+                    ->withHeaders([
+                        'Authorization' => 'Bearer ' . $token,
+                    ])
+                    ->delete('https://localhost:7125/chatGeek/' . $id);
+                $responseReport = Http::withoutVerifying()
+                    ->withHeaders([
+                        'Authorization' => 'Bearer ' . $token
+                    ])
+                    -> delete('https://localhost:7125/report/' . $id);
+                if($response->successful() && $responseReport->successful()){
+                    return response()->json(['success' => 'Chat limpo com sucesso!']);
+                }else {
+                    return response()->json(['error' => 'Ocorreu um erro ao limpar o chat']);
+                }
+            // Caso a mensagem se origine do hub science
+            case $origin == "ChatSci":
+                $response = Http::withoutVerifying()
+                    ->withHeaders([
+                        'Authorization' => 'Bearer ' . $token,
+                    ])
+                    ->delete('https://localhost:7125/chatGeek/' . $id);
+                $responseReport = Http::withoutVerifying()
+                    ->withHeaders([
+                        'Authorization' => 'Bearer ' . $token
+                    ])
+                    -> delete('https://localhost:7125/report/' . $id);
+                if($response->successful() && $responseReport->successful()){
+                    return response()->json(['success' => 'Chat limpo com sucesso!']);
+                }else {
+                    return response()->json(['error' => 'Ocorreu um erro ao limpar o chat']);
+                }
         }
     }
-
 }
