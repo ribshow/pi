@@ -13,7 +13,7 @@
     <header class="header-fixed" id="mobile-menu">
         <div class="header-container generic-style">
             <div class="logo-container">
-                <a href="{{url('')}}"><img src="img/logo.svg" alt="logo"></a>
+                <a href="{{url('')}}"><img src={{asset('/img/logo.svg')}} alt="logo"></a>
             </div>
             <div class="nav-burguer">
                 <span id="burguer" class="material-symbols-outlined" onclick="clickMenu()"
@@ -30,7 +30,7 @@
         <div class="footer-container">
             <div class="footer-card">
                 <div class="logo-container">
-                    <img src="img/logo.svg" alt="logo">
+                    <img src={{asset('/img/logo.svg')}} alt="logo">
                     <div class="fatec-about">
                         <h3>SOBRE INTEGRA FATEC</h3>
                         <div class="site-fatec">
@@ -58,11 +58,11 @@
                     </div>
                     <div class="social-network">
                         <h3>REDES SOCIAIS</h3>
-                        <a href="https://www.facebook.com/fatecjahu" target="_blank"><img src="img/Facebook.svg"
+                        <a href="https://www.facebook.com/fatecjahu" target="_blank"><img src={{asset('img/Facebook.svg')}}
                                 alt="facebook-icon"></a>
                         <a href="https://www.instagram.com/fatecjahu/?hl=en" target="_blank"><img
-                                src="img/Instagram.svg" alt="instagram-icon"></a>
-                        <a href="https://twitter.com/fatecjahu?lang=en" target="_blank"><img src="img/X-Twiter.svg"
+                                src={{asset('/img/Instagram.svg')}} alt="instagram-icon"></a>
+                        <a href="https://twitter.com/fatecjahu?lang=en" target="_blank"><img src={{asset('img/X-Twiter.svg')}}
                                 alt="twitter-icon"></a>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 <div class="ft-card3">
-                    <a href="https://www.cps.sp.gov.br/"><img src="img/logo-cps.svg" alt="logo-cps"></a>
+                    <a href="https://www.cps.sp.gov.br/"><img src={{asset('/img/logo-cps.svg')}} alt="logo-cps"></a>
                 </div>
             </div>
         </div>

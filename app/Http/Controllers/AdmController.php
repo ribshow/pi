@@ -518,7 +518,7 @@ class AdmController extends Controller
                     ->withHeaders([
                         'Authorization' => 'Bearer ' . $token,
                     ])
-                    ->delete('https://localhost:7125/chatGeek/' . $id);
+                    ->delete('https://localhost:7125/chatSci/' . $id);
                 $responseReport = Http::withoutVerifying()
                     ->withHeaders([
                         'Authorization' => 'Bearer ' . $token

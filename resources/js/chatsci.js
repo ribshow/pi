@@ -59,14 +59,7 @@ const messageBody = (user, message) => {
     // adicionando ao document
     document
         .querySelector(".chat-box")
-        .appendChild(
-            divChat,
-            divChatMessage,
-            pAuthor,
-            buttonReport,
-            pMessage,
-            pDate
-        );
+        .appendChild(divChat, divChatMessage, pAuthor, pMessage, pDate);
 };
 
 // atualizando dinamicamente o chat com as mensagens
